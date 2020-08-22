@@ -1,0 +1,1 @@
+Ingrese el correo para restablecer su contraseña
