@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'culqi' => [
+        'public_key' => env('CULQUI_PUPLIC_KEY', 'pk_test_test'),
+        'secret_key' => env('CULQUI_SECRET_KEY', 'sk_test_test'),
+    ]
+
 ];

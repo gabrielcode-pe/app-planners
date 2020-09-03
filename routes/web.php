@@ -41,7 +41,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 
 
-
+Route::get('checkout', 'transactionController@showCheckoutForm')->name('checkout');
+Route::post('process-charge', 'transactionController@processCharge')->name('process.charge');
 
 /**
  * ----------------------------------------------------------------------------------
