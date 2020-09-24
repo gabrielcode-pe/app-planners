@@ -18,9 +18,10 @@
  * -----------------------------------------------------------------------
  */
 
-Route::get('/', function () {
-    return "Pagina principal";
-});
+
+Route::get('/', 'FrontController@index');
+
+Route::get('contacto', 'FrontController@contactView')->name('contact');
 
 
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -41,8 +42,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 
 
-Route::get('checkout', 'transactionController@showCheckoutForm')->name('checkout');
-Route::post('process-charge', 'transactionController@processCharge')->name('process.charge');
+Route::get('checkout', 'TransactionController@showCheckoutForm')->name('checkout');
+Route::post('process-charge', 'TransactionController@processCharge')->name('process.charge');
 
 /**
  * ----------------------------------------------------------------------------------

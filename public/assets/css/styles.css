@@ -1,0 +1,1130 @@
+@font-face{
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-Medium.otf');
+}
+
+@font-face{
+    font-family: 'Arca Majora';
+    src: url('../fonts/ArcaMajora3-Bold.otf');
+}
+
+@font-face{
+    font-family: 'Nyata FTR';
+    src: url('../fonts/NyataFTR-Regular.otf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arca Majora', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+:root{
+
+    /* Colores primarios */
+    --primary-blue: #1A3B5C;
+    --primary-light-blue: #057D98;
+    --primary-yellow: #FEB101;
+    /* --primary-gray: #DDDCDB; */
+    --primary-gray: #cccbca;
+    --primary-dark: #12110C;
+
+    /* Colores secundarios */
+    --secondary-blue: #0074A4;
+    --secondary-light-blue: #8DC6CD;
+    --secondary-light-blue-12:  rgba(141, 198, 205, 0.12);
+    --secondary-green: #6EB4A6;
+    --secondary-orange: #F99745;
+    --secondary-yellow: #FCDC59;
+    --secondary-gray: #f5f5f5;
+
+
+
+}
+
+.header-wrapper{
+    width: 100%;
+    display: flex;
+}
+
+.section-when-header-with-bg{
+    display: none;
+}
+
+.header-wrapper .logo{
+    background-color: var(--primary-blue);
+    width: 30%;
+    padding: 5px 0;
+
+}
+
+.header-wrapper .logo a{
+    display: inline-block;
+    text-align: center;
+}
+
+.header-wrapper .logo img{
+    width: 50%;
+}
+
+.header-wrapper .menu-container{
+    background-color: var(--primary-light-blue);
+    width: 70%;
+}
+
+.header-wrapper .menu-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-container .main-menu, .extra-menu{
+    list-style: none;
+}
+
+.menu-container .main-menu > li, .extra-menu li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.menu-container .main-menu .btn-submenu:hover .submenu{
+    display: block;
+}
+.menu-container .main-menu li > .submenu{
+    position: absolute;
+    list-style: none;
+    background-color: var(--primary-light-blue);
+    display: none;
+}
+
+.menu-container .main-menu li > .submenu li{
+    padding: 15px 5px 0 0;
+
+}
+
+.menu-container .main-menu li > .submenu li a{
+    display: block;
+}
+.menu-container .main-menu li > .submenu li a i{
+    margin-right: 3px;
+    color: var(--secondary-yellow);
+}
+
+
+.menu-container .main-menu li a, .extra-menu li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu-container .main-menu li a.active, .extra-menu li a.active{
+    color: var(--secondary-yellow);
+}
+
+.header-wrapper.with-bg {
+    height: 400px;
+}
+.header-wrapper.with-bg .menu-container{
+    background-color: transparent;
+    background-image: url('../images/bg-e-learning.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: flex-start;
+    padding-top: 30px;
+   
+}
+
+.header-wrapper.with-bg .menu-container .main-menu li > .submenu{
+    background-color: transparent;
+}
+
+.header-wrapper.with-bg .section-when-header-with-bg{
+    display: block;
+    padding-left: 50px;
+}
+
+.header-wrapper.with-bg .section-when-header-with-bg> .title{
+    font-family: 'Lemon Milk';
+    text-transform: uppercase;
+    color: #fff;
+    color: var(--secondary-green);
+    margin: 5px 0;
+}
+
+.header-wrapper.with-bg .section-when-header-with-bg> .description{
+    margin: 30px 0;
+    font-family: 'Arca Majora';
+    font-size: 12px;
+    color: #fff;
+}
+
+.footer-wrapper{
+    background-color:  #e1e1e1;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-wrapper .footer-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 150px;
+}
+
+.footer-container .footer-menu{
+    width: 50%;
+}
+
+.footer-container .footer-social{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-menu ul, .footer-social ul{
+    list-style: none;
+}
+
+.footer-menu ul li{
+    display: inline-block;
+    padding: 0 10px;
+}
+.footer-menu ul li a{
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.footer-social ul li{
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.footer-social ul li a{
+    color: var(--secondary-orange);
+    font-size: 20px;
+}
+
+.footer-container .footer-copy{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container .footer-copy p{
+    padding: 6px 0;
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.page-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.page-wrapper .page-content{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    align-items: flex-start;
+
+}
+
+.page-content .categories{
+    width: 20%;
+    background-color: var(--primary-yellow);
+    border-radius: 0 5px 5px 0;
+
+}
+
+.page-content .categories.bg-green{
+    background-color:var(--secondary-green);
+
+}
+
+
+.categories > .title{
+    font-family: 'Lemon Milk';
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.categories ul{
+    list-style: none;
+}
+
+
+.categories ul li a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 5px 20px;
+}
+
+.categories ul li a.active{
+    background-color: #fff;
+    color: var(--primary-blue);
+}
+
+.page-content .courses-wrapper{
+    width: 80%;
+    padding-left: 10px;
+}
+
+.courses-wrapper > .title{
+    font-family: 'Lemon Milk';
+    color: var(--primary-blue);
+}
+
+
+.courses-wrapper .courses-list{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 10px 0;
+
+}
+
+.courses-list .course-item {
+    width: 24%;
+    background-color: var(--secondary-light-blue-12);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.course-item > .portrait{
+    position: relative;
+}
+
+
+.course-item > .portrait img{
+    width: 100%;
+}
+
+.course-item > .portrait > .price{
+    position: absolute;
+    left: 0;
+    top: 60%;
+    background-color: var(--primary-yellow);
+    color: #fff;
+    padding: 5px;
+    border-radius: 0 10px 10px 0;
+
+}
+
+.course-item > .detail{
+    padding: 10px;
+
+}
+
+.course-item > .detail > .title{
+    font-family: 'Lemon Milk';
+    font-size: 12px;
+    color: var(--primary-blue);
+
+}
+
+.course-item > .detail > .description{
+    font-family: 'Nyata FTR';
+    font-size: 11px;
+    padding: 10px 0;
+}
+
+.course-item > .detail > .author{
+    font-family: 'Lemon Milk';
+    color: var(--primary-gray);
+    font-size: 12px;
+}
+
+.course-item > .detail > .actions{
+    padding: 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    padding: 5px 10px;
+    font-family: 'Lemon Milk';
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn.btn-primary{
+    color: #fff;
+    background-color: var(--secondary-blue);
+    border-color: var(--primary-light-blue);
+}
+
+.btn.btn-primary-outline{
+    color: var(--secondary-blue);
+    background-color: transparent;
+    background-image: none;
+    border-color: var(--primary-light-blue);
+}
+
+.btn.btn-yellow{
+    color: #fff;
+    background-color: var(--primary-yellow);
+}
+
+
+.btn.btn-info-outline{
+    color: var(--secondary-light-blue);
+    border: 1px solid var(--secondary-light-blue);
+}
+.social-fixed{
+    position: fixed;
+    left: 0;
+    top: 50%;
+}
+
+.social-fixed .social-item{
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    width: 100%;
+}
+
+.social-item.facebook{background-color: #3b5998;}
+
+.social-item.twitter{background-color: #00acee;}
+
+.social-item.linkedin{background-color:#0e76a8;}
+
+.social-item.whatsapp{background-color: #00BB2D;}
+
+.social-item.youtube{background-color: #FF0000;}
+
+
+.page-content > .section-title{
+    width: 100%;
+    font-family: 'Arca Majora';
+    font-size: 13px;
+    color: var(--primary-blue);
+    padding: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.page-content .course-detail-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.page-content .course-detail-wrapper .course-detail-content{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.course-detail-content h2{
+
+    width: 100%;
+    font-family: 'Arca Majora';
+    font-size: 13px;
+    color: var(--primary-blue);
+    padding: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+.course-detail-content .course-detail{
+    width: 70%;
+    margin-right: 20px;
+    color: var(--primary-blue);
+}
+
+.course-detail-content .course-aside{
+    width: 27%;
+
+}
+
+.course-detail .preview-video{
+    padding-bottom: 20px;
+}
+
+.course-detail > .description{
+    font-family: 'Nyata FTR';
+    margin: 8px 0;
+}
+
+.course-detail > .features-title{
+    color: var(--secondary-light-blue);
+    margin: 20px 0;
+}
+
+.course-detail > .features{
+    list-style: none;
+}
+
+.course-detail > .features li{
+    font-family: 'Nyata FTR';
+    padding: 5px 0;
+
+}
+
+.course-detail > .features li:before{
+    content: "\f05d"; /* FontAwesome Unicode - check con circulo */
+    font-family: FontAwesome;
+    display: inline-block;
+    width: 1.3em;
+    color: var(--secondary-yellow);
+
+}
+
+.course-aside > .course-price{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1;
+    border: 1px solid var(--primary-light-blue);
+}
+
+
+.course-aside > .course-price .amout{
+    background-color: var(--primary-yellow);
+    color: #fff;
+    padding: 8px;
+    border-radius: 0 30px 30px 0;
+    margin: 10px 0;
+
+}
+.course-aside > .course-price a {
+    width: 100%;
+    margin: 6px 0;
+}
+
+.course-aside > .course-content{
+    padding: 0 20px;
+    border: 1px solid var(--primary-light-blue);
+
+}
+
+.course-aside > .course-content h5{
+    color: var(--primary-blue);
+    padding: 10px 0;
+}
+
+.course-aside > .course-content ul{
+    list-style: none;
+}
+
+.course-aside > .course-content ul li{
+    font-family: 'Nyata FTR';
+    font-size: 12px;
+    color: var(--secondary-orange);
+    margin: 20px 0;
+}
+
+.course-aside > .course-content ul li i{
+    color:  var(--secondary-light-blue);
+    margin-right: 5px;
+
+}
+
+.course-aside > .preview-author{
+    margin: 40px 0;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--secondary-green);
+}
+
+.course-aside > .preview-author h5{
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.course-aside > .preview-author .avatar{
+    width: 20%;
+    overflow: hidden;
+}
+
+.course-aside > .preview-author .avatar img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.course-aside > .preview-author .bio-preview{
+    width: 80%;
+    padding: 0 10px;
+    
+}
+
+.course-aside > .preview-author .bio-preview h6{
+    color: var(--primary-blue);
+    font-family: 'Lemon Milk';
+}
+.course-aside > .preview-author .bio-preview p{
+    font-family: 'Nyata FTR';
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.course-aside > .preview-author .bio-preview a{
+    color: #fff;
+    font-size: 15px;
+    display: block;
+    padding: 10px 0;
+}
+
+.course-aside > .preview-author .bio-preview > .fullname{
+    padding: 10px 0;
+}
+
+
+.page-content .cart-courses-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.cart-courses-wrapper .cart-courses-content{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+
+.cart-courses-content h2{
+    width: 100%;
+    font-family: 'Arca Majora';
+    font-size: 13px;
+    color: var(--primary-blue);
+    padding: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.cart-courses-content .cart-courses{
+    width: 70%;
+    padding: 10px 0;
+
+}
+
+
+
+.cart-courses .cart-course-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.cart-courses .cart-course-item:not(:last-child):after{
+    content: '';
+    width: 100%;
+    border:1px solid var(--primary-gray);
+    position: absolute;
+    bottom: 0;
+}
+
+.cart-courses .cart-course-item .portrait{
+    width: 30%;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.cart-courses .cart-course-item .portrait img{
+    width: 100%;
+}
+
+.cart-courses .cart-course-item .info{
+    width: 60%;
+    padding: 0 20px;
+}
+
+.cart-courses .cart-course-item .info h4{
+    padding: 10px 0;
+    color: var(--primary-blue);
+}
+
+.cart-courses .cart-course-item .info > p{
+    font-family: 'Nyata FTR';
+    font-size: 15px;
+    color: var(--primary-blue);
+}
+
+.cart-courses .cart-course-item .author{
+    margin: 10px 0;
+    color: var(--primary-gray);
+}
+
+.cart-courses .cart-course-item .pricing{
+    width: 15%;
+    text-align: center;
+}
+
+.cart-courses .cart-course-item .pricing .amout{
+    background-color: var(--primary-yellow);
+    padding: 5px;
+    color: #fff;
+    border-radius: 0 30px 30px 0;
+    margin-bottom: 10px;
+}
+
+.cart-courses .cart-course-item .pricing > a{
+    color: var(--secondary-light-blue);
+    font-size: 22px;
+}
+
+.cart-courses-content .cart-aside{
+    width: 26%;
+    border: 1px solid var(--primary-blue);
+    margin-left: 20px;
+}
+
+.cart-aside .sumary-header h5{
+    padding: 20px;
+    background-color: var(--primary-blue);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Nyata FTR';
+}
+
+.cart-aside .sumary-body{
+    padding: 30px;
+}
+
+.cart-aside .sumary-body > .btn{
+    width: 100%;
+    margin: 10px 0;
+    color: var(--secondary-light-blue);
+    border: 1px solid var(--primary-light-blue)
+}
+
+.cart-aside .sumary-body .item-price{
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    color: var(--primary-blue);
+}
+
+.cart-aside .sumary-body .item-price > .amout{
+    color : var(--secondary-light-blue);
+    font-weight: bold;
+}
+
+.cart-aside .sumary-body .item-price > p{
+    text-align: right;
+}
+
+.cart-aside .sumary-body .acepted-title{
+    color: var(--primary-gray);
+    margin: 10px 0;
+}
+
+.cart-aside .sumary-body  .acepted-cards img{
+    width: 40px;
+}
+
+
+.page-content .posts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.posts > .post-item{
+    width: 48%;
+    margin-bottom: 20px;
+
+}
+
+.posts > .post-item > .title{
+    color: var(--secondary-blue);
+    position: relative;
+    padding-bottom: 5px;
+}
+.posts > .post-item > .title:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border: 1px solid var(--primary-gray);
+    left: 0;
+    
+}
+
+.posts > .post-item > .post-body{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.posts > .post-item > .post-body .portrait{
+    width: 40%;
+}
+.posts > .post-item > .post-body .portrait img{
+    width: 100%;
+}
+
+.posts > .post-item > .post-body .info{
+    width: 60%;
+    padding: 0 20px;
+}
+
+.posts > .post-item > .post-body .info .post-date{
+    color: var(--secondary-light-blue);
+    font-style: italic;
+    font-size: 11px;
+}
+
+.posts > .post-item > .post-body .info .sumary{
+    color: var(--primary-blue);
+    opacity: 0.7;
+    font-family: 'Nyata FTR';
+    font-size: 16px;
+    padding: 12px 0;
+}
+
+
+.general-action{
+    color: var(--secondary-light-blue);
+    font-family: 'Nyata FTR';
+}
+
+
+.page-content  .post-detail-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.post-detail-wrapper .post-detail{
+    width: 80%;
+}
+
+.post-detail h2{
+    color: var(--primary-blue);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.post-detail h2:after{
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border: 1px solid var(--primary-gray);
+}
+
+.post-detail > .portrait{
+    margin: 20px 0;
+}
+
+.post-detail > .portrait img{
+    width: 100%;
+}
+
+.post-detail > .post-date{
+    text-align: right;
+    color: var(--secondary-light-blue);
+    font-style: italic;
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+.post-detail > .summary{
+    color: var(--primary-blue);
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.post-detail > .content-text{
+    margin: 10px 0;
+    color: var(--primary-blue);
+}
+
+.post-detail > .content-text p{
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.page-content .testimonies-whraper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonies-whraper .testimonies{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.testimonies-whraper .testimonies h2{
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    font-size: 17px;
+    text-align: center;
+    width: 100%;
+}
+
+.testimonies .testimonie-item{
+    width: 42%;
+    position: relative;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-left: 40px;
+    border-radius: 20px;
+    background-color: var(--secondary-blue);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.testimonies .testimonie-item.yellow{
+
+    background-color: var(--primary-yellow);
+    
+}
+
+.testimonies .testimonie-item > .portrait{
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 30%;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 10px;
+    
+}
+.testimonies .testimonie-item > .portrait img{
+    width: 100%;
+}
+
+.testimonies .testimonie-item > .info{
+    width: 72%;
+    padding: 10px 0;
+}
+
+.testimonies .testimonie-item > .info .author-name{
+    font-size: 19px;
+    margin: 5px 0;
+}
+
+.testimonies .testimonie-item > .info .author-speciality{
+    color: var(--secondary-yellow);
+    margin: 5px 0;
+    font-size: 12px;
+    font-style: italic;
+
+}
+
+.testimonies .testimonie-item > .info .write-text{
+    font-size: 12px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.page-content .questions-wrapper{
+    width: 100%;
+}
+
+.questions-wrapper h2{
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--primary-blue);
+    font-size: 17px;
+}
+
+.questions-wrapper .frequent-questions{
+    width: 100%;
+    display: flex;
+    margin: 20px 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.questions-wrapper .frequent-questions .question-item{
+    width: 49%;
+    border: 1px solid var(--primary-gray);
+    padding: 15px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.questions-wrapper .frequent-questions .question-item p{
+    font-family: 'Nyata FTR';
+    font-size: 15px;
+    color: var(--secondary-light-blue);
+}
+
+.questions-wrapper .frequent-questions .question-item span{
+    position: absolute;
+    left: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--secondary-orange);
+}
+
+.page-content .slider-title{
+    text-align: center;
+    color: var(--primary-blue);
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.page-content .slider-action{
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+}
+.slider-courses {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.slider-courses  .course-item {
+    position: relative;
+}
+
+.slider-courses  .course-item .title{
+    position: absolute;
+    color: var(--secondary-gray);
+    text-align: center;
+    top: 10px;
+    font-size: 18px;
+    padding: 0 3px;
+    font-family: 'Lemon Milk';
+}
+
+.slider-testimonies{
+    margin: 10px 0;
+
+}
+
+.slider-testimonies .testimonie-item > .info{
+    max-height: 200px;
+    min-height: 200px;
+    overflow: auto;
+    margin: 10px 0;
+}
+
+/* slider carousel */
+
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: var(--secondary-green);
+}
+
+
+
+/* /slider carousel*/
+
+.page-content .contact-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-wrapper .contact-content{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.contact-wrapper .contact-content .portrait{
+    width: 45%;
+}
+
+.contact-wrapper .contact-content .portrait img{
+    width: 100%;
+}
+
+
+.contact-wrapper .contact-content .form-wrapper{
+    width: 53%;
+}
+
+.contact-wrapper .contact-content .form-wrapper .title{
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-group{
+    margin: 5px 0;
+}
+
+.form-group .btn{
+    margin: 5px 0;
+}
+.form-group.center{
+    text-align: center;
+}
+
+.form-group .input-custom{
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--secondary-gray);
+    border-radius: 4px;
+    border: none;
+    font-family: 'Nyata FTR';
+    font-size: 16px;
+    
+}
+
+.form-group .input-custom:focus{
+    outline: 0;
+}
