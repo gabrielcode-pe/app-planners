@@ -25,7 +25,7 @@
                     <li class="btn-submenu">
                         <a  href="/">Inicio</a>
                         <ul class="submenu">
-                            <li><a href="#"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de Escuela de Proyectistas</a></li>
+                            <li><a href="{{route('about')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de Escuela de Proyectistas</a></li>
                             <li><a href="{{route('js.consultores')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de JS Consultores</a></li>
                         </ul>
                     </li>
@@ -83,7 +83,7 @@
                     </ul>
                 </div>
 
-                <div class="footer-copy"><p>&copy; Desarrollado por StarMedia. Todos derechos reservados.</p></div>
+                <div class="footer-copy"><p>&copy; {{date('Y')}} Escuela de Proyectistas. Todos los derechos reservados.</p></div>
                 
             </div>
             

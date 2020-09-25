@@ -1,7 +1,6 @@
 @extends('layouts.front')
 @section('title', 'Nuestros posts')
 @section('content')
-<h3 class="section-title">BLOG</h3>
 <div class="posts">
     <div class="post-item">
         <h2 class="title">5 cosas que debes saber de los negocios</h2>

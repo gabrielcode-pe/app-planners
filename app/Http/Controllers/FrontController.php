@@ -52,4 +52,24 @@ class FrontController extends Controller
         return view('pages.js-consultores');
     }
 
+    public function getPostDetail()
+    {
+        return view('pages.post-detail');
+    }
+
+    public function getCourseDetail()
+    {
+        return view('pages.courses.course-detail');
+    }
+
+    public function about()
+    {
+        return view('pages.esc-proyectistas');
+    }
+
+    public function getAuthorInfo()
+    {
+        return view('pages.author');
+    }
+
 }

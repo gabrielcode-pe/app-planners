@@ -37,7 +37,13 @@ Route::get('carrito', 'FrontController@shopCartView')->name('shop.cart');
 
 Route::get('js-consultores', 'FrontController@jsConsultores')->name('js.consultores');
 
+Route::get('post/{slug}', 'FrontController@getPostDetail')->name('post.detail');
 
+Route::get('curso/{slug}', 'FrontController@getCourseDetail')->name('course.detail');
+
+Route::get('acerca-de-nosotros', 'FrontController@about')->name('about');
+
+Route::get('autor/{name}', 'FrontController@getAuthorInfo')->name('author');
 
 
 

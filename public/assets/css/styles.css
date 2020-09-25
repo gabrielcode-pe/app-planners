@@ -403,6 +403,10 @@ a{
     background-color: var(--primary-yellow);
 }
 
+.btn.btn-orange{
+    color: #fff;
+    background-color: var(--secondary-orange);
+}
 
 .btn.btn-info-outline{
     color: var(--secondary-light-blue);
@@ -774,7 +778,8 @@ a{
 
 
 .page-content .posts{
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -884,8 +889,9 @@ a{
 
 .post-detail > .summary{
     color: var(--primary-blue);
-    font-size: 18px;
+    font-size: 16px;
     font-family: sans-serif;
+    line-height: 22px;
 }
 
 .post-detail > .content-text{
@@ -895,7 +901,9 @@ a{
 
 .post-detail > .content-text p{
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 22px;
+
 }
 
 .page-content .testimonies-whraper{
@@ -1203,6 +1211,10 @@ a{
     padding: 0 20px;
 }
 
+.js-consultores .bio-js .text-bio > .action{
+    margin: 10px 0;
+    text-align: center;
+}
 .js-consultores .bio-js .text-bio h3{
     color: var(--secondary-orange);
     font-weight: bold;
@@ -1298,5 +1310,39 @@ a{
 }
 
 .clients-wrapper .clients-content .client-item img{
+    width: 100%;
+}
+
+.page-content .author-wrapper{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-content .author-wrapper .author-bio{
+    width: 60%;
+    padding-right: 20px;
+}
+
+.page-content .author-wrapper .author-bio .title{
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    margin: 15px 0;
+}
+
+.page-content .author-wrapper .author-bio p{
+    margin: 15px 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    opacity: 0.4;
+}
+
+.page-content .author-wrapper .author-portrait{
+    width: 40%;
+}
+
+.page-content .author-wrapper .author-portrait img{
     width: 100%;
 }
