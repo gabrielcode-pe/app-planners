@@ -23,6 +23,21 @@ Route::get('/', 'FrontController@index');
 
 Route::get('contacto', 'FrontController@contactView')->name('contact');
 
+Route::get('testimonios', 'FrontController@getTestimonies')->name('testimonies');
+
+Route::get('blog', 'FrontController@getPosts')->name('posts');
+
+Route::get('cursos', 'FrontController@getCoursesOwner')->name('courses');
+
+Route::get('cursos-institucionales', 'FrontController@getInstitutionlCourses')->name('courses.institutionls');
+
+Route::get('preguntas-frecuentes', 'FrontController@frecuentQuestions')->name('frequent.questions');
+
+Route::get('carrito', 'FrontController@shopCartView')->name('shop.cart');
+
+
+
+
 
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register')->name('post.register');

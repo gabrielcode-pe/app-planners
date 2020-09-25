@@ -33,22 +33,22 @@
                             <li><a href="#"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de JS Consultores</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Testimonios</a></li>
+                    <li><a href="{{route('posts')}}">Blog</a></li>
+                    <li><a href="{{route('testimonies')}}">Testimonios</a></li>
                     <li class="btn-submenu">
                         <a class="active" href="#">Cursos</a>
                         <ul class="submenu">
-                            <li><a href="#"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Escuela de proyectistas</a></li>
-                            <li><a href="#"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Institucionales</a></li>
+                            <li><a href="{{route('courses')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Escuela de proyectistas</a></li>
+                            <li><a href="{{route('courses.institutionls')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Institucionales</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">YouTube</a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw">YouTube</a></li>
                     <li><a href="{{route('contact')}}">Contacto</a></li>
                 </ul>
 
                 <ul class="extra-menu">
-                    <li><a href="#">Iniciar sesión</a></li>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a target="_blank" href="http://aulavirtual.escueladeproyectistas.com/">Iniciar sesión</a></li>
+                    <li><a href="{{route('shop.cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </nav>
         </header>
@@ -71,6 +71,7 @@
                         <li><a href="#">CURSOS</a></li>
                         <li><a href="#">CONTACTO</a></li>
                         <li><a href="#">ASESORÍAS</a></li>
+                        <li><a href="{{route('frequent.questions')}}">PREGUNTAS FRECUENTES</a></li>
                     </ul>
                 </div>
 

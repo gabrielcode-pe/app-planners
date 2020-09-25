@@ -195,7 +195,7 @@ a{
 
 .footer-menu ul li{
     display: inline-block;
-    padding: 0 10px;
+    padding: 10px;
 }
 .footer-menu ul li a{
     text-decoration: none;
@@ -303,6 +303,7 @@ a{
     border-radius: 10px 10px 0 0;
     overflow: hidden;
     margin-bottom: 20px;
+    
 }
 
 .course-item > .portrait{
@@ -332,7 +333,7 @@ a{
 
 .course-item > .detail > .title{
     font-family: 'Lemon Milk';
-    font-size: 12px;
+    font-size: 10px;
     color: var(--primary-blue);
 
 }
@@ -1034,6 +1035,7 @@ a{
     font-size: 18px;
     padding: 0 3px;
     font-family: 'Lemon Milk';
+    background-color: rgba(0,0,0,0.5);
 }
 
 .slider-testimonies{
