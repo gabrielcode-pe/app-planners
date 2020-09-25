@@ -47,8 +47,8 @@ Route::get('autor/{name}', 'FrontController@getAuthorInfo')->name('author');
 
 
 
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register')->name('post.register');
+// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Route::post('register', 'Auth\RegisterController@register')->name('post.register');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('post.login');
@@ -65,6 +65,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 
 
+// Rutas de prueba
 Route::get('checkout', 'TransactionController@showCheckoutForm')->name('checkout');
 Route::post('process-charge', 'TransactionController@processCharge')->name('process.charge');
 
@@ -77,4 +78,13 @@ Route::post('process-charge', 'TransactionController@processCharge')->name('proc
 Route::group(['middleware' => 'auth'], function () {
     
     Route::get('logout', 'Auth\LoginController@logout');
+
+    // Grupo de rutas para panel administrativo
+    Route::group(['prefix' => 'panel'], function () {
+
+        Route::get('/', 'PanelController@home')->name('panel.home');
+
+        // Todas las rutas de panel aqui------------
+    });
+
 });
