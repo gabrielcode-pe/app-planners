@@ -47,4 +47,9 @@ class FrontController extends Controller
         return view('pages.shop-cart');
     }
 
+    public function jsConsultores()
+    {
+        return view('pages.js-consultores');
+    }
+
 }

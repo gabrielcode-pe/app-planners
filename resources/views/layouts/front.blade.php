@@ -19,10 +19,6 @@
         <header class="header-wrapper @yield('header-extra-class')">
             <div class="logo">
                 <a href="/"><img src="{{asset('assets/images/logo-main.png')}}" alt="Escuela de proyectistas"></a>
-                
-                <!-- está sección será visible cuando el header tenga la clase with-bg -->
-                @yield('bg-header')
-
             </div>
             <nav class="menu-container">
                 <ul class="main-menu">
@@ -30,7 +26,7 @@
                         <a  href="/">Inicio</a>
                         <ul class="submenu">
                             <li><a href="#"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de Escuela de Proyectistas</a></li>
-                            <li><a href="#"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de JS Consultores</a></li>
+                            <li><a href="{{route('js.consultores')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de JS Consultores</a></li>
                         </ul>
                     </li>
                     <li><a href="{{route('posts')}}">Blog</a></li>
@@ -51,6 +47,8 @@
                     <li><a href="{{route('shop.cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </nav>
+            <!-- está sección será visible cuando el header tenga la clase with-bg -->
+            @yield('info-absolute-when-has-bg')
         </header>
 
         <section class="page-wrapper">

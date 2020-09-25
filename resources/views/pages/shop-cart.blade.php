@@ -47,10 +47,7 @@
                 <h5>Resúmen</h5>
             </div>
             <div class="sumary-body">
-                <div class="item-price"><span>Sub total</span> <span  class="amout">S/. 90.00</span></div>
-                <div class="item-price"><span>Dscto</span> <span  class="amout">S/. 0.50</span></div>
-                <div class="item-price"><span>Total</span> <span  class="amout">S/. 89.50</span></div>
-                
+                <div class="item-price"><span>Total</span> <span  class="amout">S/. 90.00</span></div>
 
                 <a href="#" class="btn btn-primary-outline">Comprar</a>
 

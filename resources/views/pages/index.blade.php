@@ -4,10 +4,10 @@
 
 @section('header-extra-class', 'with-bg')
 
-@section('bg-header')
+@section('info-absolute-when-has-bg')
 <div class="section-when-header-with-bg">
     <h1 class="title">Sistema educativo premium</h1>
-    <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, ipsam.</p>
+    <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, eaque.</p>
     <a href="#" class="btn btn-yellow">Descubre nuestros cursos</a>
 </div>   
 @endsection

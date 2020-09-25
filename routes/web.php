@@ -35,6 +35,8 @@ Route::get('preguntas-frecuentes', 'FrontController@frecuentQuestions')->name('f
 
 Route::get('carrito', 'FrontController@shopCartView')->name('shop.cart');
 
+Route::get('js-consultores', 'FrontController@jsConsultores')->name('js.consultores');
+
 
 
 
