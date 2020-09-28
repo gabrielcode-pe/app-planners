@@ -8,6 +8,6 @@ class PanelController extends Controller
 {
     public function home()
     {
-        return 'Index del panel administrativo';
+        return view('admin.home');
     }
 }

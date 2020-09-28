@@ -47,8 +47,8 @@ Route::get('autor/{name}', 'FrontController@getAuthorInfo')->name('author');
 
 
 
-// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-// Route::post('register', 'Auth\RegisterController@register')->name('post.register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register')->name('post.register');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('post.login');
@@ -69,15 +69,23 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 Route::get('checkout', 'TransactionController@showCheckoutForm')->name('checkout');
 Route::post('process-charge', 'TransactionController@processCharge')->name('process.charge');
 
+Route::get('/admin', function () {
+    return view('admin.home');
+});
+
+//Rutas del Panel
+
+
+
 /**
  * ----------------------------------------------------------------------------------
- * RUTAS QUE REQUIEREN AUNTENTICACIÓN
+ * RUTAS QUE REQUIEREN AUTENTICACIÓN
  * ----------------------------------------------------------------------------------
  */
 
 Route::group(['middleware' => 'auth'], function () {
     
-    Route::get('logout', 'Auth\LoginController@logout');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
     // Grupo de rutas para panel administrativo
     Route::group(['prefix' => 'panel'], function () {
@@ -85,6 +93,16 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'PanelController@home')->name('panel.home');
 
         // Todas las rutas de panel aqui------------
+        Route::get('courses', function () { return view('admin.courses.index'); });
+        Route::get('courses/create', function () { return view('admin.courses.create'); });
+        Route::get('category', function () { return view('admin.category.index'); });
+        Route::get('category/create', function () { return view('admin.category.create'); });
+        Route::get('instructor', function () { return view('admin.instructor.index'); });
+        Route::get('instructor/create', function () { return view('admin.instructor.create'); });
+        Route::get('customer', function () { return view('admin.customer.index'); });
+        Route::get('customer/create', function () { return view('admin.customer.create'); });
+        Route::get('testimony', function () { return view('admin.testimony.index'); });
+        Route::get('testimony/create', function () { return view('admin.testimony.create'); });
     });
 
 });

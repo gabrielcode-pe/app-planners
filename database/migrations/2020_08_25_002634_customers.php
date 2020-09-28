@@ -18,6 +18,7 @@ class Customers extends Migration
             $table->string('name');
             $table->string('url_logo', 12);
             $table->string('url_web');
+            $table->timestamps();
         });
     }
 

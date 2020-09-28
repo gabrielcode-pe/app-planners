@@ -23,7 +23,7 @@
                 <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
                 <p class="author">Autor</p>
                 <div class="actions">
-                    <button onclick="addCourseToCart(this)" data-course='{{json_encode(["id" => 1, "title" => "Curso 1", "description" => "Hola description", "author" => "Nombre autor", "price" => 22.5, "url_portrait" => "foto.jpg"])}}' class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></button>
+                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
                     <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
                 </div>
             </div>

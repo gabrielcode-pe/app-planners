@@ -44,7 +44,7 @@
 
                 <ul class="extra-menu">
                     <li><a target="_blank" href="http://aulavirtual.escueladeproyectistas.com/">Iniciar sesión</a></li>
-                    <li><a href="{{route('shop.cart')}}"><span id="shopping-cart-count">0</span> <i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="{{route('shop.cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </nav>
             <!-- está sección será visible cuando el header tenga la clase with-bg -->
@@ -65,9 +65,9 @@
                 <div class="footer-menu">
                     <ul>
                         <li><a href="#">SERVICIOS</a></li>
-                        <li><a href="{{route('about')}}">¿QUIENES SOMOS?</a></li>
-                        <li><a href="{{route('courses')}}">CURSOS</a></li>
-                        <li><a href="{{route('contact')}}">CONTACTO</a></li>
+                        <li><a href="#">¿QUIENES SOMOS?</a></li>
+                        <li><a href="#">CURSOS</a></li>
+                        <li><a href="#">CONTACTO</a></li>
                         <li><a href="#">ASESORÍAS</a></li>
                         <li><a href="{{route('frequent.questions')}}">PREGUNTAS FRECUENTES</a></li>
                     </ul>
@@ -75,7 +75,7 @@
 
                 <div class="footer-social">
                     <ul>
-                        <li><a target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                         <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
@@ -92,7 +92,7 @@
         <!-- Redes solciales absoluto-->
         <div class="social-fixed">
             <ul>
-                <li><a class="btn social-item youtube" target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw" title="YouTube"><i class="fa fa-youtube"></i></a></li>
+                <li><a class="btn social-item youtube" href="#" title="YouTube"><i class="fa fa-youtube"></i></a></li>
                 <li><a class="btn social-item facebook" href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                 <li><a class="btn social-item linkedin" href="#" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
                 <li><a class="btn social-item whatsapp" href="#" title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
@@ -104,31 +104,7 @@
     </main>
 
     <script src="{{asset('assets/jquery/jquery.min.js')}}"></script>
-    <!-- librería personalizada para carrito de compras -->
-    <script src="{{asset('assets/js/shopping-cart.js')}}"></script>
     
-    <script>
-        const shoppingCart = new ShoppingCart();
-
-        updateCouterCart();
-
-        function addCourseToCart(elementCourseContainer) {
-
-            let course = $(elementCourseContainer).data('course');
-
-            shoppingCart.addCourse(course);
-            
-            updateCouterCart();
-            
-        }
-
-        function updateCouterCart() {
-            $('#shopping-cart-count').text(shoppingCart.allItems.length);
-        }
-
-    </script>
-
     @yield('scripts')
-
 </body>
 </html>

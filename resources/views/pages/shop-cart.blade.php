@@ -67,22 +67,3 @@
     </div>
 </div>
 @endsection
-@section('scripts')
-<script>
-
-    $(document).ready(function(){
-        renderShoppingCart();
-    });
-
-    function renderShoppingCart() {
-        // Listar contenido del carrito
-        if(shoppingCart.allItems.length > 0){
-            
-            console.log(shoppingCart.allItems);
-
-        }else{
-            console.log('Carrito vacio');
-        }
-    }
-</script>
-@endsection

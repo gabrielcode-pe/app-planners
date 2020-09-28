@@ -19,6 +19,7 @@ class Instructors extends Migration
             $table->string('url_img', 12);
             $table->string('info');
             $table->string('slug');
+            $table->timestamps();
         });
     }
 

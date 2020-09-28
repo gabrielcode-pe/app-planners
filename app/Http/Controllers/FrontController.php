@@ -72,4 +72,13 @@ class FrontController extends Controller
         return view('pages.author');
     }
 
+
+    /* Rutas demos de Panel */
+
+    public function Dashboard()
+    {
+        return view('admin.home');
+    }
+
+
 }

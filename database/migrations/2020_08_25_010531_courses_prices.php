@@ -19,7 +19,7 @@ class CoursesPrices extends Migration
             $table->float('amount', 8, 2);
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            
+            $table->timestamps();            
         });
     }
 

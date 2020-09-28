@@ -23,7 +23,7 @@ class Courses extends Migration
             $table->string('url_portrait', 12);
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            
+            $table->timestamps();            
         });
     }
 
