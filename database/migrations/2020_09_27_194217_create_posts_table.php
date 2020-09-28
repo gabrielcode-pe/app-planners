@@ -21,7 +21,9 @@ class CreatePostsTable extends Migration
             $table->string('body');
             $table->boolean('status');
             $table->string('url_portrait', 45);
-            //$table->string();
+            $table->string('post_source');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categorys')->onDelete('cascade');
             $table->timestamps();
         });
     }

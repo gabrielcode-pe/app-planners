@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('assets/css/all.min.css')}}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>@yield('titulo') | Panel de Administracón</title>
+    <title>@yield('titulo') | Panel de Administración</title>
   </head>
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="padding:0 !important;">
