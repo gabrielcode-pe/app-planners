@@ -6,7 +6,7 @@
         <h2 class="title">5 cosas que debes saber de los negocios</h2>
         <div class="post-body">
             <div class="portrait">
-                <img src="{{asset('assets/images/post-portrait.png')}}" alt="">
+                <img src="{{asset('assets/images/post-image2.jpeg')}}" alt="">
             </div>
             <div class="info">
                 <p class="post-date">17/09/2020</p>
@@ -19,7 +19,7 @@
         <h2 class="title">5 cosas que debes saber de los negocios</h2>
         <div class="post-body">
             <div class="portrait">
-                <img src="{{asset('assets/images/post-portrait.png')}}" alt="">
+                <img src="{{asset('assets/images/post-image2.jpeg')}}" alt="">
             </div>
             <div class="info">
                 <p class="post-date">17/09/2020</p>
@@ -32,7 +32,7 @@
         <h2 class="title">5 cosas que debes saber de los negocios</h2>
         <div class="post-body">
             <div class="portrait">
-                <img src="{{asset('assets/images/post-portrait.png')}}" alt="">
+                <img src="{{asset('assets/images/post-image2.jpeg')}}" alt="">
             </div>
             <div class="info">
                 <p class="post-date">17/09/2020</p>
@@ -45,7 +45,7 @@
         <h2 class="title">5 cosas que debes saber de los negocios</h2>
         <div class="post-body">
             <div class="portrait">
-                <img src="{{asset('assets/images/post-portrait.png')}}" alt="">
+                <img src="{{asset('assets/images/post-image2.jpeg')}}" alt="">
             </div>
             <div class="info">
                 <p class="post-date">17/09/2020</p>

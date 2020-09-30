@@ -13,7 +13,7 @@
     <div class="courses-list">
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>
@@ -30,7 +30,7 @@
         </div>
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>
@@ -47,7 +47,7 @@
         </div>
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>
@@ -81,7 +81,7 @@
         </div>
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>
@@ -98,7 +98,7 @@
         </div>
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>
@@ -115,7 +115,7 @@
         </div>
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>
@@ -132,7 +132,7 @@
         </div>
         <div class="course-item">
             <div class="portrait">
-                <img src="{{asset('assets/images/course-image.png')}}" alt="course item">
+                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
                 <div class="price">
                     <p>S/. 45.00</p>
                 </div>

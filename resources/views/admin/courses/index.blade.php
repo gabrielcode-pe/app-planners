@@ -35,7 +35,7 @@
         <tbody>
             <tr>
             <th scope="row">1</th>
-            <td> <img src="{{asset('assets/images/course-image.png')}}" width="75" alt=""> </td>
+            <td> <img src="{{asset('assets/images/course-image2.jpeg')}}" width="75" alt=""> </td>
             <td class="font-weight-light">Curso de Prueba para Proyectistas</td>
             <td class="font-weight-light">Marketing</td>
             <td class="font-weight-light"><span class="badge badge-primary">S/. 150.00</span></td>

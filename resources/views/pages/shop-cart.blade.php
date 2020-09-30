@@ -8,7 +8,7 @@
         <div class="cart-courses">
             <div class="cart-course-item">
                 <div class="portrait">
-                    <img src="{{asset('assets/images/course-image.png')}}" alt="">
+                    <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
                 </div>
                 <div class="info">
                     <h4>CONTRATOS EN LA ACTUALIDAD</h4>
@@ -25,7 +25,7 @@
 
             <div class="cart-course-item">
                 <div class="portrait">
-                    <img src="{{asset('assets/images/course-image.png')}}" alt="">
+                    <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
                 </div>
                 <div class="info">
                     <h4>CONTRATOS EN LA ACTUALIDAD</h4>

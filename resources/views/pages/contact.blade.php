@@ -4,7 +4,7 @@
 <div class="contact-wrapper">
     <div class="contact-content">
         <div class="portrait">
-            <img src="{{asset('assets/images/bg-e-learning.jpeg')}}" alt="">
+            <img src="{{asset('assets/images/common-image.jpeg')}}" alt="">
         </div>
         <div class="form-wrapper">
             <h2 class="title">Contacte con nosotros</h2>

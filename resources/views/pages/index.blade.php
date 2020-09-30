@@ -18,28 +18,28 @@
     <div class="course-item">
         <h4 class="title">Contratos en la actualidad</h4>
         <a href="#">
-            <img src="{{asset('assets/images/course-image.png')}}" alt="">
+            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
         </a>
     </div>
 
     <div class="course-item">
         <h4 class="title">Contratos en la actualidad</h4>
         <a href="#">
-            <img src="{{asset('assets/images/course-image.png')}}" alt="">
+            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
         </a>
     </div>
 
     <div class="course-item">
         <h4 class="title">Contratos en la actualidad</h4>
         <a href="#">
-            <img src="{{asset('assets/images/course-image.png')}}" alt="">
+            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
         </a>
     </div>
 
     <div class="course-item">
         <h4 class="title">Contratos en la actualidad</h4>
         <a href="#">
-            <img src="{{asset('assets/images/course-image.png')}}" alt="">
+            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
         </a>
     </div>
 </div>
