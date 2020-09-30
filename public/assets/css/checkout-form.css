@@ -1,17 +1,35 @@
-* {
-    margin: 0;
-    padding: 0
+
+
+.page-wrapper .page-content{
+    padding: 20px 0;
+}
+.payment-wrapper{
+    width: 60%;
+    margin: 0 auto;
 }
 
-html {
-    height: 100%
+
+.payment-wrapper  .payment-form{
+    width: 100%;
+
 }
 
-#grad1 {
-    background-color: : #9C27B0;
-    background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+.payment-form .total-pricing{
+    text-align: center;
 }
 
+.payment-form .total-pricing h3{
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 25px;
+    
+}
+
+.payment-form .total-pricing p{
+    color: var(--secondary-orange);
+    font-size: 10px;
+    padding: 5px 0;
+}
 #msform {
     text-align: center;
     position: relative;
@@ -60,7 +78,7 @@ html {
     margin-top: 2px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
+    /* font-family: montserrat; */
     color: #2C3E50;
     font-size: 16px;
     letter-spacing: 1px
@@ -73,13 +91,13 @@ html {
     box-shadow: none !important;
     border: none;
     font-weight: bold;
-    border-bottom: 2px solid skyblue;
+    border-bottom: 2px solid var(--primary-yellow);
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: skyblue;
+    background: var(--primary-yellow);
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -91,7 +109,7 @@ html {
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+    box-shadow: 0 0 0 2px white, 0 0 0 3px var(--primary-yellow)
 }
 
 #msform .action-button-previous {
@@ -120,7 +138,7 @@ select.list-dt {
 }
 
 select.list-dt:focus {
-    border-bottom: 2px solid skyblue
+    border-bottom: 2px solid var(--primary-yellow)
 }
 
 .card {
@@ -202,7 +220,7 @@ select.list-dt:focus {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: skyblue
+    background: var(--primary-yellow)
 }
 
 .radio-group {
@@ -231,6 +249,6 @@ select.list-dt:focus {
 }
 
 .fit-image {
-    width: 100%;
+    width: 70px;
     object-fit: cover
 }

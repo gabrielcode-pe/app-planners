@@ -49,7 +49,7 @@
             <div class="sumary-body">
                 <div class="item-price"><span>Total</span> <span  class="amout">S/. 90.00</span></div>
 
-                <a href="#" class="btn btn-primary-outline">Comprar</a>
+                <a href="#" class="btn btn-primary-outline">Pagar ahora</a>
 
                 <p class="acepted-title">Aceptamos</p>
 

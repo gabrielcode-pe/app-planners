@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    @yield('styles')
 
 </head>
 <body>
@@ -116,7 +117,7 @@
 
             let course = $(elementCourseContainer).data('course');
 
-            shoppingCart.addCourse(course);
+            shoppingCart.addItem(course);
             
             updateCouterCart();
             
