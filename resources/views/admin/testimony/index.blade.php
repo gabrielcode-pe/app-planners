@@ -7,7 +7,7 @@
         <h5>Gestión de Testimonios</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i> Agregar </a>
+        <a href="#" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
     </section>
 </div>
 
@@ -28,7 +28,7 @@
                 <th scope="col">Descripción</th>
                 <th scope="col">Empresa</th>
                 <th scope="col">Cargo</th>
-                <th width="10%" scope="col"><i class="fas fa-cog"></i></th>
+                <th width="10%" scope="col"><i class="fa fa-cogs" aria-hidden="true"></i></th>
             </tr>
         </thead>
         <tbody>
@@ -40,8 +40,8 @@
                 <td class="font-weight-light">Corporación</td>
                 <td class="font-weight-light">Gerente General</td>
                 <td class="font-weight-light">
-                    <a href="#" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>                
+                    <a href="#" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+                    <a href="#" class="btn btn-danger btn-sm" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i> </a>               
                 </td>
             </tr>
         </tbody>

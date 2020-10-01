@@ -7,7 +7,7 @@
         <h5>Registrar Cliente</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-outline-secondary btn-sm"> <i class="fas fa-angle-left"></i> Volver </a>
+        <a href="#" class="btn btn-outline-secondary btn-sm"> <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Volver </a>
     </section>
 </div>
 
@@ -23,7 +23,7 @@
 
     <section class="col-12 col-md-8">
     <div class="form-group">
-            <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Nombre completo del docente" required>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Nombre|Razón Social del Cliente" required>
             <small id="name" class="form-text text-muted">Max. 255 caracteres.</small>
         </div>
         <div class="form-group">

@@ -32,7 +32,7 @@
         <ul class="navbar-nav navbar-right">
             <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i> {{Auth::user()->name}}
+                    <i class="fa fa-user-circle" aria-hidden="true"></i> {{Auth::user()->name}}
                     </a>
                     <div class="dropdown-menu navbar-dark bg-dark" style="right:0 !important;" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Cambiar contraseña</a>
@@ -48,23 +48,41 @@
 
     <div class="container-fluid">
       <div class="row">
-          <section class="col-3 col-md-2">
+          <section class="col-2 col-md-2">
           <div class="list-group">
               <a class="list-group-item list-group-item-action active">
-                  Opciones
+                <span><i class="fa fa-cog" aria-hidden="true"></i></span> <span class="hidden">Opciones</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action">Cursos</a>
-              <a href="#" class="list-group-item list-group-item-action">Categorías</a>
-              <a href="#" class="list-group-item list-group-item-action">Clientes</a>
-              <a href="#" class="list-group-item list-group-item-action">Docentes</a>
-              <a href="#" class="list-group-item list-group-item-action">Testimonios</a>
-              <a href="#" class="list-group-item list-group-item-action">Posts</a>
-              <a href="#" class="list-group-item list-group-item-action">Imágenes</a>
-              <a href="#" class="list-group-item list-group-item-action">Pagos</a>
-              <a href="#" class="list-group-item list-group-item-action">Usuarios</a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-book" aria-hidden="true"></i></span> <span class="hidden">Cursos</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-th-list" aria-hidden="true"></i></span> <span class="hidden">Categorías</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-suitcase" aria-hidden="true"></i></span> <span class="hidden">Clientes</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span> <span class="hidden">Docentes</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-address-card-o" aria-hidden="true"></i></span> <span class="hidden">Testimonios</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-newspaper-o" aria-hidden="true"></i></span> <span class="hidden">Posts</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-picture-o" aria-hidden="true"></i></span> <span class="hidden">Imágenes</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span> <span class="hidden">Pagos</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-users" aria-hidden="true"></i></span> <span class="hidden">Usuarios</span>
+              </a>
           </div>
           </section>
-          <section class="col-9 col-md-10">
+          <section class="col-10 col-md-10">
             @yield('content')
           </section>
       </div>
@@ -74,7 +92,7 @@
 
     <footer class="fixed-bottom">
       <nav class="navbar navbar-dark bg-dark text-white justify-content-center" style="padding:0 !important;">
-          <h6> <small> <i class="far fa-star"></i> Starmedia Solutions - 2020 </small> </h6>
+          <h6> <small> <i class="fa fa-star-half-o" aria-hidden="true"></i> Starmedia Solutions - 2020 </small> </h6>
       </nav>
     </footer>
    
