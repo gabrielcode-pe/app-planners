@@ -25,6 +25,46 @@ Titulo del curso
                 <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, commodi.</li>
             </ul>
 
+            <h5 class="features-title">MÓDULOS</h5>
+            <div class="course-modules">
+                <div class="module-item">
+                    <div class="header-module">
+                        <h4>Módulo 1</h4>
+                        <span class="collapse-dow-icon fa fa-angle-down"></span>
+                    </div>
+                    <div class="collapse-module">
+                        <div class="content">
+                            <div class="info">
+                                <img src="{{asset('assets/images/common-image.jpeg')}}" alt="">
+                            </div>
+                            <div class="duration-time">
+                                <p>05:35 <span class="fa fa-play"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div class="header-module">
+                        <h4>Módulo 2</h4>
+                        <span class="collapse-dow-icon fa fa-angle-down"></span>
+                    </div>
+                    <div class="collapse-module">
+                        <div class="content">
+                            <div class="info">
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni temporibus, atque porro et cum earum quam consectetur fugit placeat fuga, corrupti praesentium minus consequuntur, perspiciatis odit eveniet sit rerum. Nesciunt?</p>
+                            </div>
+                            <div class="duration-time">
+                                <p>05:35 <span class="fa fa-play"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <a class="general-action" href="{{route('frequent.questions')}}">Ver preguntas frecuentes</a>
+            
+
         </div>
         <div class="course-aside">
             <div class="course-price">
@@ -57,6 +97,62 @@ Titulo del curso
         </div>
 
     </div>
-
 </div>
+<div class="count-down-wrapper">
+    <div class="column-item">
+        <p>Quedan 12 plazas</p>
+    </div>
+    <div class="column-item">
+        <div class="counter-content">
+            <div class="count">
+                <h5>01</h5>
+                <p>Días</p>
+            </div>
+            <div class="count">
+                <h5>12</h5>
+                <p>Horas</p>
+            </div>
+            <div class="count">
+                <h5>20</h5>
+                <p>Minutos</p>
+            </div>
+            <div class="count">
+                <h5>32</h5>
+                <p>Segundos</p>
+            </div>
+        </div>
+    </div>
+    <div class="column-item">
+        <a href="#" class="btn btn-info-outline">Reserva tu plaza</a>
+    </div>
+</div>
+@endsection
+@section('scripts')
+<script>
+    let collapsesHeads = document.getElementsByClassName("header-module");
+
+    for (let i = 0; i < collapsesHeads.length; i++) {
+
+        collapsesHeads[i].addEventListener("click", function() {
+            
+            let currentBodyCollapse = this.nextElementSibling;
+
+            for (let elementCollapse of document.getElementsByClassName("collapse-module")){
+                
+                if(elementCollapse != currentBodyCollapse) elementCollapse.style.display = "none";
+                
+            }
+
+            if (currentBodyCollapse.style.display === "block") {
+
+                currentBodyCollapse.style.display = "none";
+
+            } else {
+
+                currentBodyCollapse.style.display = "block";
+
+            }
+        });
+    }
+</script>
 @endsection

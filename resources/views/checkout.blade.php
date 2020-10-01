@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="email" name="phno" placeholder="Correo electrónico" /> 
+                        <input type="email" name="email" placeholder="Correo electrónico" /> 
                     </div>
 
                     <div class="form-group">
@@ -52,7 +52,7 @@
                 <div class="form-card">
                     
                     <div class="form-group">
-                        <label class="pay">Nombre como aparece en la tarjeta*</label> 
+                        <label class="pay">Correo del titular de la tarjeta*</label> 
                         <input type="text" name="holdername" placeholder="" />
                     </div>
 
@@ -96,16 +96,11 @@
             </fieldset>
             <fieldset>
                 <div class="form-card">
-                    <h2 class="fs-title text-center">Felicidades !</h2> <br><br>
-                    <div class="row justify-content-center">
-                        <div class="col-3"> 
-                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> 
-                        </div>
-                    </div> <br><br>
-                    <div class="row justify-content-center">
-                        <div class="col-7 text-center">
-                            <h5>La compra del curso se efectuó con éxito</h5>
-                        </div>
+                    <div class="payment-success">
+                        <h2 class="fs-title">Felicidades !</h2>
+                        <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> 
+                        <h5>La transacción se realizó con éxito!</h5>
+
                     </div>
                 </div>
             </fieldset>
