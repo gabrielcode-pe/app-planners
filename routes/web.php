@@ -95,6 +95,9 @@ Route::group(['middleware' => 'auth'], function () {
         // Todas las rutas de panel aqui------------
         Route::get('courses', function () { return view('admin.courses.index'); });
         Route::get('courses/create', function () { return view('admin.courses.create'); });
+        Route::get('courses/assignment/', function () { return view('admin.courses.instructor-assignment'); });
+        Route::get('courses/addmodule/', function () { return view('admin.courses.add-module'); });
+        Route::get('courses/addprice/', function () { return view('admin.courses.add-price'); });
         Route::get('category', function () { return view('admin.category.index'); });
         Route::get('category/create', function () { return view('admin.category.create'); });
         Route::get('instructor', function () { return view('admin.instructor.index'); });
@@ -103,6 +106,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('customer/create', function () { return view('admin.customer.create'); });
         Route::get('testimony', function () { return view('admin.testimony.index'); });
         Route::get('testimony/create', function () { return view('admin.testimony.create'); });
+        Route::get('post/create', function () { return view('admin.post.create'); });
+        Route::get('post', function () { return view('admin.post.index'); });
+        Route::get('picture', function () { return view('admin.picture.index'); });
+        Route::get('picture/create', function () { return view('admin.picture.create'); });
+        Route::get('user', function () { return view('admin.user.index'); });
+        Route::get('user/create', function () { return view('admin.user.create'); });
     });
 
 });

@@ -7,7 +7,7 @@
         <h5>Registrar Docente</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-outline-secondary btn-sm"> <i class="fas fa-angle-left"></i> Volver </a>
+        <a href="#" class="btn btn-outline-secondary btn-sm"> <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Volver </a>
     </section>
 </div>
 

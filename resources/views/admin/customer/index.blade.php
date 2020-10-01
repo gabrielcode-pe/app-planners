@@ -7,7 +7,7 @@
         <h5>Administración de Clientes</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i> Agregar </a>
+        <a href="#" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
     </section>
 </div>
 
