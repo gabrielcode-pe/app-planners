@@ -19,7 +19,7 @@
  */
 
 
-Route::get('/', 'FrontController@index');
+Route::get('/', 'FrontController@index')->name('home');
 
 Route::get('contacto', 'FrontController@contactView')->name('contact');
 

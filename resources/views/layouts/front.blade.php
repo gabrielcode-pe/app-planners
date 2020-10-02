@@ -19,33 +19,33 @@
     <main>
         <header class="header-wrapper @yield('header-extra-class')">
             <div class="logo">
-                <a href="/"><img src="{{asset('assets/images/logo-main.png')}}" alt="Escuela de proyectistas"></a>
+                <a href="{{route('home')}}"><img src="{{asset('assets/images/logo-main.png')}}" alt="Escuela de proyectistas"></a>
             </div>
             <nav class="menu-container">
                 <ul class="main-menu">
                     <li class="btn-submenu">
-                        <a  href="/">Inicio</a>
+                        <a class="{{Route::is('home') ? 'active' : ''}}" href="{{route('home')}}">Inicio</a>
                         <ul class="submenu">
                             <li><a href="{{route('about')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de Escuela de Proyectistas</a></li>
                             <li><a href="{{route('js.consultores')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Acerca de JS Consultores</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{route('posts')}}">Blog</a></li>
-                    <li><a href="{{route('testimonies')}}">Testimonios</a></li>
+                    <li><a class="{{Route::is('posts') ? 'active' : ''}}"  href="{{route('posts')}}">Blog</a></li>
+                    <li><a class="{{Route::is('testimonies') ? 'active' : ''}}"  href="{{route('testimonies')}}">Testimonios</a></li>
                     <li class="btn-submenu">
-                        <a class="active" href="#">Cursos</a>
+                        <a class="{{Route::is('courses') ? 'active' : ''}}" href="#">Cursos</a>
                         <ul class="submenu">
                             <li><a href="{{route('courses')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Escuela de proyectistas</a></li>
                             <li><a href="{{route('courses.institutionls')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Institucionales</a></li>
                         </ul>
                     </li>
                     <li><a target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw">YouTube</a></li>
-                    <li><a href="{{route('contact')}}">Contacto</a></li>
+                    <li><a class="{{Route::is('contact') ? 'active' : ''}}"  href="{{route('contact')}}">Contacto</a></li>
                 </ul>
 
                 <ul class="extra-menu">
                     <li><a target="_blank" href="http://aulavirtual.escueladeproyectistas.com/">Iniciar sesión</a></li>
-                    <li><a href="{{route('shop.cart')}}"><span id="shopping-cart-count">0</span> <i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a class="{{Route::is('shop.cart') ? 'active' : ''}}" href="{{route('shop.cart')}}"><span id="shopping-cart-count">0</span> <i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </nav>
             <!-- está sección será visible cuando el header tenga la clase with-bg -->
