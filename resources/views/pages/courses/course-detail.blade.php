@@ -8,7 +8,7 @@ Titulo del curso
     <div class="course-detail-content">
         <h2>INFORMACIÓN DEL CURSO</h2>
 
-        <div class="course-detail">
+        <div class="course-detail" id="course-initiation-date" data-coursestart="2020-12-10">
             <div class="preview-video">
                 <iframe width="100%" height="300"
                     src="https://www.youtube.com/embed/wHDVX2E8nLY">
@@ -98,26 +98,26 @@ Titulo del curso
 
     </div>
 </div>
-<div class="count-down-wrapper">
+<div class="count-down-wrapper" id="count-down-wrapper">
     <div class="column-item">
         <p>Quedan 12 plazas</p>
     </div>
     <div class="column-item">
         <div class="counter-content">
             <div class="count">
-                <h5>01</h5>
+                <h5 id="countdown-day">00</h5>
                 <p>Días</p>
             </div>
             <div class="count">
-                <h5>12</h5>
+                <h5 id="countdown-hours">00</h5>
                 <p>Horas</p>
             </div>
             <div class="count">
-                <h5>20</h5>
+                <h5 id="countdown-minutes">00</h5>
                 <p>Minutos</p>
             </div>
             <div class="count">
-                <h5>32</h5>
+                <h5 id="countdown-seconds">00</h5>
                 <p>Segundos</p>
             </div>
         </div>
@@ -125,6 +125,7 @@ Titulo del curso
     <div class="column-item">
         <a href="#" class="btn btn-info-outline">Reserva tu plaza</a>
     </div>
+
 </div>
 @endsection
 @section('scripts')
@@ -154,5 +155,50 @@ Titulo del curso
             }
         });
     }
+
+
+    // Contador regresivo para el inicio del curso
+    const courseStartDateStr = $('#course-initiation-date').data('coursestart');
+
+    const courseStartDateTime = new Date(courseStartDateStr).getTime();
+
+    // Update the count down every 1 second
+    let countDown = setInterval(function() {
+
+        // Get today's date and time
+        let now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        let distance = courseStartDateTime - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        days = days < 10 ? '0' + days : days;
+
+        hours = hours < 10 ? '0' + hours : hours;
+        
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        $('#countdown-day').text(days);
+        $('#countdown-hours').text(hours);
+        $('#countdown-minutes').text(minutes);
+        $('#countdown-seconds').text(seconds);
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(countDown);
+            $('#count-down-wrapper').css('display', 'none');
+            console.log('Curso ya no está disponible');
+        }
+
+    }, 1000);
+
+    
 </script>
 @endsection
