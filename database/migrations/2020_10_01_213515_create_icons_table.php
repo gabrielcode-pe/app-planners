@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourseFeaturesTable extends Migration
+class CreateIconsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateCourseFeaturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_features', function (Blueprint $table) {
+        Schema::create('icons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ft_icon', 50);
-            $table->string('ft_info',100);
-
-            $table->integer('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->string('name', 60);
+            $table->string('code', 80);
         });
     }
 
@@ -30,6 +27,6 @@ class CreateCourseFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_features');
+        Schema::dropIfExists('icons');
     }
 }

@@ -98,6 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('courses/assignment/', function () { return view('admin.courses.instructor-assignment'); });
         Route::get('courses/addmodule/', function () { return view('admin.courses.add-module'); });
         Route::get('courses/addprice/', function () { return view('admin.courses.add-price'); });
+        Route::get('courses/addfeature/', function () { return view('admin.courses.add-feature'); });
         Route::get('category', function () { return view('admin.category.index'); });
         Route::get('category/create', function () { return view('admin.category.create'); });
         Route::get('instructor', function () { return view('admin.instructor.index'); });

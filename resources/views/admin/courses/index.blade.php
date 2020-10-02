@@ -42,11 +42,12 @@
             <td class="font-weight-light">5-10-2020</td>
             <td class="font-weight-bold"> <strong><span class="text-success">Activo</span> </strong></td>
             <td width="18%" class="font-weight-light">
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                <a href="#" class="btn btn-success btn-sm"><i class="fas fa-chalkboard-teacher"></i></a>
-                <a href="#" class="btn btn-secondary btn-sm"><i class="fas fa-users"></i></a>
-                <a href="#" class="btn btn-warning btn-sm"> <i class="far fa-money-bill-alt"></i> </a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>                
+                <a href="#" class="btn btn-info btn-sm"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+                <a href="#" class="btn btn-success btn-sm"> <i class="fa fa-graduation-cap" aria-hidden="true"></i> </a>
+                <a href="#" class="btn btn-secondary btn-sm"> <i class="fa fa-list-ul" aria-hidden="true"></i> </a>
+                <a href="#" class="btn btn-dark btn-sm"> <i class="fa fa-check-square" aria-hidden="true"></i> </a>
+                <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-credit-card-alt" aria-hidden="true"></i> </a>
+                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i> </a>                
             </td>
             </tr>
         </tbody>

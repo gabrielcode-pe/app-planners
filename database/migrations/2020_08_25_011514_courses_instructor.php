@@ -18,7 +18,7 @@ class CoursesInstructor extends Migration
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->integer('instructor_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('instructors')->onDelete('cascade');
+            $table->foreign('instructor_id')->references('id')->on('instructors')->onDelete('cascade');
         });
     }
 
