@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('url_portrait', 45);
             $table->string('post_source');
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categorys')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
