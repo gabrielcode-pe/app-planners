@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Testimony;
+use App\Category;
+use App\Post;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,7 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        factory(Testimony::class, 30)->create();
+        
+        factory(Testimony::class, 20)->create();
+        //factory(Category::class, 2)->create();
+        factory(Post::class, 20)->create();
     }
 }

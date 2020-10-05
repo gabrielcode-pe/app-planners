@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Testimony;
+use App\Post;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -25,7 +26,8 @@ class FrontController extends Controller
 
     public function getPosts()
     {
-        return view('pages.posts');
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('pages.posts', compact('posts'));
     }
 
     public function getCoursesOwner()
@@ -54,9 +56,15 @@ class FrontController extends Controller
         return view('pages.js-consultores');
     }
 
-    public function getPostDetail()
+    public function getPostDetail($slug)
     {
-        return view('pages.post-detail');
+        $post = Post::where('slug', $slug)->first();
+
+        if($post){
+            return view('pages.post-detail', compact('post'));
+        }
+
+        abort(404);
     }
 
     public function getCourseDetail()

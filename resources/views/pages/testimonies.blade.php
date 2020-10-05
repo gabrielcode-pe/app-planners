@@ -7,7 +7,7 @@
         @foreach ($testimonies as $index => $testimony)
             <div class="testimonie-item {{$index % 2 != 0 ? 'yellow' : ''}}">
                 <div class="portrait">
-                    <img src="{{asset('assets/uploads/'.$testimony->url_img)}}" alt="">
+                    <img src="{{asset('assets/uploads/'.$testimony->url_img)}}" alt="{{$testimony->name}}">
                 </div>
                 <div class="info">
                     <p class="author-name">{{$testimony->name}}</p>
