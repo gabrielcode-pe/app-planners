@@ -2,12 +2,18 @@
 @section('titulo') Categorías @endsection
 
 @section('content')
+@if(Session::has('Mensaje'))
+    <div class="alert alert-success" role="alert">
+    {{ Session::get('Mensaje') }}
+    </div>
+@endif
+
 <div class="row mb-2">
     <section class="col-10">
         <h5>Administración de categorías</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
+        <a href="{{url('panel/category/create')}}" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
     </section>
 </div>
 
@@ -23,27 +29,28 @@
         <thead class="thead-dark">
             <tr>
                 <th width="4%" scope="col">#</th>
+                <th width="10%">Imagen</th>
                 <th scope="col">Categoría </th>
                 <th width="10%" scope="col"><i class="fa fa-cogs" aria-hidden="true"></i></th>
             </tr>
         </thead>
         <tbody>
+            @foreach($categorias as $categoria)
             <tr>
-                <td scope="row">1</td>
-                <td class="font-weight-light">Marketing</td>
+                <td scope="row">{{$loop->iteration}}</td>
+                <td> <img src="{{asset('assets/uploads/'.$categoria->url_portrait)}}" width="75" alt=""> </td>
+                <td class="font-weight-light">{{$categoria->name}}</td>
                 <td class="font-weight-light">
-                    <a href="#" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                    <a href="#" class="btn btn-danger btn-sm" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i> </a>                 
+                    <a href="{{url('panel/category/'.$categoria->id.'/edit')}}" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+
+                    <form method="post" action="{{ url('panel/category/'.$categoria->id) }}" style="display:inline;">
+                     {{csrf_field()}}
+                     {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Desea borrar esta categoría?')" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i>  </button>
+                    </form>
                 </td>
             </tr>
-            <tr>
-                <td scope="row">2</td>
-                <td class="font-weight-light">Coaching</td>
-                <td class="font-weight-light">
-                    <a href="#" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                    <a href="#" class="btn btn-danger btn-sm" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i> </a>                
-                </td>
-            </tr>
+            @endforeach
         </tbody>
         </table>
     </section>

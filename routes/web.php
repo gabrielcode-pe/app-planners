@@ -93,14 +93,25 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'PanelController@home')->name('panel.home');
 
         // Todas las rutas de panel aqui------------
-        Route::get('courses', function () { return view('admin.courses.index'); });
-        Route::get('courses/create', function () { return view('admin.courses.create'); });
-        Route::get('courses/assignment/', function () { return view('admin.courses.instructor-assignment'); });
+        Route::get('courses', 'CourseController@index'); //Listado de Cursos
+        Route::get('courses/create', 'CourseController@create'); //Agregar nuevo Curso
+        Route::post('courses', 'CourseController@store'); //Graba un nuevo curso
+        Route::get('courses/{id}/edit', 'CourseController@edit'); //Editar curso
+        Route::put('courses/{id}', 'CourseController@udpate'); //Graba actualización de curso
+        Route::delete('courses/{id}/destroy', 'CourseController@destroy'); //Eliminar el curso
+
+        Route::get('courses/{id}/assignment/', function () { return view('admin.courses.instructor-assignment'); });
         Route::get('courses/addmodule/', function () { return view('admin.courses.add-module'); });
         Route::get('courses/addprice/', function () { return view('admin.courses.add-price'); });
         Route::get('courses/addfeature/', function () { return view('admin.courses.add-feature'); });
-        Route::get('category', function () { return view('admin.category.index'); });
-        Route::get('category/create', function () { return view('admin.category.create'); });
+
+        // Route::get('category', 'CategoryController@index');
+        // Route::get('category/create', 'CategoryController@create');
+
+        Route::resource('category', 'CategoryController');
+        //Route::get('category', function () { return view('admin.category.index'); });
+        //Route::get('category/create', function () { return view('admin.category.create'); });
+
         Route::get('instructor', function () { return view('admin.instructor.index'); });
         Route::get('instructor/create', function () { return view('admin.instructor.create'); });
         Route::get('customer', function () { return view('admin.customer.index'); });
