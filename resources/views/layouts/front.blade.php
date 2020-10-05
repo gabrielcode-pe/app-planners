@@ -35,7 +35,7 @@
                     <li class="btn-submenu">
                         <a class="{{Route::is('courses') ? 'active' : ''}}" href="#">Cursos</a>
                         <ul class="submenu">
-                            <li><a href="{{route('courses')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Escuela de proyectistas</a></li>
+                            <li><a href="{{url('cursos?mod=premium')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Escuela de proyectistas</a></li>
                             <li><a href="{{route('courses.institutionls')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Institucionales</a></li>
                         </ul>
                     </li>

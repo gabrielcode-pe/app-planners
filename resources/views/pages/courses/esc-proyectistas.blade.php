@@ -4,151 +4,35 @@
 <div class="categories">
     <h4 class="title">Todos los cursos</h4>
     <ul>
-        <li><a class="active" href="#">Cursos premium</a></li>
-        <li><a  href="#">Cursos gratuitos</a></li>
+        <li><a  class="{{!$isFree ? 'active' : ''}}" href="{{url('/cursos?mod=premium')}}">Cursos premium</a></li>
+        <li><a  class="{{$isFree ? 'active' : ''}}" href="{{url('/cursos?mod=gratuito')}}">Cursos gratuitos</a></li>
     </ul>
 </div>
 <div class="courses-wrapper">
-    <h4 class="title">Cursos premium</h4>
+    <h4 class="title">Cursos {{$isFree ? 'gratuitos' : 'premium'}}</h4>
     <div class="courses-list">
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
+        @foreach ($courses as $course)
+            <div class="course-item">
+                <div class="portrait">
+                    <img src="{{asset('assets/uploads/'.$course->url_portrait)}}" alt="{{$course->name}}">
+                    @if(!$course->is_free)
+                        <div class="price"><p>S/. 45.00</p></div>
+                    @endif
+                </div>
+                <div class="detail">
+                    <h5 class="title">{{$course->name}}</h5>
+                    <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
+                    <p class="author">{{$course->instructor->name}}</p>
+                    <div class="actions">
+                        @if(!$course->is_free)
+                            <button onclick="addCourseToCart(this)" data-course='{{json_encode($course)}}' class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></button>
+                        @endif
+                        <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
+                    </div>
                 </div>
             </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <button onclick="addCourseToCart(this)" data-course='{{json_encode(["id" => 1, "title" => "Curso 1", "description" => "Hola description", "author" => "Nombre autor", "price" => 22.5, "url_portrait" => "foto.jpg"])}}' class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></button>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
-                </div>
-            </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
-                </div>
-            </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
-                </div>
-            </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
-                </div>
-            </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
-                </div>
-            </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
-                </div>
-            </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        <div class="course-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="course item">
-                <div class="price">
-                    <p>S/. 45.00</p>
-                </div>
-            </div>
-            <div class="detail">
-                <h5 class="title">titulo del curso</h5>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
-                <p class="author">Autor</p>
-                <div class="actions">
-                    <a href="#" class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
-                </div>
-            </div>
-        </div>
-        
-        
+            
+        @endforeach
     </div>
 </div>
 @endsection

@@ -26,6 +26,9 @@ class Courses extends Migration
             $table->foreign('instructor_id')->references('id')->on('instructors')->onDelete('cascade');
             
             $table->integer('institution_id')->unsigned();
+
+            $table->date('date_start')->nullable();
+
             $table->timestamps();            
         });
     }

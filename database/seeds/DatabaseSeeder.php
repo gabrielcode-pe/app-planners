@@ -4,6 +4,9 @@ use Illuminate\Database\Seeder;
 use App\Testimony;
 use App\Category;
 use App\Post;
+use App\Institution;
+use App\Instructor;
+use App\Course;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,8 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         
-        factory(Testimony::class, 20)->create();
-        //factory(Category::class, 2)->create();
-        factory(Post::class, 20)->create();
+        // factory(Testimony::class, 20)->create();
+        // factory(Post::class, 20)->create();
+        // factory(Instructor::class, 1)->create();
+        factory(Course::class, 20)->create();
+        
     }
 }

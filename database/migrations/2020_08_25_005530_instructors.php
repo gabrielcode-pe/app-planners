@@ -16,8 +16,8 @@ class Instructors extends Migration
         Schema::create('instructors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('url_img', 12);
-            $table->string('info');
+            $table->string('url_img', 30);
+            $table->text('info');
             $table->string('slug');
             $table->timestamps();
         });

@@ -258,6 +258,7 @@ a{
     width: 20%;
     background-color: var(--primary-yellow);
     border-radius: 0 5px 5px 0;
+    padding-bottom: 20px;
 
 }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Testimony;
 use App\Post;
+use App\Course;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -30,9 +31,28 @@ class FrontController extends Controller
         return view('pages.posts', compact('posts'));
     }
 
-    public function getCoursesOwner()
+    public function getCoursesOwner(Request $request)
     {
-        return view('pages.courses.esc-proyectistas');
+        $validMods = ['premium', 'gratuito'];
+       
+
+        if($request->has('mod')){
+
+            $mod = $request->mod;
+
+            if(in_array($mod, $validMods)){
+
+                $isFree = $mod == 'gratuito' ? 1 : 0;
+
+                $courses = Course::where('institution_id', 1)->where('is_free', $isFree)->orderBy('date_start', 'asc')->get();
+                return view('pages.courses.esc-proyectistas', compact('courses', 'isFree'));
+            }
+
+            abort(404);
+
+        }
+
+        abort(404);
     }
 
     public function getInstitutionlCourses()
