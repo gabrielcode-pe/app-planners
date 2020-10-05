@@ -20,7 +20,7 @@ class Testimonies extends Migration
             $table->string('info_detail');
             $table->string('jobtitle', 60);
             $table->string('company', 60);
-            $table->string('url_img', 12);
+            $table->string('url_img', 30);
             $table->timestamps();
         });
     }

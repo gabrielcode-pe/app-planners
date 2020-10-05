@@ -20,8 +20,8 @@ class Courses extends Migration
             $table->string('info');
             $table->string('slug');
             $table->boolean('is_free');
-            $table->string('url_portrait', 12);
-            
+            $table->string('url_portrait', 30);
+
             $table->integer('instructor_id')->unsigned();
             $table->foreign('instructor_id')->references('id')->on('instructors')->onDelete('cascade');
             
