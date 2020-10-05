@@ -21,8 +21,11 @@ class Courses extends Migration
             $table->string('slug');
             $table->boolean('is_free');
             $table->string('url_portrait', 12);
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            
+            $table->integer('instructor_id')->unsigned();
+            $table->foreign('instructor_id')->references('id')->on('instructors')->onDelete('cascade');
+            
+            $table->integer('institution_id')->unsigned();
             $table->timestamps();            
         });
     }

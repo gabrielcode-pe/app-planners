@@ -14,12 +14,11 @@ class CreateCourseFeaturesTable extends Migration
     public function up()
     {
         Schema::create('course_features', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('info',100);
+            $table->string('ft_icon',100);
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->integer('icon_id')->unsigned();
-            $table->foreign('icon_id')->references('id')->on('icons')->onDelete('cascade');
         });
     }
 

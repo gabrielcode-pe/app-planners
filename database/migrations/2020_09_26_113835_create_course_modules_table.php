@@ -14,7 +14,7 @@ class CreateCourseModulesTable extends Migration
     public function up()
     {
         Schema::create('course_modules', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name', 120);
             $table->string('info');
             $table->string('url_img', 45)->nullable();

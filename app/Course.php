@@ -5,10 +5,15 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     //
-    protected $fillable=['name', 'seo', 'info', 'slug', 'is_free', 'url_portrait', 'category_id'];
+    protected $fillable=['name', 'seo', 'info', 'slug', 'is_free', 'url_portrait', 'institution_id', 'instructor_id'];
 
-    public function Category()
+    public function institution()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Institution::class, 'institution_id');
+    }
+
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class, 'instructor_id');
     }
 }
