@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Testimony;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -18,7 +19,8 @@ class FrontController extends Controller
 
     public function getTestimonies()
     {
-        return view('pages.testimonies');
+        $testimonies = Testimony::orderBy('created_at', 'desc')->get();
+        return view('pages.testimonies', compact('testimonies'));
     }
 
     public function getPosts()

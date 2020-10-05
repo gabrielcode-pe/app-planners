@@ -12,6 +12,6 @@ $factory->define(Testimony::class, function (Faker $faker) {
         'info_detail' => $faker->paragraph,
         'jobtitle' => $faker->jobTitle,
         'company' => $faker->company,
-        'url_img' => 'default_user.jpg'
+        'url_img' => 'default-user.jpg'
     ];
 });
