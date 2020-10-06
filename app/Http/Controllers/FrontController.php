@@ -11,7 +11,11 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        $testimonies = Testimony::orderBy('created_at', 'desc')->limit(8)->get();
+
+        $courses = Course::where('institution_id', 1)->where('is_free', 1)->orderBy('date_start', 'asc')->limit(9)->get();
+
+        return view('pages.index', compact('testimonies', 'courses'));
     }
 
     public function contactView()
