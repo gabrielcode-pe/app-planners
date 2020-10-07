@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Testimony;
 use App\Post;
 use App\Course;
+use App\Institution;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -59,9 +60,40 @@ class FrontController extends Controller
         abort(404);
     }
 
-    public function getInstitutionlCourses()
+    public function getInstitutionlCourses(Request $request)
     {
-        return view('pages.courses.institutionals');
+        $institutions = Institution::where('id', '<>', 1)->get();
+
+        $courses = Course::where('institution_id', '<>', 1);
+
+        $institucionSlug = '';
+
+        if($request->has('institucion')){
+
+            $institucionSlug = $request->institucion;
+
+            $institution = Institution::where('slug', $institucionSlug)->first();
+
+
+            if($institution){
+
+                $courses = $courses->where('institution_id', $institution->id)->orderBy('date_start', 'asc')->get();
+
+            }else{
+                
+                abort(404);
+            }
+
+            
+
+        }else{
+
+            $courses = $courses->orderBy('date_start', 'asc')->get();
+        }
+
+        
+
+        return view('pages.courses.institutionals', compact('courses', 'institutions', 'institucionSlug'));
     }
 
     public function frecuentQuestions()

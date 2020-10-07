@@ -90,8 +90,6 @@
 
         renderShoppingCart();
         updateCouterCart();
-
-        console.log(itemId);
     }
 </script>
 @endsection
