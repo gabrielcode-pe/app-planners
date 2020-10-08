@@ -97,7 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('courses/create', 'CourseController@create'); //Agregar nuevo Curso
         Route::post('courses', 'CourseController@store'); //Graba un nuevo curso
         Route::get('courses/{id}/edit', 'CourseController@edit'); //Editar curso
-        Route::put('courses/{id}', 'CourseController@udpate'); //Graba actualización de curso
+        Route::put('courses/{id}', 'CourseController@update'); //Graba actualización de curso
         Route::delete('courses/{id}/destroy', 'CourseController@destroy'); //Eliminar el curso
 
         Route::get('courses/{id}/assignment/', function () { return view('admin.courses.instructor-assignment'); });

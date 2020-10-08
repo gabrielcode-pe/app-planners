@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Course;
-use App\Category;
+use App\Instructor;
+use App\Institution;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class CourseController extends Controller
 {
@@ -15,9 +18,13 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
-        $courses=Course::all();
-        return view('admin.courses.index', compact('courses'));
+        // $courses=Course::all();
+        // return view('admin.courses.index', compact('courses'));
+        $cursos= DB::table('courses as c')
+        ->join('instructors as d','c.instructor_id','=','d.id')
+        ->join('institutions as i','c.institution_id','=','i.id')
+        ->select('c.id','c.name as curso','d.name as docente','i.name as institucion','c.is_free','c.url_portrait','c.date_start')->paginate(5);
+        return view('admin.courses.index',compact('cursos'));
     }
 
     /**
@@ -28,8 +35,9 @@ class CourseController extends Controller
     public function create()
     {
         //
-        $categories=Category::all();
-        return view('admin.courses.create', compact('categories'));
+        $instructors=Instructor::all();
+        $institutions=Institution::all();
+        return view('admin.courses.create', compact('instructors', 'institutions'));
     }
 
     /**
@@ -40,7 +48,36 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+    		'name'=>'required|string|max:255|unique:courses',
+            'summary'=>'required|string|max:120|',
+            'info'=>'required|string|max:255',
+            'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'	
+        ]);
+        
+        //return response()->json($request);
+
+    	if($request->hasFile('url_portrait')){
+            $slug=\Str::slug($request->name);
+            $url_portrait = $request -> file('url_portrait');
+            $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
+            $destino = public_path('assets/uploads');
+            $request->url_portrait->move($destino, $nombrefinal);
+            $data['url_portrait']=$nombrefinal;
+        }
+
+    	Course::create([
+    		'url_portrait'=>$nombrefinal,
+            'name'=>$request->name,
+            'slug'=>$slug,
+            'seo'=>$request->summary,
+            'is_free'=>$request->status,
+            'instructor_id'=>$request->instructor,
+            'institution_id'=>$request->institution,
+            'date_start'=>$request->date_start,
+            'info'=>$request->info
+    	]);
+    	return redirect('panel/courses')->with('Mensaje','Curso agregado correctamente');
     }
 
     /**
@@ -60,9 +97,16 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit($id)
     {
-        //
+        $instructors=Instructor::all();
+        $institutions=Institution::all();
+        $curso= DB::table('courses as c')
+        ->join('instructors as d','c.instructor_id','=','d.id')
+        ->join('institutions as i','c.institution_id','=','i.id')
+        ->select('c.id','c.name as curso','c.info','c.seo','d.id as docente_id','d.name as docente','i.id as institucion_id','i.name as institucion','c.is_free','c.url_portrait','c.date_start')
+        ->where('c.id','=',$id)->first();
+        return view('admin.courses.edit',compact('curso','instructors','institutions'));
     }
 
     /**
@@ -72,9 +116,51 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $id)
     {
-        //
+        //return response()->json($request);
+        //Validación
+        $this->validate($request,[
+    		'name'=>'required|string|max:255',
+            'summary'=>'required|string|max:120|',
+            'info'=>'required|string|max:255'
+        ]);
+        $curso = Course::find($id);
+        if($request->hasFile('url_portrait')){
+            //Validando el archivo
+            $this->validate($request,[
+            'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
+            ]);
+            //Elimina el documento anterior
+            unlink(public_path().'/assets/uploads/'.$curso->url_portrait);
+            //Recuperando extensión de la nueva imagen
+            $url_portrait = $request->file('url_portrait');
+            $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
+            //Definiendo ruta de subida            
+            $destino = public_path('assets/uploads');
+            $request->url_portrait->move($destino, $nombrefinal);
+            //Asignando el nuevo nombre a guardar
+            $curso->url_portrait=$nombrefinal;
+            //$curso->save();
+        }
+
+        if ($request->name !=$curso->name) {
+            $slugupdate=\Str::slug($request->name);
+            $curso->name=$request->titulo;
+            $curso->slug =$slugupdate;
+        }
+
+        $curso->name=$request->name;
+        $curso->seo=$request->summary;
+        $curso->info=$request->info;
+        $curso->is_free=$request->status;
+        $curso->date_start=$request->date_start;
+        $curso->instructor_id=$request->instructor;
+        $curso->institution_id=$request->institution;        
+        $curso->save();
+
+        return redirect('panel/courses')->with('Mensaje','Curso actualizado correctamente');
+
     }
 
     /**
@@ -83,8 +169,26 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        //
+        $curso = Course::find($id);
+        //Eliminando el archivo
+        unlink(public_path().'/assets/uploads/'.$curso->url_portrait);
+        $curso->delete();
+        return redirect('panel/courses')->with('Mensaje','Curso eliminado correctamente');
+    }
+
+    private function str_unico($l)
+    {
+        $keychars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $length = $l;
+        $randkey = "";
+        $max=strlen($keychars)-1;
+
+        for ($i=0;$i<$length;$i++) {
+
+        $randkey .= substr($keychars, rand(0, $max), 1);
+        }
+        return time().$randkey;
     }
 }
