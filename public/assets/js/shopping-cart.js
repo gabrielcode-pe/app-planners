@@ -22,7 +22,7 @@ ShoppingCart.prototype.addItem = function addItem(item){
 }
 
 
-ShoppingCart.prototype.removeCourse = function removeCourse(itemId){
+ShoppingCart.prototype.removeItem = function removeItem(itemId){
 
     let newList = this.allItems.filter(currentItem =>{
         return currentItem.id != itemId;

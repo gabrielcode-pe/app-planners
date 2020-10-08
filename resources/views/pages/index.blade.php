@@ -8,98 +8,46 @@
 <div class="section-when-header-with-bg">
     <h1 class="title">Sistema educativo premium</h1>
     <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, eaque.</p>
-    <a href="{{route('courses')}}" class="btn btn-yellow">Descubre nuestros cursos</a>
+    <a href="{{url('cursos?mod=premium')}}" class="btn btn-yellow">Descubre nuestros cursos</a>
 </div>   
 @endsection
 
 @section('content')
 <h2 class="slider-title">Cursos gratuitos</h2>
 <div class="slider-courses">
-    <div class="course-item">
-        <h4 class="title">Contratos en la actualidad</h4>
-        <a href="#">
-            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
-        </a>
-    </div>
-
-    <div class="course-item">
-        <h4 class="title">Contratos en la actualidad</h4>
-        <a href="#">
-            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
-        </a>
-    </div>
-
-    <div class="course-item">
-        <h4 class="title">Contratos en la actualidad</h4>
-        <a href="#">
-            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
-        </a>
-    </div>
-
-    <div class="course-item">
-        <h4 class="title">Contratos en la actualidad</h4>
-        <a href="#">
-            <img src="{{asset('assets/images/course-image2.jpeg')}}" alt="">
-        </a>
-    </div>
+    @foreach ($courses as $course)
+        <div class="course-item">
+            <h4 class="title">{{$course->name}}</h4>
+            <a href="#">
+                <img src="{{asset('assets/uploads/'.$course->url_portrait)}}" alt="">
+            </a>
+        </div>
+    @endforeach
 </div>
 
 <div class="slider-action">
-    <a href="#" class="btn btn-info-outline">Ver todos nuestros cursos gratis</a>
+    <a href="{{url('/cursos?mod=gratuito')}}" class="btn btn-info-outline">Ver todos nuestros cursos gratis</a>
 </div>
 
 <h2 class="slider-title">Testimonios</h2>
 
 <div class="testimonies-whraper">
     <div class="testimonies slider-testimonies">
-        <div class="testimonie-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/author1.jpg')}}" alt="">
-            </div>
-            <div class="info">
-                <p class="author-name">Jorge Zaen G.</p>
-                <p class="author-speciality">Director de activos</p>
+        @foreach ($testimonies as $index => $testimony)
+            <div class="testimonie-item {{$index % 2 != 0 ? 'yellow' : ''}}">
+                <div class="portrait">
+                    <img src="{{asset('assets/uploads/'.$testimony->url_img)}}" alt="{{$testimony->name}}">
+                </div>
+                <div class="info">
+                    <p class="author-name">{{$testimony->name}}</p>
+                    <p class="author-speciality">{{$testimony->jobtitle}}</p>
 
-                <p class="write-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam autem quaerat quo perferendis vero facilis in, iure at ut aliquid non dolorem cum fugiat! Dolorum ipsum autem suscipit praesentium dicta non quae cum perspiciatis quos. Totam molestiae ipsum soluta quibusdam repellat sint velit, doloremque animi temporibus quod, laborum non quis odit ea et nobis aperiam maxime iste, fuga harum voluptatum magni dolore! Veniam accusamus modi eum ipsa fugiat nulla inventore?</p>
+                    <p class="write-text">{{$testimony->description}}</p>
+                    <p class="write-text">{{$testimony->info_detail}}</p>
+                </div>
             </div>
-        </div>
-
-        <div class="testimonie-item yellow">
-            <div class="portrait">
-                <img src="{{asset('assets/images/author1.jpg')}}" alt="">
-            </div>
-            <div class="info">
-                <p class="author-name">Jorge Zaen G.</p>
-                <p class="author-speciality">Director de activos</p>
-
-                <p class="write-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus ullam quaerat recusandae numquam dolorem soluta culpa enim ad minus. Iste, explicabo animi minus quaerat suscipit inventore magni exercitationem neque doloremque!</p>
-            </div>
-        </div>
-
-
-        <div class="testimonie-item">
-            <div class="portrait">
-                <img src="{{asset('assets/images/author1.jpg')}}" alt="">
-            </div>
-            <div class="info">
-                <p class="author-name">Jorge Zaen G.</p>
-                <p class="author-speciality">Director de activos</p>
-
-                <p class="write-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus ullam quaerat recusandae numquam dolorem soluta culpa enim ad minus. Iste, explicabo animi minus quaerat suscipit inventore magni exercitationem neque doloremque!</p>
-            </div>
-        </div>
-
-        <div class="testimonie-item yellow">
-            <div class="portrait">
-                <img src="{{asset('assets/images/author1.jpg')}}" alt="">
-            </div>
-            <div class="info">
-                <p class="author-name">Jorge Zaen G.</p>
-                <p class="author-speciality">Director de activos</p>
-
-                <p class="write-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus ullam quaerat recusandae numquam dolorem soluta culpa enim ad minus. Iste, explicabo animi minus quaerat suscipit inventore magni exercitationem neque doloremque!</p>
-            </div>
-        </div>
+            
+        @endforeach
     </div>
 </div>
 @endsection
