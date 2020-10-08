@@ -46,14 +46,14 @@
             <td class="font-weight-light"> {{ $curso->curso }} </td>
             <td class="font-weight-light"> {{ $curso->docente }} </td>
             <td class="font-weight-light"> {{ $curso->institucion }} </td>
-            <td class="font-weight-light"><span class="badge badge-primary">S/. 150.00</span></td>
+            <td class="font-weight-light"><span class="badge badge-primary">S/. {{$curso->amount}}</span></td>
             <td class="font-weight-light"> {{ $curso->date_start }}</td>
             <td class="font-weight-bold"> <strong><span class="text-success"> {{ $curso->is_free }} </span> </strong></td>
             <td width="18%" class="font-weight-light">
                 <a href="{{url('panel/courses/'.$curso->id.'/edit')}}" class="btn btn-info btn-sm"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
                 <a href="#" class="btn btn-secondary btn-sm"> <i class="fa fa-list-ul" aria-hidden="true"></i> </a>
                 <a href="#" class="btn btn-dark btn-sm"> <i class="fa fa-check-square" aria-hidden="true"></i> </a>
-                <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-credit-card-alt" aria-hidden="true"></i> </a>
+                <a href="{{url('panel/courses/'.$curso->id.'/addprice')}}" class="btn btn-warning btn-sm"> <i class="fa fa-credit-card-alt" aria-hidden="true"></i> </a>
                 <!-- <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i> </a> -->
                 
                 <form method="post" action="{{ url('panel/courses/'.$curso->id.'/destroy' ) }}" style="display:inline;">

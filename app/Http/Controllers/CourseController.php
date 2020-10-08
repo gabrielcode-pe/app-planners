@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Instructor;
 use App\Institution;
+use App\Price;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,9 @@ class CourseController extends Controller
         $cursos= DB::table('courses as c')
         ->join('instructors as d','c.instructor_id','=','d.id')
         ->join('institutions as i','c.institution_id','=','i.id')
-        ->select('c.id','c.name as curso','d.name as docente','i.name as institucion','c.is_free','c.url_portrait','c.date_start')->paginate(5);
+        ->join('course_prices as p','p.course_id','=','c.id')
+        ->select('c.id','c.name as curso','d.name as docente','i.name as institucion','p.amount','c.is_free','c.url_portrait','c.date_start')->paginate(5);
+        //return response()->json($cursos);
         return view('admin.courses.index',compact('cursos'));
     }
 
@@ -66,17 +69,37 @@ class CourseController extends Controller
             $data['url_portrait']=$nombrefinal;
         }
 
-    	Course::create([
-    		'url_portrait'=>$nombrefinal,
-            'name'=>$request->name,
-            'slug'=>$slug,
-            'seo'=>$request->summary,
-            'is_free'=>$request->status,
-            'instructor_id'=>$request->instructor,
-            'institution_id'=>$request->institution,
-            'date_start'=>$request->date_start,
-            'info'=>$request->info
-    	]);
+    	// Course::create([
+    	// 	'url_portrait'=>$nombrefinal,
+        //     'name'=>$request->name,
+        //     'slug'=>$slug,
+        //     'seo'=>$request->summary,
+        //     'is_free'=>$request->status,
+        //     'instructor_id'=>$request->instructor,
+        //     'institution_id'=>$request->institution,
+        //     'date_start'=>$request->date_start,
+        //     'info'=>$request->info
+        // ]);
+
+        $course=new Course();
+        $course->url_portrait=$nombrefinal;
+        $course->name = $request->name;
+        $course->slug=$slug;
+        $course->seo=$request->summary;
+        $course->is_free=$request->status;
+        $course->instructor_id=$request->instructor;
+        $course->institution_id=$request->institution;
+        $course->date_start=$request->date_start;
+        $course->info=$request->info;
+        $course->save();
+
+        $precio=new Price();
+        $precio->course_id= $course->id;
+        $precio->amount=0;
+        $precio->price_info='Precio';
+        $precio->is_active=1;
+        $precio->save();
+
     	return redirect('panel/courses')->with('Mensaje','Curso agregado correctamente');
     }
 
@@ -190,5 +213,51 @@ class CourseController extends Controller
         $randkey .= substr($keychars, rand(0, $max), 1);
         }
         return time().$randkey;
+    }
+
+    //Extras
+    public function managePrice($id)
+    {
+        $curso = Course::find($id);
+        $prices= DB::table('courses as c')
+        ->join('course_prices as p','p.course_id','=','c.id')
+        ->select('c.id','p.id as precio_id','p.price_info','p.amount','p.is_active')
+        ->where('c.id','=',$id)->get();
+        //return response()->json($prices);
+        return view('admin.courses.add-price',compact('curso','prices'));
+    }
+    public function addPrice(Request $request)
+    {
+        $this->validate($request,[
+    		'price'=>'required|integer',
+            'description'=>'required|string|max:25|'
+        ]);
+
+        $id=$request->course_id;
+
+        Price::create([
+    		'price_info'=>$request->description,
+            'amount'=>$request->price,
+            'is_active'=>$request->status,
+            'course_id'=>$id
+    	]);
+    	return redirect('panel/courses/'.$id.'/addprice')->with('Mensaje','Precio agregado correctamente');
+    }
+    public function destroyPrice($id, $precio_id)
+    {
+        $price=Price::find($precio_id);
+        $price->delete();
+        return redirect('panel/courses/'.$id.'/addprice')->with('Mensaje','Precio eliminado correctamente');
+    }
+    public function activatePrice($id, $precio_id)
+    {
+        //Reactualizando Activos
+        $all = DB::table('course_prices')
+              ->where('course_id', $id)
+              ->update(['is_active' => 0]);
+        $price=Price::find($precio_id);
+        $price->is_active=1;
+        $price->save();
+        return redirect('panel/courses/'.$id.'/addprice')->with('Mensaje','Nuevo precio activado como visible');
     }
 }
