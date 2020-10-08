@@ -25,7 +25,8 @@ class CourseController extends Controller
         ->join('instructors as d','c.instructor_id','=','d.id')
         ->join('institutions as i','c.institution_id','=','i.id')
         ->join('course_prices as p','p.course_id','=','c.id')
-        ->select('c.id','c.name as curso','d.name as docente','i.name as institucion','p.amount','c.is_free','c.url_portrait','c.date_start')->paginate(5);
+        ->select('c.id','c.name as curso','d.name as docente','i.name as institucion','p.amount','c.is_free','c.url_portrait','c.date_start')
+        ->where('p.is_active','=',1)->paginate(5);
         //return response()->json($cursos);
         return view('admin.courses.index',compact('cursos'));
     }

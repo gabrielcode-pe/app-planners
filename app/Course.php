@@ -16,7 +16,7 @@ class Course extends Model
     {
         return $this->belongsTo(Instructor::class, 'instructor_id');
     }
-    public function price()
+    public function prices()
     {
         return $this->hasMany(Price::class);
     }
