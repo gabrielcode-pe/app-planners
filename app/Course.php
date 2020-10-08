@@ -18,6 +18,6 @@ class Course extends Model
     }
     public function price()
     {
-        return $this->belongsTo(Price::class, 'course_id');
+        return $this->hasMany(Price::class);
     }
 }

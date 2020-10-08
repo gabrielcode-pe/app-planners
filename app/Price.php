@@ -11,6 +11,6 @@ class Price extends Model
     protected $fillable=['price_info','amount','is_active','course_id'];
     public function courses()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsTo(Courses::class, 'course_id');
     }
 }
