@@ -6,6 +6,7 @@ use App\Course;
 use App\Instructor;
 use App\Institution;
 use App\Price;
+use App\Module;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,16 +20,18 @@ class CourseController extends Controller
      */
     public function index()
     {
-        // $courses=Course::all();
-        // return view('admin.courses.index', compact('courses'));
-        $cursos= DB::table('courses as c')
-        ->join('instructors as d','c.instructor_id','=','d.id')
-        ->join('institutions as i','c.institution_id','=','i.id')
-        ->join('course_prices as p','p.course_id','=','c.id')
-        ->select('c.id','c.name as curso','d.name as docente','i.name as institucion','p.amount','c.is_free','c.url_portrait','c.date_start')
-        ->where('p.is_active','=',1)->paginate(5);
-        //return response()->json($cursos);
-        return view('admin.courses.index',compact('cursos'));
+    $cursos= DB::table('courses as c')
+    ->join('instructors as d','c.instructor_id','=','d.id')
+    ->join('institutions as i','c.institution_id','=','i.id')
+    ->join('course_prices as p','p.course_id','=','c.id')
+    ->select('c.id','c.name as curso','d.name as instructor','i.name as institution','p.amount','c.is_free','c.url_portrait','c.date_start')
+    ->where('p.is_active','=',1)->paginate(5);
+
+    // $cursos = Course::with(['instructor', 'institution', 'prices' => function($query){
+    //     $query->where('is_active', 1);
+    // }])->paginate(5);
+
+    return view('admin.courses.index',compact('cursos'));
     }
 
     /**
@@ -216,7 +219,8 @@ class CourseController extends Controller
         return time().$randkey;
     }
 
-    //Extras
+    //******************** Funciones Extras para administrar extras en los cursos ******************************
+    //Precios
     public function managePrice($id)
     {
         $curso = Course::find($id);
@@ -260,5 +264,52 @@ class CourseController extends Controller
         $price->is_active=1;
         $price->save();
         return redirect('panel/courses/'.$id.'/addprice')->with('Mensaje','Nuevo precio activado como visible');
+    }
+    //Módulos
+    public function manageModule($id)
+    {
+        $curso = Course::find($id);
+        $modules= DB::table('courses as c')
+        ->join('course_modules as m','m.course_id','=','c.id')
+        ->select('c.id as course_id','m.id','m.name','m.info','m.url_img', 'm.duration','m.position')
+        ->where('c.id','=',$id)->orderBy('m.position','desc')->paginate(10);
+
+        //return response()->json($prices);
+        return view('admin.courses.add-module',compact('curso','modules'));
+    }
+
+    public function addModule(Request $request)
+    {
+        $this->validate($request,[
+            'name'=>'required|string|max:120|',
+            'info'=>'required|string|max:255',
+            'duration'=>'string|max:20',
+            'url_img'=>'mimes:jpg,png,jpeg|max:150',
+            'position'=>'required|integer'
+        ]);
+        $id=$request->course_id;
+
+        if($request->hasFile('url_img')){
+            $url_img = $request -> file('url_img');
+            $nombrefinal = $this->str_unico(8).'.'.$url_img->getClientOriginalExtension();
+            $destino = public_path('assets/uploads');
+            $request->url_img->move($destino, $nombrefinal);
+        }
+        Module::create([
+    		'name'=>$request->name,
+            'info'=>$request->info,
+            'duration'=>$request->duration,
+            'position'=>$request->position,
+            'url_img'=>$nombrefinal,
+            'course_id'=>$id
+    	]);
+    	return redirect('panel/courses/'.$id.'/addmodule')->with('Mensaje','Módulo agregado correctamente');
+    }
+    public function destroyModule($id, $module_id)
+    {
+        $module=Module::find($module_id);
+        unlink(public_path().'/assets/uploads/'.$module->url_img);
+        $module->delete();
+        return redirect('panel/courses/'.$id.'/addmodule')->with('Mensaje','Modulo eliminado correctamente');
     }
 }

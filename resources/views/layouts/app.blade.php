@@ -53,10 +53,10 @@
               <a class="list-group-item list-group-item-action active">
                 <span><i class="fa fa-cog" aria-hidden="true"></i></span> <span class="hidden">Opciones</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/courses')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-book" aria-hidden="true"></i></span> <span class="hidden">Cursos</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/category')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-th-list" aria-hidden="true"></i></span> <span class="hidden">Categorías</span>
               </a>
               <a href="#" class="list-group-item list-group-item-action text-primary">

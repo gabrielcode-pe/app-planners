@@ -20,4 +20,8 @@ class Course extends Model
     {
         return $this->hasMany(Price::class);
     }
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
 }

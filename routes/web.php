@@ -104,12 +104,16 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('courses/{id}/addprice', 'CourseController@managePrice'); //Listado de Precio por Curso
         Route::post('courses/addprice', 'CourseController@addPrice'); //Agregar Precio por Curso
         Route::delete('courses/{id}/addprice/{precio_id}', 'CourseController@destroyPrice'); //Eliminar Precio del Curso
-
         Route::put('courses/{id}/addprice/{precio_id}', 'CourseController@activatePrice'); //Graba actualización de curso
-        //Route::get('courses/addprice/{id}', function () { return view('admin.courses.add-price'); }); //Listado de Precio por Curso
+
+
+        Route::get('courses/{id}/addmodule', 'CourseController@manageModule'); //Listado de Módulos por Curso
+        Route::post('courses/addmodule', 'CourseController@addModule'); //Agregar Módulo a Curso
+        Route::delete('courses/{id}/addmodule/{module_id}', 'CourseController@destroyModule'); //Eliminar Modulo del Curso
+
 
         Route::get('courses/{id}/assignment/', function () { return view('admin.courses.instructor-assignment'); });
-        Route::get('courses/addmodule/', function () { return view('admin.courses.add-module'); });        
+          
         Route::get('courses/addfeature/', function () { return view('admin.courses.add-feature'); });
 
         // Route::get('category', 'CategoryController@index');
