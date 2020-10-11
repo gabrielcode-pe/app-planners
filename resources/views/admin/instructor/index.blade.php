@@ -2,12 +2,17 @@
 @section('titulo') Docentes @endsection
 
 @section('content')
+@if(Session::has('Mensaje'))
+    <div class="alert alert-success" role="alert">
+    {{ Session::get('Mensaje') }}
+    </div>
+@endif
 <div class="row mb-2">
     <section class="col-10">
         <h5>Administración de Docentes</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
+        <a href="{{url('panel/instructor/create')}}" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
     </section>
 </div>
 
@@ -26,24 +31,33 @@
                 <th scope="col">Foto </th>
                 <th scope="col">Nombres completos </th>
                 <th scope="col">Perfil </th>
-                <th width="10%" scope="col"><i class="fas fa-cog"></i></th>
+                <th width="10%" scope="col"> <i class="fa fa-cogs" aria-hidden="true"></i> </th>
             </tr>
         </thead>
         <tbody>
+            @foreach($instructors as $instructor)
             <tr>
-                <td scope="row">1</td>
-                <td> <img src="{{asset('assets/images/author1.jpg')}}" width="75" alt=""> </td>
-                <td class="font-weight-light">Alan Brito Delgado</td>
+                <td scope="row">{{$loop->iteration}}</td>
+                <td> <img src="{{asset('assets/uploads/'.$instructor->url_img)}}" width="75" alt=""> </td>
+                <td class="font-weight-light">{{$instructor->name}}</td>
                 <td class="font-weight-light">
-                    <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium vero, a odit non molestias maxime! Facilis, minus. Expedita, rerum inventore vitae ab iste sint, asperiores nihil blanditiis dolores nesciunt culpa?</small>
+                    <small>{{$instructor->info}}</small>
                 </td>
                 <td class="font-weight-light">
-                    <a href="#" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>                
+                    <a href="{{url('panel/instructor/'.$instructor->id.'/edit')}}" class="btn btn-info btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <form method="post" action="{{ url('panel/instructor/'.$instructor->id.'/destroy' ) }}" style="display:inline;">
+                    {{csrf_field()}}
+                    {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Desea borrar este docente?')" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i>  </button>
+                    </form>               
                 </td>
             </tr>
+            @endforeach
         </tbody>
         </table>
+    </section>
+    <section class="col-12">
+    {!!$instructors->render()!!}
     </section>
 </div>
 @endsection

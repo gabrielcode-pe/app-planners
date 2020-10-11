@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('titulo') Registrar testimonio @endsection
+@section('titulo') Modificar testimonio @endsection
 
 @section('content')
 <div class="row mb-2">
@@ -11,12 +11,14 @@
     </section>
 </div>
 
-    <form action="{{ url('/panel/testimony') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('/panel/testimony/'.$testimony->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
+    {{ method_field('PUT')}}
     <div class="row">    
     <section class="col-12 col-md-3">
     <div class="form-group">
-            <input type="file" class="form-control-file {{ $errors->has('url_portrait') ? ' is-invalid' : '' }}" name="url_portrait" id="url_portrait" required>
+            <img src="{{asset('assets/uploads/'.$testimony->url_img)}}" class="img-fluid" alt="">
+            <input type="file" class="form-control-file {{ $errors->has('url_portrait') ? ' is-invalid' : '' }}" name="url_portrait" id="url_portrait">
             @if ($errors->has('url_portrait'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('url_portrait') }}
@@ -28,7 +30,7 @@
 
     <section class="col-12 col-md-9">
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" value="{{old('name')}}" placeholder="Nombre completo" required>
+            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" value="{{$testimony->name}}" placeholder="Nombre completo">
             @if ($errors->has('name'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('name') }}
@@ -37,7 +39,7 @@
             <small id="name" class="form-text text-muted">Max. 255 caracteres.</small>
         </div>
         <div class="form-group">
-            <textarea name="summary" id="summary" rows="3" class="form-control {{ $errors->has('summary') ? ' is-invalid' : '' }}" placeholder="Ingrese resumen del testimonio" required>{{old('summary')}}</textarea>
+            <textarea name="summary" id="summary" rows="3" class="form-control {{ $errors->has('summary') ? ' is-invalid' : '' }}" placeholder="Ingrese resumen del testimonio">{{$testimony->description}}</textarea>
             @if ($errors->has('summary'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('summary') }}
@@ -49,7 +51,7 @@
 
     <section class="col-12">
         <div class="form-group">
-            <textarea name="body" id="body" rows="4" class="form-control ckeditor {{ $errors->has('body') ? ' is-invalid' : '' }}">{{old('body')}}</textarea>
+            <textarea name="body" id="body" rows="4" class="form-control ckeditor {{ $errors->has('body') ? ' is-invalid' : '' }}">{{$testimony->info_detail}}</textarea>
             @if ($errors->has('body'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('body') }}
@@ -60,7 +62,7 @@
 
     <section class="col-12 col-md-6">
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('jobtitle') ? ' is-invalid' : '' }}" id="jobtitle" name="jobtitle" aria-describedby="jobtitle" value="{{old('jobtitle')}}" placeholder="Cargo" required>
+            <input type="text" class="form-control {{ $errors->has('jobtitle') ? ' is-invalid' : '' }}" id="jobtitle" name="jobtitle" aria-describedby="jobtitle" value="{{$testimony->jobtitle}}" placeholder="Cargo">
             @if ($errors->has('jobtitle'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('jobtitle') }}
@@ -72,7 +74,7 @@
 
     <section class="col-12 col-md-6">
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('company') ? ' is-invalid' : '' }}" id="company" name="company" aria-describedby="company" placeholder="Empresa" value="{{old('company')}}" required>
+            <input type="text" class="form-control {{ $errors->has('company') ? ' is-invalid' : '' }}" id="company" name="company" aria-describedby="company" placeholder="Empresa" value="{{$testimony->company}}">
             @if ($errors->has('company'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('company') }}

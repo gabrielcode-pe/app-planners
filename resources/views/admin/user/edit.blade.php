@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('titulo') Registrar nuevo usuario @endsection
+@section('titulo') Actualizar usuario {{$user->name}} @endsection
 
 @section('content')
 <div class="row mb-2">
@@ -11,12 +11,13 @@
     </section>
 </div>
 
-    <form action="{{ url('/panel/user') }}" method="post">
+    <form action="{{ url('/panel/user/'.$user->id) }}" method="post">
     {{ csrf_field() }}
+    {{ method_field('PUT')}}
     <div class="row">    
     <section class="col-12 col-md-6">
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" placeholder="Nombres completos" value="{{old('name')}}" required>
+            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" value="{{$user->name}}">
             @if ($errors->has('name'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('name') }}
@@ -27,17 +28,22 @@
     </section>
 
     <section class="col-12 col-md-6">
-        <div class="form-group">
+        <div class="form-group">            
             <select name="role" id="role" class="form-control">
+            @if($user->role!='ADMIN')
                 <option value="ADMIN">Administrador</option>
+                <option value="SUPPORT" selected>Soporte</option>
+            @else
+                <option value="ADMIN" selected>Administrador</option>
                 <option value="SUPPORT">Soporte</option>
+            @endif                
             </select>
         </div>
     </section>
 
     <section class="col-12 col-md-6">
         <div class="form-group">
-            <input type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" aria-describedby="email" placeholder="Ingrese correo electrónico" value="{{old('email')}}" required>
+            <input type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" aria-describedby="email" value="{{$user->email}}">
             @if ($errors->has('email'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('email') }}
@@ -48,12 +54,8 @@
 
     <section class="col-12 col-md-6">
         <div class="form-group">
-            <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password" name="password" aria-describedby="password" placeholder="Ingrese contraseña" required>
-            @if ($errors->has('password'))
-            <div id="validationServer03Feedback" class="invalid-feedback">
-                {{ $errors->first('password') }}
-            </div>
-            @endif
+            <input type="password" class="form-control" id="password" name="password" aria-describedby="password" placeholder="Ingrese contraseña" value="{{$user->password}}" readonly>
+
             <small id="pass2" class="form-text text-muted">8 caracteres min. | alfanuméricos</small>
         </div>
     </section>

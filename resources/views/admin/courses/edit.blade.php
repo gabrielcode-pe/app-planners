@@ -41,14 +41,14 @@
 
     <section class="col-12 col-md-3">
         <div class="form-group">
-            <label for="status">Estado</label>
+            <label for="status">Disponible</label>
             <select name="status" id="status" class="form-control">
                 @if($curso->is_free!=1)
-                    <option selected value="1">Activo</option>
-                    <option value="0">Inactivo</option>                    
+                    <option selected value="0">Gratuito</option>
+                    <option value="1">Pago</option>                    
                 @else
-                    <option selected value="0">Inactivo</option>
-                    <option value="1">Activo</option>
+                    <option value="0">Gratuito</option>
+                    <option selected value="1">Pago</option>
                 @endif
             </select>
         </div>

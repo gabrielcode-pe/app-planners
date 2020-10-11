@@ -43,7 +43,7 @@
                 <td class="font-weight-light">
                     <a href="{{url('panel/category/'.$categoria->id.'/edit')}}" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
 
-                    <form method="post" action="{{ url('panel/category/'.$categoria->id) }}" style="display:inline;">
+                    <form method="post" action="{{ url('panel/category/'.$categoria->id.'/destroy' ) }}" style="display:inline;">
                      {{csrf_field()}}
                      {{ method_field('DELETE') }}
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Desea borrar esta categoría?')" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i>  </button>

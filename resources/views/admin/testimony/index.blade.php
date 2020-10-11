@@ -2,12 +2,17 @@
 @section('titulo') Testimonios @endsection
 
 @section('content')
+@if(Session::has('Mensaje'))
+    <div class="alert alert-success" role="alert">
+    {{ Session::get('Mensaje') }}
+    </div>
+@endif
 <div class="row mb-2">
     <section class="col-10">
         <h5>Gestión de Testimonios</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
+        <a href="{{url('panel/testimony/create')}}" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
     </section>
 </div>
 
@@ -32,20 +37,27 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($testimonies as $testimony)
             <tr>
-                <td scope="row">1</td>
-                <td> <img src="{{asset('assets/images/author1.jpg')}}" width="75" alt=""> </td>
-                <td class="font-weight-light">Alan Brito Delgado</td>
-                <td class="font-weight-light"><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed vero rem nesciunt ipsum quisquam voluptatibus cumque, eos, similique amet doloribus libero. Nam sed alias veritatis hic tempore facilis iusto reiciendis!</small></td>
-                <td class="font-weight-light">Corporación</td>
-                <td class="font-weight-light">Gerente General</td>
-                <td class="font-weight-light">
-                    <a href="#" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                    <a href="#" class="btn btn-danger btn-sm" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i> </a>               
+                <td scope="row"> {{$loop->iteration}} </td>
+                <td> <img src="{{asset('assets/uploads/'.$testimony->url_img)}}" width="75" alt=""> </td>
+                <td class="font-weight-light">{{$testimony->name}}</td>
+                <td class="font-weight-light"><small>{{$testimony->description}}</small></td>
+                <td class="font-weight-light">{{$testimony->company}}</td>
+                <td class="font-weight-light">{{$testimony->jobtitle}}</td>
+                <td class="font-weight-light">                    
+                    <a href="{{url('panel/testimony/'.$testimony->id.'/edit')}}" class="btn btn-info btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <form method="post" action="{{ url('panel/testimony/'.$testimony->id.'/destroy' ) }}" style="display:inline;">
+                    {{csrf_field()}}
+                    {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Desea borrar este testimonio?')" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i>  </button>
+                    </form>        
                 </td>
             </tr>
+            @endforeach
         </tbody>
         </table>
     </section>
+    <section class="col-12"> {!!$testimonies->render()!!} </section>
 </div>
 @endsection

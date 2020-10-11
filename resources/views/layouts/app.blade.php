@@ -59,25 +59,25 @@
               <a href="{{url('panel/category')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-th-list" aria-hidden="true"></i></span> <span class="hidden">Categorías</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/institution')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-suitcase" aria-hidden="true"></i></span> <span class="hidden">Clientes</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/instructor')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span> <span class="hidden">Docentes</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/testimony')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-address-card-o" aria-hidden="true"></i></span> <span class="hidden">Testimonios</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/post')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-newspaper-o" aria-hidden="true"></i></span> <span class="hidden">Posts</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/picture')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-picture-o" aria-hidden="true"></i></span> <span class="hidden">Imágenes</span>
               </a>
               <a href="#" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span> <span class="hidden">Pagos</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/user)}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-users" aria-hidden="true"></i></span> <span class="hidden">Usuarios</span>
               </a>
           </div>

@@ -20,7 +20,7 @@
 <div class="row">
     <section class="col-12">
         <div class="form-group">
-            <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{ $curso->name }}" readonly>
+            <input type="text" class="form-control" id="curso" name="curso" aria-describedby="curso" value="{{ $curso->name }}" readonly>
         </div>
     </section>
 </div>
@@ -65,7 +65,12 @@
 
         <section class="col-12 col-md-2">
             <div class="form-group">
-                <input type="text" class="form-control" id="duration" name="duration" aria-describedby="duration" placeholder="Duración del video">
+                <input type="text" class="form-control {{ $errors->has('duration') ? ' is-invalid' : '' }}" id="duration" name="duration" aria-describedby="duration" placeholder="Duración del video">
+                @if ($errors->has('duration'))
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    {{ $errors->first('duration') }}
+                </div>
+                @endif
                 <small id="name" class="form-text text-muted">Ej: 02:54 min</small>
             </div>
             <div class="form-group">

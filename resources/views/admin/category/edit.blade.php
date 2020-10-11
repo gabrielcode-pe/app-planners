@@ -11,21 +11,32 @@
     </section>
 </div>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{ url('/panel/category/'.$categoria->id) }}" method="post" enctype="multipart/form-data">
 {{ csrf_field() }}
+{{ method_field('PUT')}}
 <div class="row">    
-<section class="col-12 col-md-6">
+<section class="col-12 col-md-8">
     <div class="form-group">
-        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Ingrese la nueva categoría" value="{{ $categoria->name }}" required>
+        <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" placeholder="Ingrese la nueva categoría" value="{{ $categoria->name }}">
+        @if ($errors->has('name'))
+        <div id="validationServer03Feedback" class="invalid-feedback">
+            {{ $errors->first('name') }}
+        </div>
+        @endif
         <small id="name" class="form-text text-muted">Max. 255 caracteres.</small>
     </div>
 </section>
 
-<section class="col-12 col-md-6">
+<section class="col-12 col-md-4">
     <div class="form-group">
-        <label for="url_portrait"> {{$categoria->url_portrait}} </label>
-        <input type="file" class="form-control-file" name="url_portrait" id="url_portrait" required>
-        <small id="imagen" class="form-text text-muted">Max. 150Kb | Dimen. 1024 x 700 px</small>
+        <img src="{{asset('assets/uploads/'.$categoria->url_portrait)}}" class="img-fluid" alt="">
+        <input type="file" class="form-control-file {{ $errors->has('url_portrait') ? ' is-invalid' : '' }}" name="url_portrait" id="url_portrait">
+        @if ($errors->has('name'))
+        <div id="validationServer03Feedback" class="invalid-feedback">
+            {{ $errors->first('url_portrait') }}
+        </div>
+        @endif
+        <small id="url_portrait" class="form-text text-muted">Max. 150Kb | Dimen. 700 x 500 px</small>
     </div>
 </section>
 

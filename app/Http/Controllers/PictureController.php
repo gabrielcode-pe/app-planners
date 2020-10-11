@@ -14,7 +14,9 @@ class PictureController extends Controller
      */
     public function index()
     {
-        //
+        $pictures = Picture::orderBy('id','desc')->paginate(24);
+        return view('admin.picture.index',compact('pictures'));
+        //return response()->json($instructors);
     }
 
     /**
@@ -24,7 +26,7 @@ class PictureController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.picture.create');
     }
 
     /**
@@ -35,7 +37,20 @@ class PictureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'
+        ]);
+        if($request->hasFile('url_portrait')){
+            $url_portrait = $request -> file('url_portrait');
+            $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
+            $destino = public_path('assets/uploads');
+            $request->url_portrait->move($destino, $nombrefinal);
+        }
+        $picture=new Picture();
+        $picture->url_picture=$nombrefinal;
+        $picture->tag=$request->tag;
+        $picture->save();
+        return redirect('panel/picture')->with('Mensaje','Imagen agregada correctamente');
     }
 
     /**
@@ -78,8 +93,23 @@ class PictureController extends Controller
      * @param  \App\Picture  $picture
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Picture $picture)
+    public function destroy($id)
     {
-        //
+        $picture = Picture::find($id);
+        //Eliminando el archivo
+        unlink(public_path().'/assets/uploads/'.$picture->url_picture);
+        $picture->delete();
+        return redirect('panel/picture')->with('Mensaje','Imagen eliminada correctamente');
+    }
+    private function str_unico($l)
+    {
+        $keychars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $length = $l;
+        $randkey = "";
+        $max=strlen($keychars)-1;
+        for ($i=0;$i<$length;$i++) {
+        $randkey .= substr($keychars, rand(0, $max), 1);
+        }
+        return time().$randkey;
     }
 }

@@ -2,12 +2,17 @@
 @section('titulo') Posts @endsection
 
 @section('content')
+@if(Session::has('Mensaje'))
+    <div class="alert alert-success" role="alert">
+    {{ Session::get('Mensaje') }}
+    </div>
+@endif
 <div class="row mb-2">
     <section class="col-10">
         <h5>Administración de Posts</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
-        <a href="#" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
+        <a href="{{url('panel/post/create')}}" class="btn btn-success btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a>
     </section>
 </div>
 
@@ -32,20 +37,33 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($posts as $post)
             <tr>
-                <td scope="row">1</td>
-                <td> <img src="{{asset('assets/images/post-portrait.png')}}" width="75" alt=""> </td>
-                <td class="font-weight-light">La Escuela de Proyectistas</td>
-                <td class="font-weight-light">5/10/2020</td>
-                <td class="font-weight-light">Coaching</td>
-                <td class="font-weight-bold"> <strong><span class="text-success">Publicado</span> </strong></td>
-                <td class="font-weight-light">
-                    <a href="#" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                    <a href="#" class="btn btn-danger btn-sm" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i> </a>                
+                <td scope="row">{{$loop->iteration}}</td>
+                <td> <img src="{{asset('assets/uploads/'.$post->url_portrait)}}" width="75" alt=""> </td>
+                <td class="font-weight-light">{{$post->title}}</td>
+                <td class="font-weight-light">{{$post->created_at}}</td>
+                <td class="font-weight-light">{{$post->category->name}}</td>
+                <td class="font-weight-bold">
+                    @if($post->status!=1)
+                        <strong><span class="text-secondary">Borrador</span> </strong>
+                    @else
+                        <strong><span class="text-success">Publicado</span> </strong>
+                    @endif
+                </td>
+                <td class="font-weight-light">                    
+                    <a href="{{url('panel/post/'.$post->id.'/edit')}}" class="btn btn-info btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>                    
+                    <form method="post" action="{{ url('panel/post/'.$post->id.'/destroy' ) }}" style="display:inline;">
+                    {{csrf_field()}}
+                    {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Desea borrar esta publicación?')" title="Eliminar"> <i class="fa fa-trash" aria-hidden="true"></i>  </button>
+                    </form>  
                 </td>
             </tr>
+            @endforeach
         </tbody>
         </table>
     </section>
+    <section class="col-12"> {!!$posts->render()!!} </section>
 </div>
 @endsection

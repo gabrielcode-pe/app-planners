@@ -87,9 +87,38 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        //Validación
+        $this->validate($request,[
+    		'name'=>'string|max:255'
+        ]);
+        $category = Category::find($id);
+        if($request->hasFile('url_portrait')){
+            //Validando el archivo
+            $this->validate($request,[
+            'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
+            ]);
+            //Elimina el documento anterior
+            unlink(public_path().'/assets/uploads/'.$category->url_portrait);
+            //Recuperando extensión de la nueva imagen
+            $url_portrait = $request->file('url_portrait');
+            $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
+            //Definiendo ruta de subida            
+            $destino = public_path('assets/uploads');
+            $request->url_portrait->move($destino, $nombrefinal);
+            //Asignando el nuevo nombre a guardar
+            $category->url_portrait=$nombrefinal;
+        }
+        if ($request->name !=$category->name) {
+            $slugupdate=\Str::slug($request->name);
+            $category->name=$request->titulo;
+            $category->slug =$slugupdate;
+        }
+        $category->name=$request->name;
+        //return response()->json($category); 
+        $category->save();
+        return redirect('panel/category')->with('Mensaje','Categoría actualizada correctamente');
     }
 
     /**
@@ -100,12 +129,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category=Category::find($id);
-        if(file_exists(public_path().'/assets/uploads/'.$category->url_portrait)){
-            unlink(public_path().'/assets/uploads/'.$category->url_portrait);
-        }
+        $category = Category::find($id);
+        //Eliminando el archivo
+        unlink(public_path().'/assets/uploads/'.$category->url_portrait);
         $category->delete();
-        return redirect('panel/category/')->with('Mensaje','Categoría eliminada');
+        return redirect('panel/category')->with('Mensaje','Categoría eliminada correctamente');
     }
 
     private function str_unico($l)

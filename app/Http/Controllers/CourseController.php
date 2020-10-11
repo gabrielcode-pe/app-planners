@@ -7,6 +7,7 @@ use App\Instructor;
 use App\Institution;
 use App\Price;
 use App\Module;
+use App\Feature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,16 +21,16 @@ class CourseController extends Controller
      */
     public function index()
     {
-    $cursos= DB::table('courses as c')
-    ->join('instructors as d','c.instructor_id','=','d.id')
-    ->join('institutions as i','c.institution_id','=','i.id')
-    ->join('course_prices as p','p.course_id','=','c.id')
-    ->select('c.id','c.name as curso','d.name as instructor','i.name as institution','p.amount','c.is_free','c.url_portrait','c.date_start')
-    ->where('p.is_active','=',1)->paginate(5);
+    // $cursos= DB::table('courses as c')
+    // ->join('instructors as d','c.instructor_id','=','d.id')
+    // ->join('institutions as i','c.institution_id','=','i.id')
+    // ->join('course_prices as p','p.course_id','=','c.id')
+    // ->select('c.id','c.name as curso','d.name as instructor','i.name as institution','p.amount','c.is_free','c.url_portrait','c.date_start')
+    // ->where('p.is_active','=',1)->paginate(5);
 
-    // $cursos = Course::with(['instructor', 'institution', 'prices' => function($query){
-    //     $query->where('is_active', 1);
-    // }])->paginate(5);
+    $cursos = Course::with(['instructor', 'institution', 'prices' => function($query){
+        $query->where('is_active', 1);
+    }])->paginate(5);
 
     return view('admin.courses.index',compact('cursos'));
     }
@@ -272,7 +273,7 @@ class CourseController extends Controller
         $modules= DB::table('courses as c')
         ->join('course_modules as m','m.course_id','=','c.id')
         ->select('c.id as course_id','m.id','m.name','m.info','m.url_img', 'm.duration','m.position')
-        ->where('c.id','=',$id)->orderBy('m.position','desc')->paginate(10);
+        ->where('c.id','=',$id)->orderBy('m.position','asc')->paginate(10);
 
         //return response()->json($prices);
         return view('admin.courses.add-module',compact('curso','modules'));
@@ -283,26 +284,40 @@ class CourseController extends Controller
         $this->validate($request,[
             'name'=>'required|string|max:120|',
             'info'=>'required|string|max:255',
-            'duration'=>'string|max:20',
             'url_img'=>'mimes:jpg,png,jpeg|max:150',
             'position'=>'required|integer'
         ]);
-        $id=$request->course_id;
 
+        $module=new Module();
+        $id=$request->course_id;
         if($request->hasFile('url_img')){
             $url_img = $request -> file('url_img');
             $nombrefinal = $this->str_unico(8).'.'.$url_img->getClientOriginalExtension();
             $destino = public_path('assets/uploads');
             $request->url_img->move($destino, $nombrefinal);
+            $module->url_img=$nombrefinal;
         }
-        Module::create([
-    		'name'=>$request->name,
-            'info'=>$request->info,
-            'duration'=>$request->duration,
-            'position'=>$request->position,
-            'url_img'=>$nombrefinal,
-            'course_id'=>$id
-    	]);
+
+        if($request->duration!=''){
+            $module->duration=$request->duration;
+        }
+
+        $module->name=$request->name;
+        $module->info=$request->info;
+        $module->position=$request->position;
+        $module->course_id=$id;
+        //return response()->json($module);
+        $module->save();
+
+
+        // Module::create([
+    	// 	'name'=>$request->name,
+        //     'info'=>$request->info,
+        //     'duration'=>$request->duration,
+        //     'position'=>$request->position,
+        //     'url_img'=>$nombrefinal,
+        //     'course_id'=>$id
+    	// ]);
     	return redirect('panel/courses/'.$id.'/addmodule')->with('Mensaje','Módulo agregado correctamente');
     }
     public function destroyModule($id, $module_id)
@@ -311,5 +326,33 @@ class CourseController extends Controller
         unlink(public_path().'/assets/uploads/'.$module->url_img);
         $module->delete();
         return redirect('panel/courses/'.$id.'/addmodule')->with('Mensaje','Modulo eliminado correctamente');
+    }
+
+    public function manageFeature($id)
+    {
+        $curso = Course::with('features')->findOrFail($id);
+        //return response()->json($curso);
+        return view('admin.courses.add-feature',compact('curso'));
+    }
+    public function addFeature(Request $request)
+    {
+        $this->validate($request,[
+            'info'=>'required|string|max:100'
+        ]);
+
+        $id=$request->course_id;
+
+        Feature::create([
+    		'info'=>$request->info,
+            'ft_icon'=>$request->ft_icon,
+            'course_id'=>$id
+    	]);
+    	return redirect('panel/courses/'.$id.'/addfeature')->with('Mensaje','Característica agregada correctamente');  
+    }
+    public function destroyFeature($id, $feature_id)
+    {
+        $feature=Feature::find($feature_id);
+        $feature->delete();
+        return redirect('panel/courses/'.$id.'/addfeature')->with('Mensaje','Característica eliminada correctamente');
     }
 }
