@@ -90,7 +90,11 @@ Route::group(['middleware' => 'auth'], function () {
     // Grupo de rutas para panel administrativo
     Route::group(['prefix' => 'panel'], function () {
 
-        Route::get('/', 'PanelController@home')->name('panel.home');
+        // Route::get('/', 'PanelController@home')->name('panel.home'); //TODO:
+        
+        Route::get('/', function(){
+            return redirect('/panel/courses');
+        });
 
         // Todas las rutas de panel aqui------------
         Route::get('courses', 'CourseController@index'); //Listado de Cursos
