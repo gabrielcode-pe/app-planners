@@ -36,6 +36,7 @@
             </tr>
             <tr>
                 <td align="center">
+                    <button onclick="copyLink('{{$picture->url_picture}}')" class="btn btn-success btn-sm"><i class="fa fa-copy"></i> </button>
                     <form method="post" action="{{ url('panel/picture/'.$picture->id.'/destroy' ) }}" style="display:inline;">
                     {{csrf_field()}}
                     {{ method_field('DELETE') }}
@@ -74,3 +75,24 @@
     <section class="col-12">{!!$pictures->render()!!}</section>
 </div>
 @endsection
+
+<script>
+	function copyLink(fileName) {
+	event.preventDefault();	 
+	 var path = '{{asset('assets/uploads/')}}';
+	 var link = path+'/'+fileName;
+	 // Crea un campo de texto "oculto"
+	   var aux = document.createElement("input");
+	   // Asigna el contenido del elemento especificado al valor del campo
+	   aux.setAttribute("value", link);
+	   // Añade el campo a la página
+	   document.body.appendChild(aux);
+	   // Selecciona el contenido del campo
+	   aux.select();
+	  document.execCommand("copy");
+	  // Elimina el campo de la página
+	    document.body.removeChild(aux);
+	  /* Alert the copied text */
+	 alert('enlace copiado al portapapeles!')
+	}
+</script>

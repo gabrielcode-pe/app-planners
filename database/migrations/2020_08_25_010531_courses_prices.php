@@ -15,7 +15,7 @@ class CoursesPrices extends Migration
     {
         Schema::create('course_prices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('price_info', 25);
+            $table->string('price_info', 50);
             $table->float('amount', 8, 2);
             $table->boolean('is_active')->default(1);
             $table->integer('course_id')->unsigned();

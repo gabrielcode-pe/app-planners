@@ -16,7 +16,7 @@ class CreateCourseModulesTable extends Migration
         Schema::create('course_modules', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 120);
-            $table->string('info');
+            $table->longText('info');
             $table->string('url_img', 45)->nullable();
             $table->string('duration', 20)->nullable();
             $table->integer('position');
