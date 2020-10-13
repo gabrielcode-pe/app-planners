@@ -17,7 +17,7 @@ class Testimonies extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description', 160);
-            $table->string('info_detail');
+            $table->longText('info_detail');
             $table->string('jobtitle', 60);
             $table->string('company', 60);
             $table->string('url_img', 30);

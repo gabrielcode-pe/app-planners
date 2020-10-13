@@ -77,7 +77,7 @@
               <a href="#" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span> <span class="hidden">Pagos</span>
               </a>
-              <a href="{{url('panel/user)}}" class="list-group-item list-group-item-action text-primary">
+              <a href="{{url('panel/user')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-users" aria-hidden="true"></i></span> <span class="hidden">Usuarios</span>
               </a>
           </div>

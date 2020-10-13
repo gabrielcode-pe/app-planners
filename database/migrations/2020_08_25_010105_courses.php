@@ -16,8 +16,8 @@ class Courses extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('seo', 120);
-            $table->string('info');
+            $table->text('seo', 120);
+            $table->longText('info');
             $table->string('slug');
             $table->boolean('is_free');
             $table->string('url_portrait', 30);
