@@ -8,7 +8,11 @@
         </div>
         <div class="form-wrapper">
             <h2 class="title">Contacte con nosotros</h2>
-            <form action="#">
+            @if (session('message'))
+                <p class="success-message">{{session('message')}}</p>
+            @endif
+            <form action="{{route('contact.store')}}" method="POST">
+                @csrf
                 <div class="form-group">
                     <input type="text" class="input-custom" name="name" placeholder="Nombres y apellidos">
                 </div>
@@ -30,7 +34,7 @@
                 </div>
 
                 <div class="form-group center">
-                    <button class="btn btn-yellow">Enviar</button>
+                    <button type="submit" class="btn btn-yellow">Enviar</button>
                 </div>
 
             </form>

@@ -67,7 +67,7 @@
                     <ul>
                         <li><a href="#">SERVICIOS</a></li>
                         <li><a href="{{route('about')}}">¿QUIENES SOMOS?</a></li>
-                        <li><a href="{{route('courses')}}">CURSOS</a></li>
+                        <li><a href="{{url('cursos?mod=premium')}}">CURSOS</a></li>
                         <li><a href="{{route('contact')}}">CONTACTO</a></li>
                         <li><a href="#">ASESORÍAS</a></li>
                         <li><a href="{{route('frequent.questions')}}">PREGUNTAS FRECUENTES</a></li>

@@ -46,6 +46,8 @@ Route::get('acerca-de-nosotros', 'FrontController@about')->name('about');
 Route::get('autor/{name}', 'FrontController@getAuthorInfo')->name('author');
 
 
+Route::post('contacto', 'FrontController@contactStore')->name('contact.store');
+
 
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register')->name('post.register');

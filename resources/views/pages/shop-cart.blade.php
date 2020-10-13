@@ -18,6 +18,8 @@
     function renderShoppingCart() {
         // Listar contenido del carrito
 
+        let totalAmount = 0;
+
         if(shoppingCart.allItems.length > 0){
             
             let coursesContainer = '';
@@ -36,11 +38,13 @@
                             </div>
                         </div>
                         <div class="pricing">
-                            <p class="amout">S/. 45.00</p>
+                            <p class="amout">S/. ${itemCourse.prices[0].amount}</p>
                             <a href="#" onclick="removeItemFromCart(${itemCourse.id})" title="Quitar del carrito"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
                 `;
+
+                totalAmount += parseFloat(itemCourse.prices[0].amount);
             });
 
             $('#cart-courses-content').html(`
@@ -55,7 +59,7 @@
                         <h5>Resúmen</h5>
                     </div>
                     <div class="sumary-body">
-                        <div class="item-price"><span>Total</span> <span  class="amout">S/. 90.00</span></div>
+                        <div class="item-price"><span>Total</span> <span  class="amout">S/. ${totalAmount}</span></div>
 
                         <a href="{{route('checkout')}}" class="btn btn-primary-outline">Pagar ahora</a>
 

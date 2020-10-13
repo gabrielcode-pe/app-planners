@@ -1194,6 +1194,8 @@ a{
     padding: 0 3px;
     font-family: 'Lemon Milk';
     background-color: rgba(0,0,0,0.5);
+    left: 0;
+    right: 0;
 }
 
 .slider-testimonies{
@@ -1446,4 +1448,8 @@ a{
 
 .page-content .author-wrapper .author-portrait img{
     width: 100%;
+}
+
+.success-message{
+    color: var(--secondary-green);
 }

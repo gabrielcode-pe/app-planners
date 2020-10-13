@@ -160,11 +160,11 @@ class FrontController extends Controller
     }
 
 
-    /* Rutas demos de Panel */
-
-    public function Dashboard()
+    public function contactStore(Request $request)
     {
-        return view('admin.home');
+        // Enviar correo aquí TODO:
+
+        return back()->with('message', 'Gracias por contactarnos!');
     }
 
 
