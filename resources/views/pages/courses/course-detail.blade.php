@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('title')
-Titulo del curso
+{{$course->name}}
 @endsection
 @section('content')
 <div class="course-detail-wrapper">
@@ -8,14 +8,14 @@ Titulo del curso
     <div class="course-detail-content">
         <h2>INFORMACIÓN DEL CURSO</h2>
 
-        <div class="course-detail" id="course-initiation-date" data-coursestart="2020-12-10">
+        <div class="course-detail" id="course-initiation-date" data-coursestart="{{$course->date_start}}">
             <div class="preview-video">
                 <iframe width="100%" height="300"
                     src="https://www.youtube.com/embed/wHDVX2E8nLY">
                 </iframe>
             </div>
-            <h3 class="title">CONTRAROS EN LA ACTUALIDAD</h3>
-            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ullam quaerat nobis minus debitis sint eum dicta omnis saepe quidem.</p>
+            <h3 class="title">{{$course->name}}</h3>
+            <p class="description">{{$course->seo}}</p>
 
             <h5 class="features-title">LO QUE APRENDERÁS</h5>
             <ul class="features">
@@ -27,38 +27,30 @@ Titulo del curso
 
             <h5 class="features-title">MÓDULOS</h5>
             <div class="course-modules">
+                @foreach ($course->modules as $module)
                 <div class="module-item">
                     <div class="header-module">
-                        <h4>Módulo 1</h4>
+                        <h4>{{$module->name}}</h4>
                         <span class="collapse-dow-icon fa fa-angle-down"></span>
                     </div>
                     <div class="collapse-module">
                         <div class="content">
                             <div class="info">
-                                <img src="{{asset('assets/images/common-image.jpeg')}}" alt="">
+                                @if ($module->url_img)
+                                <img src="{{asset('assets/uploads/'.$module->url_img)}}" alt="{{$module->name}}">
+                                @else
+                                    <p>{{$module->info}}</p>
+                                @endif
                             </div>
                             <div class="duration-time">
-                                <p>05:35 <span class="fa fa-play"></span></p>
+                                <p>{{$module->duration}} <span class="fa fa-play"></span></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="module-item">
-                    <div class="header-module">
-                        <h4>Módulo 2</h4>
-                        <span class="collapse-dow-icon fa fa-angle-down"></span>
-                    </div>
-                    <div class="collapse-module">
-                        <div class="content">
-                            <div class="info">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni temporibus, atque porro et cum earum quam consectetur fugit placeat fuga, corrupti praesentium minus consequuntur, perspiciatis odit eveniet sit rerum. Nesciunt?</p>
-                            </div>
-                            <div class="duration-time">
-                                <p>05:35 <span class="fa fa-play"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    
+                @endforeach
+                
             </div>
 
             
@@ -67,31 +59,34 @@ Titulo del curso
 
         </div>
         <div class="course-aside">
-            <div class="course-price">
-                <p class="amout">S/. 45.00</p>
-                <a href="#" class="btn btn-primary-outline">Comprar ahora</a>
-                <a href="#" class="btn btn-primary-outline">Agregar al carrito</a>
+            @if (!$course->is_free)
+                <div class="course-price">
+                    <p class="amout">S/. {{$course->prices[0]->amount}}</p>
+                    {{-- <a href="#" class="btn btn-primary-outline">Comprar ahora</a> --}}
+                    <button onclick="addCourseToCart(this)" data-course='{{json_encode($course)}}' class="btn btn-primary-outline">Agregar al carrito</button>
 
-            </div>
+                </div>
+
+            @endif
 
             <div class="course-content">
                 <h5>Este curso incluye</h5>
                 <ul>
-                    <li><i class="fa fa-play-circle-o"></i>10 Capítulos</li>
-                    <li><i class="fa fa-file-text-o"></i>8 Ejercicios</li>
-                    <li><i class="fa fa-download"></i>Descargas</li>
-                    <li><i class="fa fa-lock"></i>Acceso completo</li>
+                    @foreach ($course->features as $feature)
+                        <li><i class="fa {{$feature->ft_icon}}"></i>{{$feature->info}}</li>
+                        
+                    @endforeach
                 </ul>
             </div>
             <div class="preview-author">
                 <h5>SOBRE EL AUTOR</h5>
                 <div class="avatar">
-                    <img src="{{asset('assets/images/author1.jpg')}}" alt="">
+                    <img src="{{asset('assets/uploads/'.$course->instructor->url_img)}}" alt="{{$course->instructor->name}}">
                 </div>
                 <div class="bio-preview">
-                    <h6 class="fullname">Javier Bautista</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste fuga et officia architecto aliquam deleniti atque expedita reprehenderit, explicabo tempora.</p>
-                    <a href="#">Ver más</a>
+                    <h6 class="fullname">{{$course->instructor->name}}</h6>
+                    <p>{{$course->instructor->info}}</p>
+                    <a href="{{route('author', $course->instructor->slug)}}">Ver más</a>
                 </div>
             </div>
         </div>

@@ -7,87 +7,65 @@
         <div class="question-item">
             <div class="header">
                 <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
+                <p>¿Cuánto cuesta?</p>
                 <span class="collapse-btn fa fa-angle-down"></span>
             </div>
             <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
+                <p>La inversión depende del precio establecido del curso que has elegido, todos incluyen IGV.</p>
             </div>
         </div>
 
         <div class="question-item">
             <div class="header">
                 <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
+                <p>¿Podré hacer preguntas y tener soporte?</p>
                 <span class="collapse-btn fa fa-angle-down"></span>
             </div>
             <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
+                <p>Claro que sí, las clases tienen activadas un foro para lanzar preguntas que la docente responde de lunes a viernes. La escuela también cuenta con un área de tutoría, que podrá atenderte a través del correo <a href="mailto:tutoria@escueladeproyectistas.com">tutoria@escueladeproyectistas.com</a> </p>
             </div>
         </div>
         <div class="question-item">
             <div class="header">
                 <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
+                <p>¿Está ya todo el contenido y clases subidos a la Escuela?</p>
                 <span class="collapse-btn fa fa-angle-down"></span>
             </div>
             <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
-            </div>
-        </div>
-
-        <div class="question-item">
-            <div class="header">
-                <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
-                <span class="collapse-btn fa fa-angle-down"></span>
-            </div>
-            <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
+                <p>En la Escuela encontrarás ya todas las clases que ves en el temario de esta página, y lo puedes ver y consultar todo cuando desees. </p>
             </div>
         </div>
 
         <div class="question-item">
             <div class="header">
                 <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
+                <p>¿Cómo recibiré mi boleta o factura?</p>
                 <span class="collapse-btn fa fa-angle-down"></span>
             </div>
             <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
+                <p>Recibirás tu boleta o factura directamente por email al día siguiente de realizada la compra. </p>
             </div>
         </div>
 
         <div class="question-item">
             <div class="header">
                 <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
+                <p>¿Hay devolución del dinero?</p>
                 <span class="collapse-btn fa fa-angle-down"></span>
             </div>
             <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
+                <p>No ofrecemos devolución de dinero. Hemos creado la Escuela con mucho contenido de alta calidad y muy práctico a un precio realmente asequible, pues nuestro objetivo es que todos se puedan formar con calidad. </p>
             </div>
         </div>
 
         <div class="question-item">
             <div class="header">
                 <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
+                <p>¿Puedo ver las clases desde el teléfono o la tablet?</p>
                 <span class="collapse-btn fa fa-angle-down"></span>
             </div>
             <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
-            </div>
-        </div>
-
-        <div class="question-item">
-            <div class="header">
-                <span class="fa fa-question-circle left-icon"></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatibus repellendus maiores possimus in consequatur veritatis?.</p>
-                <span class="collapse-btn fa fa-angle-down"></span>
-            </div>
-            <div class="collapse-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi esse, porro voluptate libero repellendus nisi quibusdam quae harum mollitia omnis illum? Enim maxime dolor voluptate distinctio beatae mollitia expedita aut ipsum suscipit consequatur voluptatibus cum voluptates excepturi culpa fugit commodi nesciunt assumenda sequi corrupti, pariatur autem! Sapiente dolorum placeat expedita tenetur deserunt doloremque minus inventore eveniet, quis, molestiae nobis maiores eum iure iste delectus vitae architecto nostrum accusantium quidem.    </p>
+                <p>Sí, puedes ver las clases desde la computadora, el smartphone o tu tablet. Utilizamos 2 plataformas: ZOOM y MOODILE y ambas puedes verlas desde la web en cualquier aparato. Debes tener conexión a Internet suficientemente buena para poder reproducir vídeos.</p>
             </div>
         </div>
     </div>

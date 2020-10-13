@@ -18,17 +18,19 @@
             <div class="course-item">
                 <div class="portrait">
                     <img src="{{asset('assets/uploads/'.$course->url_portrait)}}" alt="course item">
-                    <div class="price">
-                        <p>S/. 45.00</p>
-                    </div>
+                    @if(!$course->is_free)
+                        <div class="price">
+                            <p>S/. {{$course->prices[0]->amount}}</p>
+                        </div>
+                    @endif
                 </div>
                 <div class="detail">
                     <h5 class="title">{{$course->name}}</h5>
-                    <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, sequi.</p>
+                    <p class="description">{{$course->seo}}</p>
                     <p class="author">{{$course->instructor->name}}</p>
                     <div class="actions">
                         <button onclick="addCourseToCart(this)" data-course='{{json_encode($course)}}' class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></button>
-                        <a href="#" class="btn btn-primary-outline">Detalles del curso</a>
+                        <a href="{{route('course.detail', $course->slug)}}" class="btn btn-primary-outline">Detalles del curso</a>
                     </div>
                 </div>
             </div>

@@ -42,10 +42,10 @@
 
     <section class="col-12 col-md-3">
         <div class="form-group">
-            <label for="status">Estado</label>
+            <label for="status">Modalidad</label>
             <select name="status" id="status" class="form-control">
-                <option value="0">Inactivo</option>
-                <option value="1">Activo</option>
+                <option value="1">Gratuito</option>
+                <option value="0">Pago</option>
             </select>
         </div>
     </section>

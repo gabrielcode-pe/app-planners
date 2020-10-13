@@ -34,7 +34,7 @@
             <th scope="col">Institución</th>
             <th scope="col">Precio Actual</th>
             <th scope="col">Fecha Inicio</th>
-            <th scope="col">Disponible</th>
+            <th scope="col">Modalidad</th>
             <th scope="col"> <i class="fa fa-cogs" aria-hidden="true"></i> </th>
             </tr>
         </thead>
@@ -49,7 +49,7 @@
             <td class="font-weight-light"><span class="badge badge-primary">S/. {{count($curso->prices) > 0 ? $curso->prices[0]->amount : 0}} </span></td>
             <td class="font-weight-light"> {{ $curso->date_start }}</td>
             <td class="font-weight-bold">
-                @if($curso->is_free!=1)
+                @if($curso->is_free==1)
                     <strong><span class="text-success"> Gratuito </span> </strong>
                 @else
                     <strong><span class="text-primary"> Pago </span> </strong>

@@ -6,6 +6,7 @@ use App\Testimony;
 use App\Post;
 use App\Course;
 use App\Institution;
+use App\Instructor;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -49,7 +50,10 @@ class FrontController extends Controller
 
                 $isFree = $mod == 'gratuito' ? 1 : 0;
 
-                $courses = Course::where('institution_id', 1)->where('is_free', $isFree)->orderBy('date_start', 'asc')->get();
+                $courses = Course::where('institution_id', 1)->with(['prices' => function($query){
+                    $query->where('is_active', 1);
+                }])
+                ->where('is_free', $isFree)->orderBy('date_start', 'asc')->get();
                 return view('pages.courses.esc-proyectistas', compact('courses', 'isFree'));
             }
 
@@ -123,9 +127,19 @@ class FrontController extends Controller
         abort(404);
     }
 
-    public function getCourseDetail()
+    public function getCourseDetail($slug)
     {
-        return view('pages.courses.course-detail');
+        $course = Course::with(['prices' => function($query){
+            $query->where('is_active', 1);
+        }, 'instructor'])
+        ->where('slug', $slug)->first();
+
+        if($course){
+            
+            return view('pages.courses.course-detail', compact('course'));
+        }
+
+        abort(404);
     }
 
     public function about()
@@ -133,9 +147,16 @@ class FrontController extends Controller
         return view('pages.esc-proyectistas');
     }
 
-    public function getAuthorInfo()
+    public function getAuthorInfo($authorSlug)
     {
-        return view('pages.author');
+        $instructor = Instructor::where('slug', $authorSlug)->first();
+
+        if($instructor){
+
+            return view('pages.author', compact('instructor'));
+        }
+
+        abort(404);
     }
 
 

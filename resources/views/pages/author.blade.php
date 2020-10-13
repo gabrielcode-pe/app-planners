@@ -1,18 +1,15 @@
 @extends('layouts.front')
 @section('title')
-Nombre del autor
+{{$instructor->name}}
 @endsection
 @section('content')
 <div class="author-wrapper">
     <div class="author-bio">
-        <h4 class="title">Sobre el autor</h4>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea assumenda delectus tempore fuga obcaecati, qui nihil rem dicta quam quidem, possimus veniam quod ex amet non! Enim tempora laborum eos!</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea assumenda delectus tempore fuga obcaecati, qui nihil rem dicta quam quidem, possimus veniam quod ex amet non! Enim tempora laborum eos!</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea assumenda delectus tempore fuga obcaecati, qui nihil rem dicta quam quidem, possimus veniam quod ex amet non! Enim tempora laborum eos!</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea assumenda delectus tempore fuga obcaecati, qui nihil rem dicta quam quidem, possimus veniam quod ex amet non! Enim tempora laborum eos!</p>
+        <h4 class="title">Sobre: {{$instructor->name}}</h4>
+        <p>{{$instructor->info}}</p>
     </div>
     <div class="author-portrait">
-        <img src="{{asset('assets/images/author1.jpg')}}" alt="">
+        <img src="{{asset('assets/uploads/'. $instructor->url_img)}}" alt="{{$instructor->name}}">
     </div>
 </div>
 @endsection

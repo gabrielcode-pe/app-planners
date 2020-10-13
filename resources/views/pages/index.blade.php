@@ -18,8 +18,8 @@
     @foreach ($courses as $course)
         <div class="course-item">
             <h4 class="title">{{$course->name}}</h4>
-            <a href="#">
-                <img src="{{asset('assets/uploads/'.$course->url_portrait)}}" alt="">
+            <a href="{{route('course.detail', $course->slug)}}">
+                <img src="{{asset('assets/uploads/'.$course->url_portrait)}}" alt="{{$course->name}}">
             </a>
         </div>
     @endforeach

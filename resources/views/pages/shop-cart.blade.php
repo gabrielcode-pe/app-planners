@@ -30,7 +30,7 @@
                         </div>
                         <div class="info">
                             <h4>${itemCourse.name}</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nulla doloribus doloremque optio itaque quos.</p>
+                            <p>${itemCourse.seo}</p>
                             <div class="author">
                                 <p>${itemCourse.instructor.name}</p>
                             </div>
