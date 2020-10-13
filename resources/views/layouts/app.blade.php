@@ -20,7 +20,7 @@
   </head>
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="padding:0 !important;">
-    <a href="#"> <img src="{{asset('assets/images/logo-main.png')}}" width="140" alt=""> </a>
+    <a href="/panel"> <img src="{{asset('assets/images/logo-main.png')}}" width="140" alt=""> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
