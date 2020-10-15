@@ -17,13 +17,10 @@
             <h3 class="title">{{$course->name}}</h3>
             <p class="description">{{$course->seo}}</p>
 
-            <h5 class="features-title">LO QUE APRENDERÁS</h5>
-            <ul class="features">
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, commodi.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, commodi.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, commodi.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, commodi.</li>
-            </ul>
+            <div class="all-body">
+               {!! $course->info !!}
+            </div>
+
 
             <h5 class="features-title">MÓDULOS</h5>
             <div class="course-modules">

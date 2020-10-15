@@ -495,28 +495,40 @@ a{
     line-height: 22px;
 }
 
-.course-detail > .features-title{
+.course-detail > .all-body p{
+    font-family: 'Nyata FTR';
+    margin: 5px 0;
+}
+
+.course-detail > .all-body a{
+    color: var(--primary-yellow);
+}
+.course-detail > .all-body  h1,h2,h3,h4,h5,h6{
     color: var(--secondary-light-blue);
-    margin: 20px 0;
+
 }
 
-.course-detail > .features{
+.course-detail > .all-body ul {
     list-style: none;
+    margin: 10px 0;
 }
-
-.course-detail > .features li{
+.course-detail > .all-body ul li{
     font-family: 'Nyata FTR';
     padding: 5px 0;
-
 }
 
-.course-detail > .features li:before{
+.course-detail > .all-body ul li:before{
+
     content: "\f05d"; /* FontAwesome Unicode - check con circulo */
     font-family: FontAwesome;
     display: inline-block;
     width: 1.3em;
     color: var(--secondary-yellow);
+}
 
+.course-detail > .features-title{
+    color: var(--secondary-light-blue);
+    margin: 20px 0;
 }
 
 .course-detail .course-modules{

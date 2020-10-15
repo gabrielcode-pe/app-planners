@@ -59,7 +59,7 @@ class CourseController extends Controller
         $this->validate($request,[
     		'name'=>'required|string|max:255|unique:courses',
             'summary'=>'required|string|max:120|',
-            'info'=>'required|string|max:255',
+            'info'=>'required',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'	
         ]);
         
@@ -150,8 +150,8 @@ class CourseController extends Controller
         //Validación
         $this->validate($request,[
     		'name'=>'required|string|max:255',
-            'summary'=>'required|string|max:120|',
-            'info'=>'required|string|max:255'
+            'summary'=>'required|string|max:120',
+            'info'=>'required'
         ]);
         $curso = Course::find($id);
         if($request->hasFile('url_portrait')){
