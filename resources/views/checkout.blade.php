@@ -12,7 +12,7 @@
     <div class="payment-form">
         <div class="total-pricing">
             <p>Total a pagar</p>
-            <h3>S/. 100.00</h3>
+            <h3 id="total-amout-payment">....</h3>
         </div>
         <form id="msform">
             <!-- progressbar -->
@@ -118,6 +118,14 @@
    <script>
     // Culqi.publicKey = '{{config('services.culqi.public_key')}}';
     // Culqi.init();
+
+    let totalAmoutPayment = 0;
+    shoppingCart.allItems.map(itemCourse =>{
+        totalAmoutPayment += parseFloat(itemCourse.prices[0].amount);
+    });
+
+
+    $('#total-amout-payment').text(`S/. ${totalAmoutPayment.toFixed(2)}`);
 
     $(document).ready(function(){
 

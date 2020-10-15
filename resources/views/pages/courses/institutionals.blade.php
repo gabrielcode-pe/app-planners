@@ -20,7 +20,7 @@
                     <img src="{{asset('assets/uploads/'.$course->url_portrait)}}" alt="course item">
                     @if(!$course->is_free)
                         <div class="price">
-                            <p>S/. {{$course->prices[0]->amount}}</p>
+                            <p>S/. {{number_format($course->prices[0]->amount, 2)}}</p>
                         </div>
                     @endif
                 </div>

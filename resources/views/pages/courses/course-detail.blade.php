@@ -61,7 +61,7 @@
         <div class="course-aside">
             @if (!$course->is_free)
                 <div class="course-price">
-                    <p class="amout">S/. {{$course->prices[0]->amount}}</p>
+                    <p class="amout">S/. {{number_format($course->prices[0]->amount, 2)}}</p>
                     {{-- <a href="#" class="btn btn-primary-outline">Comprar ahora</a> --}}
                     <button onclick="addCourseToCart(this)" data-course='{{json_encode($course)}}' class="btn btn-primary-outline">Agregar al carrito</button>
 

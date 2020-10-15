@@ -46,7 +46,7 @@
             <td class="font-weight-light"> {{ $curso->name}} </td>
             <td class="font-weight-light"> {{ $curso->instructor->name }} </td>
             <td class="font-weight-light"> {{ $curso->institution->name }} </td>
-            <td class="font-weight-light"><span class="badge badge-primary">S/. {{count($curso->prices) > 0 ? $curso->prices[0]->amount : 0}} </span></td>
+            <td class="font-weight-light"><span class="badge badge-primary">S/. {{count($curso->prices) > 0 ? number_format($curso->prices[0]->amount, 2) : 0}} </span></td>
             <td class="font-weight-light"> {{ $curso->date_start }}</td>
             <td class="font-weight-bold">
                 @if($curso->is_free==1)

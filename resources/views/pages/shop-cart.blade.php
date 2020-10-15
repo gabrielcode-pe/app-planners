@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="pricing">
-                            <p class="amout">S/. ${itemCourse.prices[0].amount}</p>
+                            <p class="amout">S/. ${itemCourse.prices[0].amount.toFixed(2)}</p>
                             <a href="#" onclick="removeItemFromCart(${itemCourse.id})" title="Quitar del carrito"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                         <h5>Resúmen</h5>
                     </div>
                     <div class="sumary-body">
-                        <div class="item-price"><span>Total</span> <span  class="amout">S/. ${totalAmount}</span></div>
+                        <div class="item-price"><span>Total</span> <span  class="amout">S/. ${totalAmount.toFixed(2)}</span></div>
 
                         <a href="{{route('checkout')}}" class="btn btn-primary-outline">Pagar ahora</a>
 
