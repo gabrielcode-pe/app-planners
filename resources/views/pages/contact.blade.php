@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea name="menssage" class="input-custom" rows="3" placeholder="Escribe un mensaje"></textarea>
+                    <textarea name="message" class="input-custom" rows="3" placeholder="Escribe un mensaje"></textarea>
                 </div>
 
                 <div class="form-group center">

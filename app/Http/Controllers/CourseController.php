@@ -58,7 +58,7 @@ class CourseController extends Controller
     {
         $this->validate($request,[
     		'name'=>'required|string|max:255|unique:courses',
-            'summary'=>'required|string|max:120|',
+            'summary'=>'required|string',
             'info'=>'required',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'	
         ]);
@@ -150,7 +150,7 @@ class CourseController extends Controller
         //Validación
         $this->validate($request,[
     		'name'=>'required|string|max:255',
-            'summary'=>'required|string|max:120',
+            'summary'=>'required|string',
             'info'=>'required'
         ]);
         $curso = Course::find($id);

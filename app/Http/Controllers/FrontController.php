@@ -163,8 +163,27 @@ class FrontController extends Controller
     public function contactStore(Request $request)
     {
         // Enviar correo aquí TODO:
-
-        return back()->with('message', 'Gracias por contactarnos!');
+        $this->validate($request,[
+            'name'=>'required|string|max:80',
+            'company'=>'string|max:80',
+            'email'=>'required|email',
+    		'phone'=>'required|numeric',    		
+            'message'=>'string'
+    	],[
+    		'nombre.required'=>'Este campo es requerido',
+    		'phone.required'=>'El teléfono es requerido',
+    		'email.required'=>'El correo electrónico es requerido'
+        ]);
+        
+        $data=[
+    		'name'=>$request->name,
+    		'company'=>$request->company,
+    		'email'=>$request->email,
+            'phone'=>$request->phone,
+            'message'=>$request->message
+        ];
+        return response()->json($data);
+        //return back()->with('message', 'Gracias por contactarnos!');
     }
 
 

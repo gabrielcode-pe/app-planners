@@ -39,7 +39,7 @@ class TestimonyController extends Controller
         $this->validate($request,[
             'name'=>'required|string|max:255|unique:testimonies',
             'summary'=>'required|string|max:160',
-            'body'=>'required|string|max:255',
+            'body'=>'required|string',
             'jobtitle'=>'required|string|max:60',
             'company'=>'required|string|max:60',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'
@@ -97,7 +97,7 @@ class TestimonyController extends Controller
         $this->validate($request,[
             'name'=>'required|string|max:255',
             'summary'=>'required|string|max:160',
-            'body'=>'required|string|max:255',
+            'body'=>'required|string',
             'jobtitle'=>'required|string|max:60',
             'company'=>'required|string|max:60'           
         ]);
