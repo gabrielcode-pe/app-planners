@@ -81,7 +81,7 @@
         </div>
     </section>
 
-    <section class="col-12 col-md-8">
+    <section class="col-12 col-md-7">
         <div class="form-group">
             <textarea name="info" id="info" rows="4" class="form-control {{ $errors->has('info') ? ' is-invalid' : '' }} ckeditor" placeholder="Ingrese aqui la información del curso a detalle">
                 {{ old('info') }}
@@ -93,7 +93,20 @@
             @endif
         </div>
     </section>
-    <section class="col-12 col-md-4">
+    <section class="col-12 col-md-5">
+        <div class="form-group">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">https://www.youtube.com/watch?v=</div>
+                </div>
+                <input type="text" class="form-control {{ $errors->has('video') ? ' is-invalid' : '' }}" name="video" id="video" placeholder="a1E2i3O4u56" value="{{old('video')}}">
+                @if ($errors->has('video'))
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    {{ $errors->first('video') }}
+                </div>
+                @endif
+            </div>
+        </div>
         <div class="form-group">
             <input type="file" class="form-control-file {{ $errors->has('url_portrait') ? ' is-invalid' : '' }}" name="url_portrait" id="url_portrait" required>
             @if ($errors->has('url_portrait'))

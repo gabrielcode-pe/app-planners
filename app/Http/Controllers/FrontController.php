@@ -9,6 +9,9 @@ use App\Institution;
 use App\Instructor;
 use Illuminate\Http\Request;
 
+use App\Mail\contactStore;
+use Illuminate\Support\Facades\Mail;
+
 class FrontController extends Controller
 {
     public function index()
@@ -182,8 +185,10 @@ class FrontController extends Controller
             'phone'=>$request->phone,
             'message'=>$request->message
         ];
-        return response()->json($data);
-        //return back()->with('message', 'Gracias por contactarnos!');
+        //Mail::to('info@escueladeproyectistas.com')
+        Mail::to('postmaster@constructivo.com')
+    	->send(new contactStore($data));
+        return back()->with('message', 'Gracias por contactarnos!');
     }
 
 

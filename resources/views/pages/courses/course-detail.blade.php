@@ -11,7 +11,7 @@
         <div class="course-detail" id="course-initiation-date" data-coursestart="{{$course->date_start}}">
             <div class="preview-video">
                 <iframe width="100%" height="300"
-                    src="https://www.youtube.com/embed/wHDVX2E8nLY">
+                    src="https://www.youtube.com/embed/{{$course->video}}">
                 </iframe>
             </div>
             <h3 class="title">{{$course->name}}</h3>
