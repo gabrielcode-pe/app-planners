@@ -498,6 +498,7 @@ a{
 .course-detail > .all-body p{
     font-family: 'Nyata FTR';
     margin: 5px 0;
+    line-height: 22px;
 }
 
 .course-detail > .all-body a{
