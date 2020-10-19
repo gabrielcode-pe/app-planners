@@ -58,8 +58,9 @@ class CourseController extends Controller
     {
         $this->validate($request,[
     		'name'=>'required|string|max:255|unique:courses',
-            'summary'=>'required|string|max:120|',
+            'summary'=>'required|string',
             'info'=>'required',
+            'video'=>'required|string|max:14',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'	
         ]);
         
@@ -92,6 +93,7 @@ class CourseController extends Controller
         $course->slug=$slug;
         $course->seo=$request->summary;
         $course->is_free=$request->status;
+        $course->video=$request->video;
         $course->instructor_id=$request->instructor;
         $course->institution_id=$request->institution;
         $course->date_start=$request->date_start;
@@ -132,7 +134,7 @@ class CourseController extends Controller
         $curso= DB::table('courses as c')
         ->join('instructors as d','c.instructor_id','=','d.id')
         ->join('institutions as i','c.institution_id','=','i.id')
-        ->select('c.id','c.name as curso','c.info','c.seo','d.id as docente_id','d.name as docente','i.id as institucion_id','i.name as institucion','c.is_free','c.url_portrait','c.date_start')
+        ->select('c.id','c.name as curso','c.info','c.seo','c.video','d.id as docente_id','d.name as docente','i.id as institucion_id','i.name as institucion','c.is_free','c.url_portrait','c.date_start')
         ->where('c.id','=',$id)->first();
         return view('admin.courses.edit',compact('curso','instructors','institutions'));
     }
@@ -150,7 +152,8 @@ class CourseController extends Controller
         //Validación
         $this->validate($request,[
     		'name'=>'required|string|max:255',
-            'summary'=>'required|string|max:120',
+            'summary'=>'required|string',
+            'video'=>'string|max:14',
             'info'=>'required'
         ]);
         $curso = Course::find($id);
@@ -182,6 +185,7 @@ class CourseController extends Controller
         $curso->seo=$request->summary;
         $curso->info=$request->info;
         $curso->is_free=$request->status;
+        $curso->video=$request->video;
         $curso->date_start=$request->date_start;
         $curso->instructor_id=$request->instructor;
         $curso->institution_id=$request->institution;        

@@ -20,6 +20,7 @@ class Courses extends Migration
             $table->longText('info');
             $table->string('slug');
             $table->boolean('is_free');
+            $table->string('video', 14);
             $table->string('url_portrait', 30);
 
             $table->integer('instructor_id')->unsigned();

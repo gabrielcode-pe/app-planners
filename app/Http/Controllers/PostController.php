@@ -41,7 +41,7 @@ class PostController extends Controller
         $this->validate($request,[
             'title'=>'required|string|max:255|unique:posts',
             'summary'=>'required|string|max:160',
-            'body'=>'required|string|max:255',
+            'body'=>'required|string',
             'post_source'=>'required|string|max:255',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'
         ]);
@@ -102,7 +102,7 @@ class PostController extends Controller
         $this->validate($request,[
             'title'=>'string|max:255',
             'summary'=>'string|max:160',
-            'body'=>'string|max:255',
+            'body'=>'string',
             'post_source'=>'string|max:255'       
         ]);
         $post = Post::find($id);

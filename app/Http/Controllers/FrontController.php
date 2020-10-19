@@ -9,6 +9,9 @@ use App\Institution;
 use App\Instructor;
 use Illuminate\Http\Request;
 
+use App\Mail\contactStore;
+use Illuminate\Support\Facades\Mail;
+
 class FrontController extends Controller
 {
     public function index()
@@ -163,7 +166,28 @@ class FrontController extends Controller
     public function contactStore(Request $request)
     {
         // Enviar correo aquí TODO:
-
+        $this->validate($request,[
+            'name'=>'required|string|max:80',
+            'company'=>'string|max:80',
+            'email'=>'required|email',
+    		'phone'=>'required|numeric',    		
+            'message'=>'string'
+    	],[
+    		'nombre.required'=>'Este campo es requerido',
+    		'phone.required'=>'El teléfono es requerido',
+    		'email.required'=>'El correo electrónico es requerido'
+        ]);
+        
+        $data=[
+    		'name'=>$request->name,
+    		'company'=>$request->company,
+    		'email'=>$request->email,
+            'phone'=>$request->phone,
+            'message'=>$request->message
+        ];
+        //Mail::to('info@escueladeproyectistas.com')
+        Mail::to('postmaster@constructivo.com')
+    	->send(new contactStore($data));
         return back()->with('message', 'Gracias por contactarnos!');
     }
 
