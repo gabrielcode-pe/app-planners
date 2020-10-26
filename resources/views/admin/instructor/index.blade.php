@@ -28,9 +28,9 @@
         <thead class="thead-dark">
             <tr>
                 <th width="4%" scope="col">#</th>
-                <th scope="col">Foto </th>
+                <th width="10%" scope="col">Foto </th>
                 <th scope="col">Nombres completos </th>
-                <th scope="col">Perfil </th>
+                <th scope="col">Descripción </th>
                 <th width="10%" scope="col"> <i class="fa fa-cogs" aria-hidden="true"></i> </th>
             </tr>
         </thead>
@@ -41,7 +41,7 @@
                 <td> <img src="{{asset('assets/uploads/'.$instructor->url_img)}}" width="75" alt=""> </td>
                 <td class="font-weight-light">{{$instructor->name}}</td>
                 <td class="font-weight-light">
-                    <small>{{$instructor->info}}</small>
+                    <small>{{$instructor->description}}</small>
                 </td>
                 <td class="font-weight-light">
                     <a href="{{url('panel/instructor/'.$instructor->id.'/edit')}}" class="btn btn-info btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>

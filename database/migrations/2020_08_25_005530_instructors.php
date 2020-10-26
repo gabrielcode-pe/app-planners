@@ -17,6 +17,7 @@ class Instructors extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url_img', 30);
+            $table->string('description', 200);
             $table->longText('info');
             $table->string('slug');
             $table->timestamps();

@@ -49,7 +49,7 @@
 
     <section class="col-12">
         <div class="form-group">
-            <textarea name="body" id="body" rows="4" class="form-control ckeditor {{ $errors->has('body') ? ' is-invalid' : '' }}">{{old('body')}}</textarea>
+            <textarea name="body" id="body" rows="5" class="form-control {{ $errors->has('body') ? ' is-invalid' : '' }}">{{old('body')}}</textarea>
             @if ($errors->has('body'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('body') }}

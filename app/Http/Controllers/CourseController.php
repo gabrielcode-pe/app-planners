@@ -60,6 +60,7 @@ class CourseController extends Controller
     		'name'=>'required|string|max:255|unique:courses',
             'summary'=>'required|string',
             'info'=>'required',
+            'places'=>'required|integer',
             'video'=>'required|string|max:14',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'	
         ]);
@@ -91,6 +92,7 @@ class CourseController extends Controller
         $course->url_portrait=$nombrefinal;
         $course->name = $request->name;
         $course->slug=$slug;
+        $course->places=$request->places;
         $course->seo=$request->summary;
         $course->is_free=$request->status;
         $course->video=$request->video;
@@ -134,7 +136,7 @@ class CourseController extends Controller
         $curso= DB::table('courses as c')
         ->join('instructors as d','c.instructor_id','=','d.id')
         ->join('institutions as i','c.institution_id','=','i.id')
-        ->select('c.id','c.name as curso','c.info','c.seo','c.video','d.id as docente_id','d.name as docente','i.id as institucion_id','i.name as institucion','c.is_free','c.url_portrait','c.date_start')
+        ->select('c.id','c.name as curso','c.info','c.places','c.seo','c.video','d.id as docente_id','d.name as docente','i.id as institucion_id','i.name as institucion','c.is_free','c.url_portrait','c.date_start')
         ->where('c.id','=',$id)->first();
         return view('admin.courses.edit',compact('curso','instructors','institutions'));
     }
@@ -153,6 +155,7 @@ class CourseController extends Controller
         $this->validate($request,[
     		'name'=>'required|string|max:255',
             'summary'=>'required|string',
+            'places'=>'required|integer',
             'video'=>'string|max:14',
             'info'=>'required'
         ]);
@@ -184,6 +187,7 @@ class CourseController extends Controller
         $curso->name=$request->name;
         $curso->seo=$request->summary;
         $curso->info=$request->info;
+        $curso->places=$request->places;
         $curso->is_free=$request->status;
         $curso->video=$request->video;
         $curso->date_start=$request->date_start;

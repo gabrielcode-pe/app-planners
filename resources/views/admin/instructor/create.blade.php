@@ -52,6 +52,17 @@
         </div>
     </section>
 
+    <section class="col-12">
+        <div class="form-group">
+            <textarea name="info" id="info" rows="5" class="form-control ckeditor {{ $errors->has('info') ? ' is-invalid' : '' }}" placeholder="Ingrese toda la información del docente" required>{{old('info')}}</textarea>
+                @if ($errors->has('info'))
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    {{ $errors->first('info') }}
+                </div>
+                @endif
+        </div>
+    </section>
+
     <section class="col-12 text-center">
         <button type="submit" class="btn btn-primary">Registrar</button>
     </section>

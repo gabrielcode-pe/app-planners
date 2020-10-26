@@ -22,6 +22,7 @@ class Courses extends Migration
             $table->boolean('is_free');
             $table->string('video', 14);
             $table->string('url_portrait', 30);
+            $table->integer('places');
 
             $table->integer('instructor_id')->unsigned();
             $table->foreign('instructor_id')->references('id')->on('instructors')->onDelete('cascade');
