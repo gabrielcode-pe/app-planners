@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="clients-wrapper">
+    {{-- <div class="clients-wrapper">
         <h2>Clientes JS Consultores</h2>
         <div class="clients-content">
             <div class="client-item">
@@ -81,7 +81,7 @@
                 <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="valores-wrapper">
         <div class="item-valor">
@@ -90,7 +90,7 @@
     </div>
 
     <div class="consults-wrapper">
-        <h4>Consultorias</h4>
+        {{-- <h4>Consultorias</h4> --}}
         <div class="consults-content">
             <div class="consult-item">
 
@@ -105,7 +105,7 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript" src="{{asset('assets/slick-carousel/slick.min.js')}}"></script>
+{{-- <script type="text/javascript" src="{{asset('assets/slick-carousel/slick.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
 
@@ -116,5 +116,5 @@
                 slidesToScroll: 5,
             });
         });
-    </script>
+    </script> --}}
 @endsection

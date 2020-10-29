@@ -49,6 +49,11 @@ Route::get('autor/{name}', 'FrontController@getAuthorInfo')->name('author');
 Route::post('contacto', 'FrontController@contactStore')->name('contact.store');
 
 
+// Reservar plaza al curso
+Route::get('reservar-curso/{slug}', 'FrontController@saveCourseView')->name('save.course');
+Route::post('save-course', 'FrontController@saveCourse')->name('save.course.post');
+
+
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register')->name('post.register');
 

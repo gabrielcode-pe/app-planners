@@ -165,7 +165,7 @@ class FrontController extends Controller
 
     public function contactStore(Request $request)
     {
-        // Enviar correo aquí TODO:
+        
         $this->validate($request,[
             'name'=>'required|string|max:80',
             'company'=>'string|max:80',
@@ -191,5 +191,33 @@ class FrontController extends Controller
         return back()->with('message', 'Gracias por contactarnos!');
     }
 
+
+
+    public function saveCourseView($courseSlug)
+    {
+        $course = Course::where('slug', $courseSlug)->first();
+
+        
+        if($course){
+
+            $availableCourse = $course->date_start >= date('Y-m-d');
+
+            if($availableCourse){
+
+                return view('pages.courses.save-course', compact('course'));
+            }
+
+            abort(404);
+
+        }
+
+        abort(404);
+    }
+
+    public function saveCourse(Request $request)
+    {
+        // sen maile here TODO:
+        return back()->with('message', 'Gracias por reservar el curso');
+    }
 
 }
