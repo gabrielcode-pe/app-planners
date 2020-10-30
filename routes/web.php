@@ -74,7 +74,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 // Rutas de prueba
 Route::get('checkout', 'TransactionController@showCheckoutForm')->name('checkout');
-Route::post('process-charge', 'TransactionController@processCharge')->name('process.charge');
+Route::post('process-charge/{token}', 'TransactionController@processCharge')->name('process.charge');
 
 Route::get('/admin', function () {
     return view('admin.home');
