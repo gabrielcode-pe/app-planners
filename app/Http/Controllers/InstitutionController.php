@@ -20,6 +20,9 @@ class InstitutionController extends Controller
         $this->validate($request,[
             'name'=>'required|string|max:255|unique:institutions',
             'url_web'=>'required|string|max:255',
+            'info' => 'required|string',
+            'phone' => 'required|integer',
+            'email' => 'required|string|max:70',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'
         ]);
 
@@ -33,7 +36,10 @@ class InstitutionController extends Controller
         $institution=new Institution();
         $institution->name=$request->name;
         $institution->slug=$slug;
+        $institution->phone=$request->phone;
+        $institution->email=$request->email;
         $institution->url_logo=$nombrefinal;
+        $institution->info=$request->info;
         $institution->url_web=$request->url_web;
         //return response()->json($institution);
         $institution->save();
@@ -48,8 +54,11 @@ class InstitutionController extends Controller
     {
         //Validación
         $this->validate($request,[
-            'name'=>'string|max:255',
-            'url_web'=>'string|max:255'
+            'name'=>'required|string|max:255',
+            'url_web'=>'required|string|max:255',
+            'info' => 'required|string',
+            'phone' => 'required|integer',
+            'email' => 'required|string|max:70'
         ]);
         $institution = Institution::find($id);
         if($request->hasFile('url_portrait')){
@@ -75,6 +84,9 @@ class InstitutionController extends Controller
         }
         $institution->name=$request->name;
         $institution->url_web=$request->url_web;
+        $institution->phone=$request->phone;
+        $institution->info=$request->info;
+        $institution->email=$request->email;
         //return response()->json($institution); 
         $institution->save();
         return redirect('panel/institution')->with('Mensaje','Cliente actualizado correctamente');
