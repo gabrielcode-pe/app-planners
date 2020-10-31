@@ -16,6 +16,9 @@ class CreateInstitutionsTable extends Migration
         Schema::create('institutions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->longText('info');
+            $table->integer('phone',20);
+            $table->string('email', 70);
             $table->string('slug');
             $table->string('url_logo')->nullable();
             $table->string('url_web')->nullable();
