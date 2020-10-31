@@ -22,6 +22,8 @@
             </div>
 
 
+            @if (!$course->is_free)
+            
             <h5 class="features-title">MÓDULOS</h5>
             <div class="course-modules">
                 @foreach ($course->modules as $module)
@@ -40,7 +42,9 @@
                                 @endif
                             </div>
                             <div class="duration-time">
+                                @if ($module->url_img)
                                 <p>{{$module->duration}} <span class="fa fa-play"></span></p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -49,9 +53,17 @@
                 @endforeach
                 
             </div>
-
             
             <a class="general-action" href="{{route('frequent.questions')}}">Ver preguntas frecuentes</a>
+
+            @else
+
+            <br>
+            <a class="btn btn-info-outline" style="font-family: Arca Majora" href="mailto:prueba@correo.com.pe">Enviar resultados al siguiente correo para certificarse: prueba@correo.com.pe</a>
+
+            @endif
+
+            
             
 
         </div>
@@ -82,7 +94,7 @@
                 </div>
                 <div class="bio-preview">
                     <h6 class="fullname">{{$course->instructor->name}}</h6>
-                    <p>{{$course->instructor->info}}</p>
+                    {{-- <p>{{$course->instructor->info}}</p> TODO: --}}
                     <a href="{{route('author', $course->instructor->slug)}}">Ver más</a>
                 </div>
             </div>
@@ -90,9 +102,10 @@
 
     </div>
 </div>
+@if (!$course->is_free)
 <div class="count-down-wrapper" id="count-down-wrapper">
     <div class="column-item">
-        <p>Quedan 12 plazas</p>
+        {{-- <p>Quedan 12 plazas</p> TODO: --}}
     </div>
     <div class="column-item">
         <div class="counter-content">
@@ -115,12 +128,15 @@
         </div>
     </div>
     <div class="column-item">
-        <a href="#" class="btn btn-info-outline">Reserva tu plaza</a>
+        <a href="{{route('save.course', $course->slug)}}" class="btn btn-info-outline">Reserva tu plaza</a>
     </div>
 
 </div>
+    
+@endif
 @endsection
 @section('scripts')
+@if (!$course->is_free)
 <script>
     let collapsesHeads = document.getElementsByClassName("header-module");
 
@@ -193,4 +209,6 @@
 
     
 </script>
+    
+@endif
 @endsection

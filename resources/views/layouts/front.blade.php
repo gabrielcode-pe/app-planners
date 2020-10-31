@@ -111,7 +111,7 @@
     <script>
         const shoppingCart = new ShoppingCart();
 
-        updateCouterCart();
+        updateCounterCart();
 
         function addCourseToCart(elementCourseContainer) {
 
@@ -119,11 +119,11 @@
 
             shoppingCart.addItem(course);
             
-            updateCouterCart();
+            updateCounterCart();
             
         }
 
-        function updateCouterCart() {
+        function updateCounterCart() {
             $('#shopping-cart-count').text(shoppingCart.allItems.length);
         }
 

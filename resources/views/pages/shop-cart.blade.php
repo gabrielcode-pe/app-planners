@@ -93,7 +93,7 @@
         shoppingCart.removeItem(itemId);
 
         renderShoppingCart();
-        updateCouterCart();
+        updateCounterCart();
     }
 </script>
 @endsection
