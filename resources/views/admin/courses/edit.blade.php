@@ -15,7 +15,7 @@
     {{ csrf_field() }}
     {{ method_field('PUT')}}
     <div class="row">    
-    <section class="col-12">
+    <section class="col-12 col-md-10">
         <div class="form-group">
             <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" placeholder="Ingrese el nombre del curso" value="{{$curso->curso}}" required>
             @if ($errors->has('name'))
@@ -24,6 +24,18 @@
             </div>
             @endif
             <small id="name" class="form-text text-muted">Max. 200 caracteres.</small>
+        </div>
+    </section>
+
+    <section class="col-12 col-md-2">
+        <div class="form-group">
+            <input type="text" class="form-control {{ $errors->has('places') ? ' is-invalid' : '' }}" id="places" name="places" aria-describedby="places" value="{{$curso->places}}" required>
+            @if ($errors->has('places'))
+            <div id="validationServer03Feedback" class="invalid-feedback">
+                {{ $errors->first('places') }}
+            </div>
+            @endif
+            <small id="places" class="form-text text-muted">Vacantes disponibles</small>
         </div>
     </section>
 

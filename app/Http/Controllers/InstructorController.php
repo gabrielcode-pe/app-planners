@@ -39,6 +39,7 @@ class InstructorController extends Controller
         $this->validate($request,[
             'name'=>'required|string|max:255|unique:instructors',
             'summary'=>'required|string|',
+            'info'=>'required|string|',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'
         ]);
 
@@ -55,7 +56,8 @@ class InstructorController extends Controller
         $instructor->name=$request->name;
         $instructor->slug=$slug;
         $instructor->url_img=$nombrefinal;
-        $instructor->info=$request->summary;
+        $instructor->description=$request->summary;
+        $instructor->info=$request->info;
         
         $instructor->save();
         return redirect('panel/instructor')->with('Mensaje','Docente agregado correctamente');
@@ -95,8 +97,9 @@ class InstructorController extends Controller
     {
          //Validación
          $this->validate($request,[
-            'name'=>'string|max:255',
-            'url_web'=>'string|max:255'            
+            'name'=>'required|string|max:255',
+            'summary'=>'required|string|',
+            'info'=>'required|string|',        
         ]);
         $instructor = Instructor::find($id);
         if($request->hasFile('url_portrait')){
@@ -120,7 +123,8 @@ class InstructorController extends Controller
             $instructor->slug =$slugupdate;
         }
         $instructor->name=$request->name;
-        $instructor->info=$request->summary;
+        $instructor->description=$request->summary;
+        $instructor->info=$request->info;
         //return response()->json($instructor); 
         $instructor->save();
         return redirect('panel/instructor')->with('Mensaje','Docente actualizado correctamente');

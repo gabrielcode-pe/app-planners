@@ -14,7 +14,55 @@
     <form action="{{ url('/panel/institution/'.$institution->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('PUT')}}
-    <div class="row">    
+    <div class="row">
+
+    <section class="col-12">
+        <div class="form-group">
+            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" value="{{$institution->name}}" required>
+            @if ($errors->has('name'))
+            <div id="validationServer03Feedback" class="invalid-feedback">
+                {{ $errors->first('name') }}
+            </div>
+            @endif
+            <small id="name" class="form-text text-muted">Max. 255 caracteres.</small>
+        </div>
+    </section>
+
+    <section class="col-12 col-md-4">
+        <div class="form-group">
+            <input type="email" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email" name="email" aria-describedby="email" value="{{$institution->email}}" required>
+            @if ($errors->has('email'))
+            <div id="validationServer03Feedback" class="invalid-feedback">
+                {{ $errors->first('email') }}
+            </div>
+            @endif
+            <small id="email" class="form-text text-muted">Max. 70 caracteres.</small>
+        </div>
+    </section>
+
+    <section class="col-12 col-md-4">
+        <div class="form-group">
+            <input type="number" class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" name="phone" aria-describedby="phone" value="{{$institution->phone}}" required>
+            @if ($errors->has('phone'))
+            <div id="validationServer03Feedback" class="invalid-feedback">
+                {{ $errors->first('phone') }}
+            </div>
+            @endif
+            <small id="phone" class="form-text text-muted">Max. 20 caracteres.</small>
+        </div>
+    </section>
+
+    <section class="col-12 col-md-4">
+        <div class="form-group">
+            <input type="text" class="form-control {{ $errors->has('url_web') ? ' is-invalid' : '' }}" id="url_web" name="url_web" value="{{$institution->url_web}}" required>
+            @if ($errors->has('url_web'))
+            <div id="validationServer03Feedback" class="invalid-feedback">
+                {{ $errors->first('url_web') }}
+            </div>
+            @endif
+        </div>      
+    </section>
+
     <section class="col-12 col-md-3">
     <div class="form-group">
             <img src="{{asset('assets/uploads/'.$institution->url_logo)}}" class="img-fluid" alt="">
@@ -29,23 +77,14 @@
     </section>
 
     <section class="col-12 col-md-8">
-    <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" value="{{$institution->name}}">
-            @if ($errors->has('name'))
-            <div id="validationServer03Feedback" class="invalid-feedback">
-                {{ $errors->first('name') }}
-            </div>
-            @endif
-            <small id="name" class="form-text text-muted">Max. 255 caracteres.</small>
-        </div>
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('url_web') ? ' is-invalid' : '' }}" id="url_web" name="url_web" value="{{$institution->url_web}}">
-            @if ($errors->has('url_web'))
+            <textarea name="info" id="info" rows="4" class="form-control {{ $errors->has('info') ? ' is-invalid' : '' }} ckeditor">{{$institution->info}}</textarea>
+            @if ($errors->has('info'))
             <div id="validationServer03Feedback" class="invalid-feedback">
-                {{ $errors->first('url_web') }}
+                {{ $errors->first('info') }}
             </div>
             @endif
-        </div>
+        </div>       
     </section>
 
     <section class="col-12 text-center">

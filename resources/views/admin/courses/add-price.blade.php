@@ -37,7 +37,7 @@
         <input type="hidden" value="{{$curso->id}}" name="course_id">
         <div class="col-12 col-md-2">
             <div class="form-group">
-                <input type="number" class="form-control" id="price" name="price" placeholder="0.00" required>
+                <input type="text" class="form-control" id="price" name="price" placeholder="0.00" required>
                 <small id="price" class="form-text text-muted">Solo números</small>
             </div>
         </div>

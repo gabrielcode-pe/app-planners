@@ -14,7 +14,7 @@
     <form action="{{ url('/panel/courses') }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="row">    
-    <section class="col-12">
+    <section class="col-12 col-md-10">
         <div class="form-group">
             <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" aria-describedby="name" placeholder="Ingrese el nombre del curso" value="{{old('name')}}" required>
             @if ($errors->has('name'))
@@ -24,6 +24,19 @@
             @endif
             <small id="name" class="form-text text-muted">Max. 200 caracteres.</small>
         </div>
+    </section>
+
+    <section class="col-12 col-md-2">
+        <div class="form-group">
+        <input type="number" class="form-control {{ $errors->has('places') ? ' is-invalid' : '' }}" id="places" name="places" aria-describedby="places" placeholder="Ingrese nro de plazas para el curso" value="{{old('places')}}" required>
+            @if ($errors->has('places'))
+            <div id="validationServer03Feedback" class="invalid-feedback">
+                {{ $errors->first('places') }}
+            </div>
+            @endif
+            <small id="places" class="form-text text-muted">Vacantes disponibles</small>
+        </div>
+        
     </section>
 
     <section class="col-12">

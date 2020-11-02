@@ -39,12 +39,23 @@
             <small id="name" class="form-text text-muted">Max. 255 caracteres.</small>
         </div>
         <div class="form-group">
-            <textarea name="summary" id="summary" rows="3" class="form-control {{ $errors->has('summary') ? ' is-invalid' : '' }}" placeholder="Ingrese resumen del Docente" required>{{$instructor->info}}</textarea>
+            <textarea name="summary" id="summary" rows="3" class="form-control {{ $errors->has('summary') ? ' is-invalid' : '' }}" placeholder="Ingrese resumen del Docente" required>{{$instructor->description}}</textarea>
             @if ($errors->has('summary'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('summary') }}
             </div>
             @endif
+        </div>
+    </section>
+
+    <section class="col-12">
+        <div class="form-group">
+            <textarea name="info" id="info" rows="5" class="form-control ckeditor {{ $errors->has('info') ? ' is-invalid' : '' }}" placeholder="Ingrese toda la información del docente" required>{{$instructor->info}}</textarea>
+                @if ($errors->has('info'))
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    {{ $errors->first('info') }}
+                </div>
+                @endif
         </div>
     </section>
 
