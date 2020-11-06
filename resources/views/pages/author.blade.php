@@ -7,6 +7,7 @@
     <div class="author-bio">
         <h4 class="title">Sobre: {{$instructor->name}}</h4>
 
+        <p>{{$instructor->description}}</p>
         <div>
             {!! $instructor->info !!}
         </div>

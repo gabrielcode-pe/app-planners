@@ -43,7 +43,6 @@
                     <p class="author-speciality">{{$testimony->jobtitle}}</p>
 
                     <p class="write-text">{{$testimony->description}}</p>
-                    <p class="write-text">{{$testimony->info_detail}}</p>
                 </div>
             </div>
             
