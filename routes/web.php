@@ -164,6 +164,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('picture', 'PictureController@store'); //Graba una nueva imagen
         Route::delete('picture/{id}/destroy', 'PictureController@destroy'); //Eliminar imagen
 
+        Route::get('consultant', 'ConsultantController@index'); //Listado de consultorías
+        Route::get('consultant/create', 'ConsultantController@create'); //Agregar nueva consultoría
+        Route::post('consultant', 'ConsultantController@store'); //Graba una nueva consultoría
+        Route::get('consultant/{id}/edit', 'ConsultantController@edit'); //Editar consultoría
+        Route::put('consultant/{id}', 'ConsultantController@update'); //Graba actualización de consultoría
+        Route::delete('consultant/{id}/destroy', 'ConsultantController@destroy'); //Eliminar la consultoría
+
         Route::get('user', 'UserController@index'); //Listado de usuarios
         Route::get('user/create', 'UserController@create'); //Agregar nuevo usuario
         Route::post('user', 'UserController@store'); //Registra un nuevo usuario

@@ -38,7 +38,6 @@ class TestimonyController extends Controller
     {
         $this->validate($request,[
             'name'=>'required|string|max:255|unique:testimonies',
-            'summary'=>'required|string|max:160',
             'body'=>'required|string',
             'jobtitle'=>'required|string|max:60',
             'company'=>'required|string|max:60',
@@ -52,8 +51,7 @@ class TestimonyController extends Controller
         }
         $testimony=new Testimony();
         $testimony->name=$request->name;
-        $testimony->description=$request->summary;
-        $testimony->info_detail=$request->body;
+        $testimony->description=$request->body;
         $testimony->url_img=$nombrefinal;
         $testimony->jobtitle=$request->jobtitle;
         $testimony->company=$request->company;
@@ -96,7 +94,6 @@ class TestimonyController extends Controller
         //Validación
         $this->validate($request,[
             'name'=>'required|string|max:255',
-            'summary'=>'required|string|max:160',
             'body'=>'required|string',
             'jobtitle'=>'required|string|max:60',
             'company'=>'required|string|max:60'           
@@ -119,8 +116,7 @@ class TestimonyController extends Controller
             $testimony->url_img=$nombrefinal;
         }
         $testimony->name=$request->name;
-        $testimony->description=$request->summary;
-        $testimony->info_detail=$request->body;
+        $testimony->description=$request->body;
         $testimony->jobtitle=$request->jobtitle;
         $testimony->company=$request->company;
         $testimony->save();
