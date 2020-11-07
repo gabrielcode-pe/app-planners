@@ -6,7 +6,7 @@
 <div class="course-detail-wrapper">
 
     <div class="course-detail-content">
-        <h2>INFORMACIÓN DEL CURSO</h2>
+        <h2>INFORMACIÓN DEL CURSO @if($course->is_free) GRATIS @endif</h2>
 
         <div class="course-detail" id="course-initiation-date" data-coursestart="{{$course->date_start}}">
             <div class="preview-video">
@@ -94,7 +94,7 @@
                 </div>
                 <div class="bio-preview">
                     <h6 class="fullname">{{$course->instructor->name}}</h6>
-                    {{-- <p>{{$course->instructor->info}}</p> TODO: --}}
+                    <p>{{$course->instructor->description}}</p>
                     <a href="{{route('author', $course->instructor->slug)}}">Ver más</a>
                 </div>
             </div>
@@ -105,7 +105,7 @@
 @if (!$course->is_free)
 <div class="count-down-wrapper" id="count-down-wrapper">
     <div class="column-item">
-        {{-- <p>Quedan 12 plazas</p> TODO: --}}
+        <p>Quedan {{$course->places}} plazas</p>
     </div>
     <div class="column-item">
         <div class="counter-content">
