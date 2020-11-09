@@ -17,7 +17,7 @@ class CreateInstitutionsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->longText('info');
-            $table->integer('phone',20);
+            $table->string('phone',20);
             $table->string('email', 70);
             $table->string('slug');
             $table->string('url_logo')->nullable();

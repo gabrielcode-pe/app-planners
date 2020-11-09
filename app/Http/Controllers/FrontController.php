@@ -10,6 +10,7 @@ use App\Instructor;
 use Illuminate\Http\Request;
 
 use App\Mail\contactStore;
+use App\Mail\saveCoursePlace;
 use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
@@ -170,7 +171,7 @@ class FrontController extends Controller
             'name'=>'required|string|max:80',
             'company'=>'string|max:80',
             'email'=>'required|email',
-    		'phone'=>'required|numeric',    		
+    		'phone'=>'required|numeric',		
             'message'=>'string'
     	],[
     		'nombre.required'=>'Este campo es requerido',
@@ -216,6 +217,28 @@ class FrontController extends Controller
 
     public function saveCourse(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required|string|max:80',
+            'company'=>'string|max:80',
+            'email'=>'required|email',
+    		'phone'=>'required|numeric',    		
+            'message'=>'string'
+    	],[
+    		'nombre.required'=>'Este campo es requerido',
+    		'phone.required'=>'El teléfono es requerido',
+    		'email.required'=>'El correo electrónico es requerido'
+        ]);
+        $data=[
+    		'name'=>$request->name,
+    		'company'=>$request->company,
+    		'email'=>$request->email,
+            'phone'=>$request->phone,
+            'course_name'=>$request->course_name,
+            'message'=>$request->message
+        ];
+        //Mail::to('info@escueladeproyectistas.com')
+        Mail::to('postmaster@constructivo.com')
+    	->send(new saveCoursePlace($data));
         // sen maile here TODO:
         return back()->with('message', 'Gracias por reservar el curso');
     }

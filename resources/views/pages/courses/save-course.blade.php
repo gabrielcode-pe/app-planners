@@ -14,6 +14,7 @@
             @endif
             <form action="{{route('save.course.post')}}" method="POST">
                 @csrf
+                <input type="hidden" value="{{$course->name}}" name="course_name">
                 <div class="form-group">
                     <input type="text" class="input-custom" name="name" placeholder="Nombres y apellidos">
                 </div>
