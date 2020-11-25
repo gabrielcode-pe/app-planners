@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Culqi\Culqi;
 use Culqi\CulqiException;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmTransactionOwner;
+use App\Mail\ConfirmTransactionClient;
 
 class TransactionController extends Controller
 {
@@ -14,7 +17,7 @@ class TransactionController extends Controller
     }
 
 
-    public function showCheckoutForm(Type $var = null)
+    public function showCheckoutForm()
     {
         return view('checkout');
     }
@@ -41,17 +44,27 @@ class TransactionController extends Controller
             ]);
 
 
-            $courses = $request->courses;
-            $merchantMessage = $charge->outcome->merchant_message;
-            $referenceCode = $charge->reference_code;
-            $authorizationCode = $charge->authorization_code;
+            $data = [
+                'first_name' =>  $request->first_name,
+                'last_name' => $request->last_name,
+                'phone_number' => $request->phone_number,
+                'email' => $request->email,
+                'address' => $request->address_city,
+                'amout' => $request->payment_amount,
+                'courses' => $request->courses,
+                'merchant_message' => $charge->outcome->merchant_message,
+                'reference_code' => $charge->reference_code,
+                'authorization_code' => $charge->authorization_code,
+                'user_message' => $charge->outcome->user_message
+            ];
 
-            //Examples result
-            // "reference_code": "AIaAHCn3rw"
-            // "authorization_code": "CXGA9M"
 
+            // Send mail to client
+            Mail::to($data['email'])->send(new ConfirmTransactionClient($data));
+            //Send mail to owner
+            Mail::to('info@escueladeproyectistas.com')
+            ->send(new ConfirmTransactionOwner($data));
 
-            // TODO: send mail here
 
             return response()->json(['type' => $charge->outcome->type , 'message' => $charge->outcome->user_message], 200);
 
