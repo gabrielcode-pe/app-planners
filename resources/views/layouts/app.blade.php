@@ -71,6 +71,9 @@
               <a href="{{url('panel/post')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-newspaper-o" aria-hidden="true"></i></span> <span class="hidden">Posts</span>
               </a>
+              <a href="{{url('panel/consultant')}}" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-building" aria-hidden="true"></i></span> <span class="hidden">Consultorías</span>
+              </a>
               <a href="{{url('panel/picture')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-picture-o" aria-hidden="true"></i></span> <span class="hidden">Imágenes</span>
               </a>

@@ -39,19 +39,7 @@
             <small id="name" class="form-text text-muted">Max. 255 caracteres.</small>
         </div>
         <div class="form-group">
-            <textarea name="summary" id="summary" rows="3" class="form-control {{ $errors->has('summary') ? ' is-invalid' : '' }}" placeholder="Ingrese resumen del testimonio">{{$testimony->description}}</textarea>
-            @if ($errors->has('summary'))
-            <div id="validationServer03Feedback" class="invalid-feedback">
-                {{ $errors->first('summary') }}
-            </div>
-            @endif
-            <small id="summary" class="form-text text-muted">Max. 160 caracteres.</small>
-        </div>
-    </section>
-
-    <section class="col-12">
-        <div class="form-group">
-            <textarea name="body" id="body" rows="5" class="form-control {{ $errors->has('body') ? ' is-invalid' : '' }}">{{$testimony->info_detail}}</textarea>
+            <textarea name="body" id="body" rows="5" class="form-control {{ $errors->has('body') ? ' is-invalid' : '' }}">{{$testimony->description}}</textarea>
             @if ($errors->has('body'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('body') }}

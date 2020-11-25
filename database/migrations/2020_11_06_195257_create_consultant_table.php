@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstitutionsTable extends Migration
+class CreateConsultantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateInstitutionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('institutions', function (Blueprint $table) {
+        Schema::create('consultant', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->longText('info');
-            $table->integer('phone',20);
-            $table->string('email', 70);
-            $table->string('slug');
-            $table->string('url_logo')->nullable();
-            $table->string('url_web')->nullable();
+            $table->string('customer', 150);
+            $table->string('fecha', 80);
+            $table->string('nro_order');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateInstitutionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('institutions');
+        Schema::dropIfExists('consultant');
     }
 }
