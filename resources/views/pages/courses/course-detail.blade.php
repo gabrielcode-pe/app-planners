@@ -10,8 +10,10 @@
 
         <div class="course-detail" id="course-initiation-date" data-coursestart="{{$course->date_start}}">
             <div class="preview-video">
-                <iframe width="100%" height="300"
-                    src="https://www.youtube.com/embed/{{$course->video}}">
+                
+                <iframe src="https://player.vimeo.com/video/{{$course->video}}" 
+                    allow="autoplay; fullscreen" 
+                    allowfullscreen="" width="100%" height="300" frameborder="0">
                 </iframe>
             </div>
             <h3 class="title">{{$course->name}}</h3>
@@ -102,7 +104,7 @@
 
     </div>
 </div>
-@if (!$course->is_free)
+@if (!$course->is_free && $course->date_start)
 <div class="count-down-wrapper" id="count-down-wrapper">
     <div class="column-item">
         <p>Quedan {{$course->places}} plazas</p>
@@ -163,8 +165,12 @@
             }
         });
     }
+</script>
+@endif
 
-
+@if (!$course->is_free && $course->date_start)
+<script>
+    
     // Contador regresivo para el inicio del curso
     const courseStartDateStr = $('#course-initiation-date').data('coursestart');
 

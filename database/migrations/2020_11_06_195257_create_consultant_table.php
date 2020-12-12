@@ -17,7 +17,7 @@ class CreateConsultantTable extends Migration
             $table->increments('id');
             $table->longText('info');
             $table->string('customer', 150);
-            $table->string('fecha', 80);
+            $table->string('fechas', 80);
             $table->string('nro_order');
             $table->timestamps();
         });

@@ -65,7 +65,7 @@
             <div class="footer-container">
                 <div class="footer-menu">
                     <ul>
-                        <li><a href="#">SERVICIOS</a></li>
+                        {{-- <li><a href="#">SERVICIOS</a></li> --}}
                         <li><a href="{{route('about')}}">¿QUIENES SOMOS?</a></li>
                         <li><a href="{{url('cursos?mod=premium')}}">CURSOS</a></li>
                         <li><a href="{{route('contact')}}">CONTACTO</a></li>
@@ -76,10 +76,10 @@
 
                 <div class="footer-social">
                     <ul>
-                        <li><a target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw"><i class="fa fa-youtube"></i></a></li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw"><i class="fa fa-youtube"></i></a></li>
+                        <li><a target="_blank" href="https://api.whatsapp.com/send?phone=+51987420355"><i class="fa fa-whatsapp"></i></a></li>
                         <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
                     </ul>
                 </div>
@@ -93,10 +93,10 @@
         <!-- Redes solciales absoluto-->
         <div class="social-fixed">
             <ul>
-                <li><a class="btn social-item youtube" target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw" title="YouTube"><i class="fa fa-youtube"></i></a></li>
                 <li><a class="btn social-item facebook" href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="btn social-item linkedin" href="#" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                <li><a class="btn social-item whatsapp" href="#" title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a class="btn social-item instagram" href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="btn social-item youtube" target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw" title="YouTube"><i class="fa fa-youtube"></i></a></li>
+                <li><a target="_blank" class="btn social-item whatsapp" href="https://api.whatsapp.com/send?phone=+51987420355" title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
                 <!--<li><a class="btn social-item twitter" href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>-->
             </ul>
         </div>

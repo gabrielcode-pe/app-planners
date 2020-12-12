@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-<h2 class="slider-title">Cursos gratuitos</h2>
+<h2 class="slider-title">Nuestros cursos</h2>
 <div class="slider-courses">
     @foreach ($courses as $course)
         <div class="course-item">
@@ -26,7 +26,7 @@
 </div>
 
 <div class="slider-action">
-    <a href="{{url('/cursos?mod=gratuito')}}" class="btn btn-info-outline">Ver todos nuestros cursos gratis</a>
+    <a href="{{url('/cursos?mod=premium')}}" class="btn btn-info-outline">Ver todos nuestros cursos</a>
 </div>
 
 <h2 class="slider-title">Testimonios</h2>

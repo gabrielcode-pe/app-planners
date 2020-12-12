@@ -7,6 +7,7 @@ use App\Post;
 use App\Course;
 use App\Institution;
 use App\Instructor;
+use App\Consultant;
 use Illuminate\Http\Request;
 
 use App\Mail\contactStore;
@@ -19,7 +20,7 @@ class FrontController extends Controller
     {
         $testimonies = Testimony::orderBy('created_at', 'desc')->limit(8)->get();
 
-        $courses = Course::where('institution_id', 1)->where('is_free', 1)->orderBy('date_start', 'asc')->limit(9)->get();
+        $courses = Course::where('institution_id', 1)->where('is_free', 0)->orderBy('date_start', 'asc')->limit(9)->get();
 
         return view('pages.index', compact('testimonies', 'courses'));
     }
@@ -117,7 +118,8 @@ class FrontController extends Controller
 
     public function jsConsultores()
     {
-        return view('pages.js-consultores');
+        $consultants = Consultant::orderBy('nro_order', 'ASC')->get();
+        return view('pages.js-consultores', compact('consultants'));
     }
 
     public function getPostDetail($slug)
@@ -186,7 +188,7 @@ class FrontController extends Controller
             'phone'=>$request->phone,
             'message'=>$request->message
         ];
-        //Mail::to('info@escueladeproyectistas.com')
+        //Mail::to('cursos@escueladeproyectistas.com')
         Mail::to('postmaster@constructivo.com')
     	->send(new contactStore($data));
         return back()->with('message', 'Gracias por contactarnos!');

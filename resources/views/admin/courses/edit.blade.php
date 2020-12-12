@@ -29,13 +29,13 @@
 
     <section class="col-12 col-md-2">
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('places') ? ' is-invalid' : '' }}" id="places" name="places" aria-describedby="places" value="{{$curso->places}}" required>
+            <input type="text" class="form-control {{ $errors->has('places') ? ' is-invalid' : '' }}" id="places" name="places" aria-describedby="places" value="{{$curso->places}}">
             @if ($errors->has('places'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('places') }}
             </div>
             @endif
-            <small id="places" class="form-text text-muted">Vacantes disponibles</small>
+            <small id="places" class="form-text text-muted">Vacantes disponibles (Opcional)</small>
         </div>
     </section>
 
@@ -95,8 +95,8 @@
     </section>
     <section class="col-12 col-md-3">
         <div class="form-group">
-            <label for="date_start">Fecha de Inicio</label>
-            <input type="date" step="1" class="form-control {{ $errors->has('date_start') ? ' is-invalid' : '' }}" name="date_start" id="date_start" value="{{ date($curso->date_start) }}">
+            <label for="date_start">Fecha de Inicio <small>(Opcional)</small></label>
+            <input type="date" step="1" class="form-control {{ $errors->has('date_start') ? ' is-invalid' : '' }}" name="date_start" id="date_start" value="{{ $curso->date_start ? date($curso->date_start) : '' }}">
             @if ($errors->has('date_start'))
             <div id="validationServer03Feedback" class="invalid-feedback">
                 {{ $errors->first('date_start') }}
@@ -119,7 +119,7 @@
         <div class="form-group">
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <div class="input-group-text">https://www.youtube.com/watch?v=</div>
+                    <div class="input-group-text">https://player.vimeo.com/video/</div>
                 </div>
                 <input type="text" class="form-control {{ $errors->has('video') ? ' is-invalid' : '' }}" name="video" id="video" value="{{$curso->video}}">
                 @if ($errors->has('video'))

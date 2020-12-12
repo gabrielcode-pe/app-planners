@@ -90,11 +90,17 @@
     </div>
 
     <div class="consults-wrapper">
-        {{-- <h4>Consultorias</h4> --}}
+        <h2>Consultorías</h2>
         <div class="consults-content">
-            <div class="consult-item">
-
-            </div>
+            @foreach ($consultants as $consult)
+                <div class="consult-item">
+                    <h4 class="title">Consultoría {{$consult->nro_order}}</h4>
+                    <p class="info">{{$consult->info}}</p>
+                    <p class="customer">{{$consult->customer}}</p>
+                    <p class="date-consult"><small>{{$consult->fechas}}</small></p>
+                </div>
+            @endforeach
+            
         </div>
     </div>
 

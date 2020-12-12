@@ -435,6 +435,14 @@ a{
 
 .social-item.youtube{background-color: #FF0000;}
 
+.social-item.instagram{
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
 
 .page-content > .section-title{
     width: 100%;
@@ -1080,7 +1088,11 @@ a{
 
 .testimonies .testimonie-item > .info{
     width: 72%;
-    padding: 10px 0;
+    max-height: 180px;
+    min-height: 180px;
+    overflow: auto;
+    margin: 10px 0;
+
 }
 
 .testimonies .testimonie-item > .info .author-name{
@@ -1427,6 +1439,46 @@ a{
 
 .clients-wrapper .clients-content .client-item img{
     width: 100%;
+}
+
+
+.consults-content{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.js-consultores .consults-wrapper h2{
+    text-align: center;
+    margin: 5px 0;
+    color: var(--primary-blue);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.consults-content .consult-item{
+    width: 25%;
+    margin: 10px 0;
+    padding: 0 7px;
+}
+
+.consult-item > .info{
+    font-size: 12px;
+    padding: 10px 0;
+    line-height: 22px;
+    color: var(--primary-blue);
+}
+
+.consult-item >  .customer{
+    font-size: 11px;
+    color: var(--primary-light-blue);
+}
+
+.consult-item >  .date-consult{
+    color: var(--primary-yellow);
+    font-size: 12px;
+    font-style: italic;
 }
 
 .page-content .author-wrapper{

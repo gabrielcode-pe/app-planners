@@ -60,7 +60,7 @@ class CourseController extends Controller
     		'name'=>'required|string|max:255|unique:courses',
             'summary'=>'required|string',
             'info'=>'required',
-            'places'=>'required|integer',
+            'places'=>'nullable|integer',
             'video'=>'required|string|max:14',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'	
         ]);
@@ -92,7 +92,7 @@ class CourseController extends Controller
         $course->url_portrait=$nombrefinal;
         $course->name = $request->name;
         $course->slug=$slug;
-        $course->places=$request->places;
+        $course->places=$request->places || 0;
         $course->seo=$request->summary;
         $course->is_free=$request->status;
         $course->video=$request->video;
@@ -155,7 +155,7 @@ class CourseController extends Controller
         $this->validate($request,[
     		'name'=>'required|string|max:255',
             'summary'=>'required|string',
-            'places'=>'required|integer',
+            'places'=>'nullable|integer',
             'video'=>'string|max:14',
             'info'=>'required'
         ]);
@@ -187,7 +187,7 @@ class CourseController extends Controller
         $curso->name=$request->name;
         $curso->seo=$request->summary;
         $curso->info=$request->info;
-        $curso->places=$request->places;
+        $curso->places=$request->places || 0;
         $curso->is_free=$request->status;
         $curso->video=$request->video;
         $curso->date_start=$request->date_start;
@@ -243,23 +243,36 @@ class CourseController extends Controller
     public function addPrice(Request $request)
     {
         $this->validate($request,[
-    		'price'=>'required|integer',
+    		'price'=>'required',
             'description'=>'required|string|max:25|'
         ]);
 
         $id=$request->course_id;
 
-        Price::create([
+        
+
+        $priceAdded = Price::create([
     		'price_info'=>$request->description,
             'amount'=>$request->price,
             'is_active'=>$request->status,
             'course_id'=>$id
-    	]);
+        ]);
+
+        if($request->status == 1){
+            
+            Price::where('course_id', $id)->where('id', '<>', $priceAdded->id)->update(['is_active' => 0]);
+        }
+    
     	return redirect('panel/courses/'.$id.'/addprice')->with('Mensaje','Precio agregado correctamente');
     }
     public function destroyPrice($id, $precio_id)
     {
         $price=Price::find($precio_id);
+
+        if($price->is_active == 1){
+
+            return back()->with('Mensaje', 'No se puede quitar el precio actualmente activo');
+        }
         $price->delete();
         return redirect('panel/courses/'.$id.'/addprice')->with('Mensaje','Precio eliminado correctamente');
     }

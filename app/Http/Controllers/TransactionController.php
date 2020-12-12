@@ -34,6 +34,9 @@ class TransactionController extends Controller
                 'description' => 'Compra de curso - Escuela de proyectistas',
                 'email' => $request->email,
                 'source_id' => $tokenId,
+                'metadata ' => [
+                    'dni' => $request->doc_number
+                ],
                 'antifraud_details' => [
                     'first_name' => $request->first_name,
                     'last_name' => $request->last_name,
@@ -47,6 +50,7 @@ class TransactionController extends Controller
             $data = [
                 'first_name' =>  $request->first_name,
                 'last_name' => $request->last_name,
+                'doc_number' => $request->doc_number,
                 'phone_number' => $request->phone_number,
                 'email' => $request->email,
                 'address' => $request->address_city,

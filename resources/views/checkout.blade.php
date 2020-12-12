@@ -45,8 +45,14 @@
                         
                     </div>
 
-                    <div class="form-group">
-                        <input type="number" name="phone_number" class="personal-info" placeholder="Número de contacto" required/>
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="number" name="phone_number" class="personal-info" placeholder="Número de contacto" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="doc_number" class="personal-info" placeholder="Número de documento (DNI)" required/>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <input type="text" name="address_city" placeholder="Dirección" />
@@ -102,6 +108,7 @@
                         <h2 class="fs-title">Felicidades !</h2>
                         <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> 
                         <h4 id="payment-success-message"></h4>
+                        <p><small>En breve recibirá un correo electronico, revise su bandeja de entrada. </small></p>
 
                     </div>
                 </div>
