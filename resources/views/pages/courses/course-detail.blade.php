@@ -61,7 +61,7 @@
             @else
 
             <br>
-            <a class="btn btn-info-outline" style="font-family: Arca Majora" href="mailto:prueba@correo.com.pe">Enviar resultados al siguiente correo para certificarse: prueba@correo.com.pe</a>
+            {{-- <a class="btn btn-info-outline" style="font-family: Arca Majora" href="mailto:prueba@correo.com.pe">Enviar resultados al siguiente correo para certificarse: prueba@correo.com.pe</a> --}}
 
             @endif
 
