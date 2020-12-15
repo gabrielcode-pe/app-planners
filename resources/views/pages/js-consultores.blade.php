@@ -5,7 +5,8 @@
 @section('info-absolute-when-has-bg')
 <div class="section-when-header-with-bg">
     <h1 class="title">Acerca de JS Consultores</h1>
-    <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, eaque.</p>
+    <p class="description">Brindamos servicios de elaboración y evaluación de proyectos de inversión pública a nivel de perfil, factibilidad y Expediente Técnico, Obras por impuestos, instrumentos Metodológicos y capacitaciones, todos enfocados en el marco del Invierte.pe, asimismo, todos nuestros proyectos son considerados en el contexto de adaptación y mitigación al cambio climático.</p>
+    {{-- <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, eaque.</p> --}}
     <a href="#" class="btn btn-yellow">Testimonios</a>
 </div>   
 @endsection
@@ -19,9 +20,13 @@
         <div class="text-bio">
             <h3>¿Quienes somos?</h3>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae praesentium eum dolorum temporibus iusto sapiente ullam deleniti inventore fuga dicta sunt excepturi beatae, debitis quam? Est dolores illum similique.</p>
+           <p>Somos una empresa comprometida a brindar servicios de asesoría y consultoría en Formulación de Proyectos y Gestión Pública y Privada de alta calidad, así como a satisfacer los requerimientos de nuestros clientes, por medio de una atención personalizada y exclusiva.</p>
+           <p>Además, ofrecemos servicios de elaboración de planes de negocio, estudios de mercado, diagnósticos y estudios especializados; así como, capacitaciones en administración, marketing, finanzas, entre otros.</p>
+           <p>El crecimiento constante de nuestra empresa es gracias a una sólida estructura conformada por nuestro equipo multidisciplinario de colaboradores altamente calificados.</p>
+
+            {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae praesentium eum dolorum temporibus iusto sapiente ullam deleniti inventore fuga dicta sunt excepturi beatae, debitis quam? Est dolores illum similique.</p>
             
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae praesentium eum dolorum temporibus iusto sapiente ullam deleniti inventore fuga dicta sunt excepturi beatae, debitis quam? Est dolores illum similique.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae praesentium eum dolorum temporibus iusto sapiente ullam deleniti inventore fuga dicta sunt excepturi beatae, debitis quam? Est dolores illum similique.</p> --}}
         </div>
     </div>
     <div class="mision-vision">

@@ -31,7 +31,7 @@ class ConfirmTransactionClient extends Mailable
     public function build()
     {
         return $this->from('no_reply@escueladeproyectistas.com')
-        ->view('emails.confirm-trans-clinet')
-        ->subject('Comfirmación de compra - Escuela de Proyectistas');
+        ->view('emails.confirm-trans-client')
+        ->subject('Confirmación de compra - Escuela de Proyectistas');
     }
 }
