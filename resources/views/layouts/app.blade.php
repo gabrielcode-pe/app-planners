@@ -56,9 +56,6 @@
               <a href="{{url('panel/courses')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-book" aria-hidden="true"></i></span> <span class="hidden">Cursos</span>
               </a>
-              <a href="{{url('panel/category')}}" class="list-group-item list-group-item-action text-primary">
-                <span><i class="fa fa-th-list" aria-hidden="true"></i></span> <span class="hidden">Categorías</span>
-              </a>
               <a href="{{url('panel/institution')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-suitcase" aria-hidden="true"></i></span> <span class="hidden">Clientes</span>
               </a>
@@ -67,6 +64,9 @@
               </a>
               <a href="{{url('panel/testimony')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-address-card-o" aria-hidden="true"></i></span> <span class="hidden">Testimonios</span>
+              </a>
+              <a href="{{url('panel/category')}}" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-th-list" aria-hidden="true"></i></span> <span class="hidden">Categorías</span>
               </a>
               <a href="{{url('panel/post')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-newspaper-o" aria-hidden="true"></i></span> <span class="hidden">Posts</span>
