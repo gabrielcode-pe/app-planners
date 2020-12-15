@@ -33,11 +33,12 @@
         <div class="col-12 col-md-4">
             <div class="form-group">
                 <select name="ft_icon" id="ft_icon" class="form-control">
-                    <option value="fa-youtube-play">Capítulos</option>
-                    <option value="fa-files-o">Ejercicios</option>
-                    <option value="fa-download">Descargas</option>
-                    <option value="fa-unlock-alt">Acceso</option>
-                    <option value="fa-certificate">Certificado</option>
+                    <option value="certificate.png">Certificación</option>
+                    <option value="evaluation.png">Evaluación</option>
+                    <option value="guide.png">Guía del participante</option>
+                    <option value="lecture.png">Lecturas</option>
+                    <option value="live.png">Clases en vivo</option>
+                    <option value="video.png">Videos grabados</option>                    
                 </select>
             </div>
         </div>
@@ -69,7 +70,7 @@
         @foreach($curso->features as $index => $feature)
             <tr>
                 <td scope="row">{{$loop->iteration}}</td>
-                <td class="font-weight-light"> <span class="badge badge-pill badge-secondary"> <i class="fa {{$feature->ft_icon}}" aria-hidden="true"></i> </span> </td>
+                <td class="font-weight-light"> <img src="{{asset('assets/images/'.$feature->ft_icon)}}" width="15" alt=""> </td>
                 <td class="font-weight-light">{{$feature->info}} </td>
                 <td width="12%" class="font-weight-light">
                     <form method="post" action="{{ url('panel/courses/'.$curso->id.'/addfeature/'.$feature->id) }}" style="display:inline;">

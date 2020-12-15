@@ -84,8 +84,8 @@
                 <h5>Este curso incluye</h5>
                 <ul>
                     @foreach ($course->features as $feature)
-                        <li><i class="fa {{$feature->ft_icon}}"></i>{{$feature->info}}</li>
-                        
+                        {{-- <li><i class="fa {{$feature->ft_icon}}"></i>{{$feature->info}}</li> --}}
+                        <li><img src="{{asset('assets/images/'.$feature->ft_icon)}}" width="18" alt=""> {{$feature->info}}</li>                        
                     @endforeach
                 </ul>
             </div>

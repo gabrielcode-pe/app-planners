@@ -93,8 +93,8 @@
         <!-- Redes solciales absoluto-->
         <div class="social-fixed">
             <ul>
-                <li><a class="btn social-item facebook" href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="btn social-item instagram" href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="btn social-item facebook" href="https://www.facebook.com/escueladeproyectistas1/" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="btn social-item instagram" href="https://www.instagram.com/escueladeproyectistas/?hl=es-la" title="Instagram"><i class="fa fa-instagram"></i></a></li>
                 <li><a class="btn social-item youtube" target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw" title="YouTube"><i class="fa fa-youtube"></i></a></li>
                 <li><a target="_blank" class="btn social-item whatsapp" href="https://api.whatsapp.com/send?phone=+51987420355" title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
                 <!--<li><a class="btn social-item twitter" href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>-->
