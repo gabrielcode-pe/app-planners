@@ -304,7 +304,7 @@ class CourseController extends Controller
     {
         $this->validate($request,[
             'name'=>'required|string|max:120|',
-            'info'=>'required|string|max:255',
+            'info'=>'required|string',
             'url_img'=>'mimes:jpg,png,jpeg|max:150',
             'position'=>'required|integer'
         ]);
@@ -344,7 +344,9 @@ class CourseController extends Controller
     public function destroyModule($id, $module_id)
     {
         $module=Module::find($module_id);
-        unlink(public_path().'/assets/uploads/'.$module->url_img);
+        if($module->url_img!=''){
+            unlink(public_path().'/assets/uploads/'.$module->url_img);
+        }        
         $module->delete();
         return redirect('panel/courses/'.$id.'/addmodule')->with('Mensaje','Modulo eliminado correctamente');
     }

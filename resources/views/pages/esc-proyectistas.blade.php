@@ -4,7 +4,7 @@
 <div class="js-consultores">
     <div class="bio-js">
         <div class="portrait">
-            <img src="{{asset('assets/images/common-image.jpeg')}}" alt="">
+            <img src="{{asset('assets/images/escuela.jpg')}}" alt="">
         </div>
         <div class="text-bio">
             <h3>La escuela de proyectistas</h3>

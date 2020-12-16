@@ -188,8 +188,7 @@ class FrontController extends Controller
             'phone'=>$request->phone,
             'message'=>$request->message
         ];
-        //Mail::to('cursos@escueladeproyectistas.com')
-        Mail::to('postmaster@constructivo.com')
+        Mail::to('cursos@escueladeproyectistas.com')
     	->send(new contactStore($data));
         return back()->with('message', 'Gracias por contactarnos!');
     }
@@ -238,8 +237,7 @@ class FrontController extends Controller
             'course_name'=>$request->course_name,
             'message'=>$request->message
         ];
-        //Mail::to('info@escueladeproyectistas.com')
-        Mail::to('postmaster@constructivo.com')
+        Mail::to('cursos@escueladeproyectistas.com')
     	->send(new saveCoursePlace($data));
         // sen maile here TODO:
         return back()->with('message', 'Gracias por reservar el curso');

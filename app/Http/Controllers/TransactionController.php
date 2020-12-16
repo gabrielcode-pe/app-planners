@@ -66,8 +66,7 @@ class TransactionController extends Controller
             // Send mail to client
             Mail::to($data['email'])->send(new ConfirmTransactionClient($data));
             //Send mail to owner
-            // Mail::to('info@escueladeproyectistas.com')
-            Mail::to('postmaster@constructivo.com')->send(new ConfirmTransactionOwner($data));
+            Mail::to('cursos@escueladeproyectistas.com')->send(new ConfirmTransactionOwner($data));
             return response()->json(['type' => $charge->outcome->type , 'message' => $charge->outcome->user_message], 200);
 
         } catch (\Exception $e) {

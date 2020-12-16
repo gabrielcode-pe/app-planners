@@ -53,13 +53,13 @@
                 <small id="name" class="form-text text-muted">Max. 120 caracteres.</small>
             </div>
             <div class="form-group">
-                <textarea name="info" id="info" rows="2" class="form-control {{ $errors->has('info') ? ' is-invalid' : '' }}" placeholder="Ingrese resumen del texto" required></textarea>
+                <textarea name="info" id="info" rows="2" class="form-control ckeditor {{ $errors->has('info') ? ' is-invalid' : '' }}" placeholder="Ingrese resumen del texto" required></textarea>
                 @if ($errors->has('info'))
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     {{ $errors->first('info') }}
                 </div>
                 @endif
-                <small id="info" class="form-text text-muted">Max. 255 caracteres<strong>Importante</strong> Si se carga una imagen y una duración, este texto se ocultará.</small>
+                <small id="info" class="form-text text-muted"><strong>Importante</strong> Si se carga una imagen y una duración, este texto se ocultará.</small>
             </div>  
         </section>
 
