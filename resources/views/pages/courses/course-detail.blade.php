@@ -40,7 +40,8 @@
                                 @if ($module->url_img)
                                 <img src="{{asset('assets/uploads/'.$module->url_img)}}" alt="{{$module->name}}">
                                 @else
-                                    <p>{{$module->info}}</p>
+                                    {{-- <p>{{$module->info}}</p> --}}
+                                    <p>{!!$module->info!!}</p>
                                 @endif
                             </div>
                             <div class="duration-time">

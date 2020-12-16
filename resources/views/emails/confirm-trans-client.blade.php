@@ -12,7 +12,6 @@
 </head>
 <body>
 	<div align="center">
-		Hola Mundo
 		<table class="table" width="800">
 			<tr>
 				<td>
@@ -70,7 +69,7 @@
 			<tr><td> &nbsp; </td></tr>
 			<tr>
 				<td style="border:#CACACA 1px solid;">
-					<h4 style="font-size: 15px";> Detalles de la Compra </h4>
+					<h4 style="font-size: 15px;"> Detalles de la Compra </h4>
 					<table width="100%" cellspacing="0" cellpadding="0" style="border: 1px solid #DEDEDE;">
 						<thead>
 							<tr>

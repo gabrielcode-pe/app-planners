@@ -15,7 +15,7 @@
 <div class="js-consultores">
     <div class="bio-js">
         <div class="portrait">
-            <img src="{{asset('assets/images/common-image.jpeg')}}" alt="">
+            <img src="{{asset('assets/images/js.jpg')}}" alt="">
         </div>
         <div class="text-bio">
             <h3>¿Quienes somos?</h3>
@@ -36,7 +36,7 @@
                 <p>Visión</p>
             </div>
             <h4>Visión</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus asperiores ratione, cupiditate culpa libero, maxime soluta architecto accusantium quisquam adipisci veniam quod natus minima? Veritatis accusantium fugiat rerum molestiae similique. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam ducimus deleniti placeat distinctio aspernatur ipsam possimus delectus magni ipsum voluptatum magnam, porro eius impedit nam repellendus tenetur alias quae aperiam!</p>
+            <p>Para el 2025, ser reconocidos en el país como una consultora líder en el mercado, destacando por la calidad en nuestros servicios y la perfecta relación entre nuestros clientes con los consultores asociados, formuladores asociados, aliados estratégicos y colaboradores.</p>
         </div>
 
         <div class="item">
@@ -45,48 +45,66 @@
                 <p>Misión</p>
             </div>
             <h4>Misión</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus asperiores ratione, cupiditate culpa libero, maxime </p>
+            <p>Brindar servicios de asesoría y consultoría en elaboración y evaluación de proyectos de inversión pública a nivel de perfil, factibilidad y Expediente Técnico de naturaleza ambiental, turística y cultural, proyectos para obras por impuestos y capacitaciones en el marco del Invierte.pe; asimismo, servicios de gestión empresarial y estudios especializados; promoviendo un comportamiento socialmente responsable y velando porque el compromiso y los objetivos de la empresa se desarrollen de forma ética.</p>
         </div>
     </div>
 
-    {{-- <div class="clients-wrapper">
+    <div class="clients-wrapper">
         <h2>Clientes JS Consultores</h2>
         <div class="clients-content">
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/condesan.png')}}" alt="">
             </div>
 
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/grc.png')}}" alt="">
             </div>
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/gsa.png')}}" alt="">
             </div>
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/gym.png')}}" alt="">
             </div>
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
-            </div>
-
-            <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/iguana.png')}}" alt="">
             </div>
 
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/jica.png')}}" alt="">
+            </div>
+
+            <div class="client-item">
+                <img src="{{asset('assets/images/m-ambiente.png')}}" alt="">
             </div>
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/m-comercio.png')}}" alt="">
             </div>
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/m-cultura.png')}}" alt="">
             </div>
             <div class="client-item">
-                <img src="{{asset('assets/images/logo_client-test.png')}}" alt="">
+                <img src="{{asset('assets/images/m-economia.png')}}" alt="">
+            </div>
+            <div class="client-item">
+                <img src="{{asset('assets/images/mitsubishi.png')}}" alt="">
+            </div>
+            <div class="client-item">
+                <img src="{{asset('assets/images/m-produccion.png')}}" alt="">
+            </div>
+            <div class="client-item">
+                <img src="{{asset('assets/images/renzocosta.png')}}" alt="">
+            </div>
+            <div class="client-item">
+                <img src="{{asset('assets/images/serfor.png')}}" alt="">
+            </div>
+            <div class="client-item">
+                <img src="{{asset('assets/images/sierraexportadora.png')}}" alt="">
+            </div>
+            <div class="client-item">
+                <img src="{{asset('assets/images/unm.png')}}" alt="">
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <div class="valores-wrapper">
         <div class="item-valor">
@@ -116,7 +134,7 @@
 @endsection
 
 @section('scripts')
-{{-- <script type="text/javascript" src="{{asset('assets/slick-carousel/slick.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/slick-carousel/slick.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
 
@@ -127,5 +145,5 @@
                 slidesToScroll: 5,
             });
         });
-    </script> --}}
+    </script>
 @endsection
