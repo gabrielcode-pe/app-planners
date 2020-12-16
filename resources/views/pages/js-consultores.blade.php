@@ -89,8 +89,50 @@
     </div> --}}
 
     <div class="valores-wrapper">
-        <div class="item-valor">
-
+        <h2>Nuestros valores</h2>
+        <div class="valores-content">
+            <div class="valor-item">
+                <div class="curtain-box">
+                    <img src="{{asset('assets/images/valores-calidad.jpg')}}" alt="">
+                </div>
+                <h4>Calidad</h4>
+                <p>Con los servicios ofrecidos.</p>
+            </div>
+            <div class="valor-item">
+                <div class="curtain-box">
+                    <img src="{{asset('assets/images/valores-puntualidad.jpg')}}" alt="">
+                </div>
+                <h4>Puntualidad</h4>
+                <p>Cumplir con los compromisos y obligaciones en el tiempo acordado.</p>
+            </div>
+            <div class="valor-item">
+                <div class="curtain-box">
+                    <img src="{{asset('assets/images/valores-responsabilidad.jpg')}}" alt="">
+                </div>
+                <h4>Responsabilidad</h4>
+                <p>Con los trabajadores, comprometidos con la estabilidad y buenas condiciones laborales; con los clientes, comprometidos a entregar servicios de calidad; y con el medio ambiente comprometidos con la sostenibilidad.</p>
+            </div>
+            <div class="valor-item">
+                <div class="curtain-box">
+                    <img src="{{asset('assets/images/valores-honestidad.jpg')}}" alt="">
+                </div>
+                <h4>Honestidad</h4>
+                <p>Desarrollar nuestras actividades con transparencia cumpliendo con las responsabilidades asignadas en el uso de la información y la ética.</p>
+            </div>
+            <div class="valor-item">
+                <div class="curtain-box">
+                    <img src="{{asset('assets/images/valores-compromiso.jpeg')}}" alt="">
+                </div>
+                <h4>Compromiso</h4>
+                <p>Con el cumplimiento de la legislación aplicable y los principios, políticas y estándares de JS Consultores Empresariales S.A.C.</p>
+            </div>
+            <div class="valor-item">
+                <div class="curtain-box">
+                    <img src="{{asset('assets/images/valores-solidaridad.jpeg')}}" alt="">
+                </div>
+                <h4>Solidaridad</h4>
+                <p>En el clima de amistad, trabajando en conjunto para lograr nuestra misión y encaminarnos hacia el logro de nuestra visión.</p>
+            </div>
         </div>
     </div>
 
