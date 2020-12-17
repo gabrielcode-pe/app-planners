@@ -30,8 +30,8 @@
             <tr>
                 <th width="4%" scope="col">#</th>
                 <th width="10%">Entidad Contratada</th>
-                <th width="10%">Detalle</th>
-                <th scope="col">Fechas </th>
+                <th width="col">Detalle</th>
+                <th scope="15%">Fechas </th>
                 <th width="10%" scope="col"><i class="fa fa-cogs" aria-hidden="true"></i></th>
             </tr>
         </thead>
