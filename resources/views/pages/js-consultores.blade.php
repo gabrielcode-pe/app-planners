@@ -4,7 +4,7 @@
 
 @section('info-absolute-when-has-bg')
 <div class="section-when-header-with-bg">
-    <h1 class="title">Acerca de JS Consultores</h1>
+    <h1 class="title jsc">Acerca de JS Consultores</h1>
     <p class="description">Brindamos servicios de elaboración y evaluación de proyectos de inversión pública a nivel de perfil, factibilidad y Expediente Técnico, Obras por impuestos, instrumentos Metodológicos y capacitaciones, todos enfocados en el marco del Invierte.pe, asimismo, todos nuestros proyectos son considerados en el contexto de adaptación y mitigación al cambio climático.</p>
     {{-- <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, eaque.</p> --}}
     <a href="{{route('testimonies')}}" class="btn btn-yellow">Testimonios</a>
