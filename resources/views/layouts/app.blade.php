@@ -71,15 +71,16 @@
               <a href="{{url('panel/post')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-newspaper-o" aria-hidden="true"></i></span> <span class="hidden">Posts</span>
               </a>
-              <a href="{{url('panel/consultant')}}" class="list-group-item list-group-item-action text-primary">
-                <span><i class="fa fa-building" aria-hidden="true"></i></span> <span class="hidden">Consultorías</span>
+              <a href="{{url('panel/medida')}}" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-building" aria-hidden="true"></i></span> <span class="hidden">Medidas</span>
+              </a>
+              <a href="{{url('panel/service')}}" class="list-group-item list-group-item-action text-primary">
+                <span><i class="fa fa-handshake-o" aria-hidden="true"></i></span> <span class="hidden">Servicios</span>
               </a>
               <a href="{{url('panel/picture')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-picture-o" aria-hidden="true"></i></span> <span class="hidden">Imágenes</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action text-primary">
-                <span><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span> <span class="hidden">Pagos</span>
-              </a>
+              
               <a href="{{url('panel/user')}}" class="list-group-item list-group-item-action text-primary">
                 <span><i class="fa fa-users" aria-hidden="true"></i></span> <span class="hidden">Usuarios</span>
               </a>
