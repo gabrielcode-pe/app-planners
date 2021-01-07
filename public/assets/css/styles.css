@@ -89,6 +89,7 @@ a{
 .menu-container .main-menu > li, .extra-menu li{
     display: inline-block;
     padding: 0 20px;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .menu-container .main-menu .btn-submenu:hover .submenu{

@@ -38,7 +38,12 @@
                     <option value="guide.png">Guía del participante</option>
                     <option value="lecture.png">Lecturas</option>
                     <option value="live.png">Clases en vivo</option>
-                    <option value="video.png">Videos grabados</option>                    
+                    <option value="video.png">Videos grabados</option>
+                    <option value="sustentation.png">Video de sustentación</option>
+                    <option value="advisory.png">Asesoría</option>
+                    <option value="presentation.png">Trabajo final</option>
+                    <option value="session.png">Sesión en vivo</option>
+                    <option value="calendar.png">Calendario</option>
                 </select>
             </div>
         </div>
