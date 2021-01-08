@@ -112,7 +112,9 @@ class PostController extends Controller
             'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            unlink(public_path().'/assets/uploads/'.$post->url_portrait);
+            if(file_exists(public_path().'/assets/uploads/'.$post->url_portrait)){
+                unlink(public_path().'/assets/uploads/'.$post->url_portrait);
+            }            
             //Recuperando extensión de la nueva imagen
             $url_portrait = $request->file('url_portrait');
             $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
@@ -146,7 +148,9 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         //Eliminando el archivo
-        unlink(public_path().'/assets/uploads/'.$post->url_portrait);
+        if(file_exists(public_path().'/assets/uploads/'.$post->url_portrait)){
+            unlink(public_path().'/assets/uploads/'.$post->url_portrait);
+        }  
         $post->delete();
         return redirect('panel/post')->with('Mensaje','Publicación eliminada correctamente');
     }

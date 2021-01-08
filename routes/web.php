@@ -171,19 +171,19 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('consultant/{id}', 'ConsultantController@update'); //Graba actualización de consultoría
         Route::delete('consultant/{id}/destroy', 'ConsultantController@destroy'); //Eliminar la consultoría
 
-        Route::get('service', 'ServiceController@index'); //Listado de medidas        
-        Route::get('service/create', 'ServiceController@create'); //Agregar nueva medida
-        Route::post('service', 'ServiceController@store'); //Graba una nueva medida        
-        Route::get('service/{id}/edit', 'ServiceController@edit'); //Editar medida
-        Route::put('service/{id}', 'ServiceController@update'); //Graba actualización de medida
+        Route::get('service', 'ServiceController@index'); //Listado de servicio
+        Route::get('service/create', 'ServiceController@create'); //Agregar nuevo servicio
+        Route::post('service', 'ServiceController@store'); //Graba un nuevo servicio       
+        Route::get('service/{id}/edit', 'ServiceController@edit'); //Editar servicio
+        Route::put('service/{id}', 'ServiceController@update'); //Graba actualización de servicio
         Route::delete('service/{id}/destroy', 'ServiceController@destroy'); //Eliminar el servicio
 
-        Route::get('medida', 'ServiceController@indice'); //Listado de servicios
-        Route::get('medida/crear', 'ServiceController@crear'); //Agregar nuevo servicio
-        Route::post('medida', 'ServiceController@almacenar'); //Graba nuevo servicio
-        Route::get('medida/{id}/edit', 'ServiceController@editar'); //Editar servicio
-        Route::put('medida/{id}', 'ServiceController@actualizar'); //Graba actualización de servicio
-        Route::delete('medida/{id}/destroy', 'ServiceController@destruir'); //Eliminar servicio
+        Route::get('medida', 'ServiceController@indice'); //Listado de medidas
+        Route::get('medida/crear', 'ServiceController@crear'); //Agregar nueva medida
+        Route::post('medida', 'ServiceController@almacenar'); //Graba nueva medida
+        Route::get('medida/{id}/edit', 'ServiceController@editar'); //Editar medida
+        Route::put('medida/{id}', 'ServiceController@actualizar'); //Graba actualización de medida
+        Route::delete('medida/{id}/destroy', 'ServiceController@destruir'); //Eliminar medida
         
         Route::get('user', 'UserController@index'); //Listado de usuarios
         Route::get('user/create', 'UserController@create'); //Agregar nuevo usuario

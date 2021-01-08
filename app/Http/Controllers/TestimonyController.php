@@ -105,7 +105,9 @@ class TestimonyController extends Controller
             'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            unlink(public_path().'/assets/uploads/'.$testimony->url_img);
+            if(file_exists(public_path().'/assets/uploads/'.$testimony->url_img)){
+                unlink(public_path().'/assets/uploads/'.$testimony->url_img);  
+            }            
             //Recuperando extensión de la nueva imagen
             $url_portrait = $request->file('url_portrait');
             $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
@@ -133,7 +135,9 @@ class TestimonyController extends Controller
     {
         $testimony = Testimony::find($id);
         //Eliminando el archivo
-        unlink(public_path().'/assets/uploads/'.$testimony->url_img);
+        if(file_exists(public_path().'/assets/uploads/'.$testimony->url_img)){
+            unlink(public_path().'/assets/uploads/'.$testimony->url_img);  
+        } 
         $testimony->delete();
         return redirect('panel/testimony')->with('Mensaje','Testimonio eliminado correctamente');
     }
