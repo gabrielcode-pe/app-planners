@@ -16,7 +16,7 @@
                 <div class="portrait">
                     <img src="{{asset('assets/uploads/'.$course->url_portrait)}}" alt="{{$course->name}}">
                     @if(!$course->is_free)
-                        <div class="price"><p>S/. {{number_format($course->prices[0]->amount, 2)}}</p></div>
+                        <div class="price"><p>S/. {{ count($course->prices) > 0 ? number_format($course->prices[0]->amount, 2) : '--'}}</p></div>
                     @endif
                 </div>
                 <div class="detail">
@@ -24,10 +24,13 @@
                     <p class="description">{{$course->seo}}</p>
                     <p class="author">{{$course->instructor->name}}</p>
                     <div class="actions">
-                        @if(!$course->is_free)
-                            <button onclick="addCourseToCart(this)" data-course='{{json_encode($course)}}' class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></button>
+                        @if (count($course->prices) > 0)
+                            @if(!$course->is_free)
+                                <button onclick="addCourseToCart(this)" data-course='{{json_encode($course)}}' class="btn btn-primary-outline"><i class="fa fa-shopping-cart"></i></button>
+                            @endif
+                            <a href="{{route('course.detail', $course->slug)}}" class="btn btn-primary-outline">Detalles del curso</a>
+                            
                         @endif
-                        <a href="{{route('course.detail', $course->slug)}}" class="btn btn-primary-outline">Detalles del curso</a>
                     </div>
                 </div>
             </div>
