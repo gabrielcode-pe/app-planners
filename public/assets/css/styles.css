@@ -1539,3 +1539,71 @@ a{
 .success-message{
     color: var(--secondary-green);
 }
+
+
+
+.page-content .courses-medida-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.courses-medida-wrapper .courses-medida-content{
+    width: 70%;
+}
+
+.courses-medida-content .list{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.courses-medida-content .list .course-medida-item{
+    width: 100%;
+    display: flex;
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+    /* align-items: center; */
+}
+
+.course-medida-item .portrait{
+    width: 30%;
+}
+
+.course-medida-item .portrait img{
+    width: 100%;
+}
+
+.course-medida-item .info{
+    padding: 10px 30px;
+    width: 70%;
+}
+
+.course-medida-item .info .title{
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 8px 0;
+}
+
+.text-center{
+    text-align: center;
+    margin: 5px 0;
+    color: var(--primary-yellow);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.course-medida-item .info .body-text{
+    overflow-y: auto;
+    font-size: 14px;
+    max-height: 130px;
+    width: 100%;
+    line-height: 22px;
+}
+
+.course-medida-item .info .body-text p{
+    color: #6e6e6e;
+}

@@ -29,7 +29,7 @@ Route::get('blog', 'FrontController@getPosts')->name('posts');
 
 Route::get('cursos', 'FrontController@getCoursesOwner')->name('courses');
 
-Route::get('cursos-institucionales', 'FrontController@getInstitutionlCourses')->name('courses.institutionls');
+Route::get('cursos-a-la-medida', 'FrontController@getCursosMedida')->name('courses.medida');
 
 Route::get('preguntas-frecuentes', 'FrontController@frecuentQuestions')->name('frequent.questions');
 

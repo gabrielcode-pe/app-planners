@@ -41,7 +41,7 @@
                 <td scope="row">{{$service->nro_order}}</td>
                 <td> <img src="{{asset('assets/uploads/'.$service->url_img)}}" width="75" alt=""> </td>
                 <td> {{$service->title}} </td>
-                <td> <h6><small> {{$service->info}} </small></h6> </td>
+                <td> <h6><small> {!!$service->info!!} </small></h6> </td>
                 <td class="font-weight-light">
                     <a href="{{url('panel/service/'.$service->id.'/edit')}}" class="btn btn-info btn-sm" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
 

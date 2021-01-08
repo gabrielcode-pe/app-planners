@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         // factory(Testimony::class, 20)->create();
         // factory(Post::class, 20)->create();
         // factory(Instructor::class, 1)->create();
-        factory(Course::class, 20)->create();
+        //factory(Course::class, 20)->create();
+        factory(Institution::class, 20)->create();
         
     }
 }

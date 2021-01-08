@@ -36,7 +36,7 @@
                         <a class="{{Route::is('courses') ? 'active' : ''}}" href="#">Cursos</a>
                         <ul class="submenu">
                             <li><a href="{{url('cursos?mod=premium')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Escuela de proyectistas</a></li>
-                            <li><a href="{{route('courses.institutionls')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Institucionales</a></li>
+                            <li><a href="{{route('courses.medida')}}"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>A la medida</a></li>
                         </ul>
                     </li>
                     <li><a target="_blank" href="https://www.youtube.com/channel/UCD1Zjd-Z-mfXzFoZsUM1mEw">YouTube</a></li>

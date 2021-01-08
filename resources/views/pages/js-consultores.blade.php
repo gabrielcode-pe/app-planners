@@ -109,8 +109,34 @@
         </div>
     </div>
 
+    
+
     <div class="js-form-wrapper">
 
+    </div>
+</div>
+<div class="courses-medida-wrapper">
+    <div class="courses-medida-content">
+        <h3 class="text-center">Nuestros servicios</h3>
+
+        <div class="list">
+
+            @foreach ($services as $service)
+                <div class="course-medida-item">
+                    <div class="portrait">
+                        <img src="{{asset('assets/uploads/'.$service->url_img)}}" alt="{{$service->title}}">
+                    </div>
+                    <div class="info">
+                        <h4 class="title">{{$service->title}}</h4>
+                        <div class="body-text">
+                            {!! $service->info !!}
+                        </div>
+                    </div>
+                </div>
+                
+            @endforeach
+
+        </div>
     </div>
 </div>
 @endsection

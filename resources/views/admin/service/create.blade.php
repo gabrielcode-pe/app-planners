@@ -4,7 +4,7 @@
 @section('content')
 <div class="row mb-2">
     <section class="col-10">
-        <h5>Registrar Medida</h5>
+        <h5>Registrar servicio</h5>
     </section>
     <section class="col-2 d-flex justify-content-end">
         <a href="{{url('panel/service')}}" class="btn btn-outline-secondary btn-sm"> <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Volver </a>

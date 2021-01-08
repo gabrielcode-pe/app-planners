@@ -8,6 +8,7 @@ use App\Course;
 use App\Institution;
 use App\Instructor;
 use App\Consultant;
+use App\Service;
 use Illuminate\Http\Request;
 
 use App\Mail\contactStore;
@@ -69,40 +70,10 @@ class FrontController extends Controller
         abort(404);
     }
 
-    public function getInstitutionlCourses(Request $request)
+    public function getCursosMedida(Request $request)
     {
-        $institutions = Institution::where('id', '<>', 1)->get();
-
-        $courses = Course::where('institution_id', '<>', 1);
-
-        $institucionSlug = '';
-
-        if($request->has('institucion')){
-
-            $institucionSlug = $request->institucion;
-
-            $institution = Institution::where('slug', $institucionSlug)->first();
-
-
-            if($institution){
-
-                $courses = $courses->where('institution_id', $institution->id)->orderBy('date_start', 'asc')->get();
-
-            }else{
-                
-                abort(404);
-            }
-
-            
-
-        }else{
-
-            $courses = $courses->orderBy('date_start', 'asc')->get();
-        }
-
-        
-
-        return view('pages.courses.institutionals', compact('courses', 'institutions', 'institucionSlug'));
+        $courses = Service::where('type', 'M')->orderBy('nro_order', 'ASC')->get();
+        return view('pages.courses.medida', compact('courses'));
     }
 
     public function frecuentQuestions()
@@ -120,7 +91,9 @@ class FrontController extends Controller
     {
 
         $clients = Institution::where('id', '<>', 1)->get();
-        return view('pages.js-consultores', compact('clients'));
+
+        $services = Service::where('type', 'S')->orderBy('nro_order', 'ASC')->get();
+        return view('pages.js-consultores', compact('clients', 'services'));
     }
 
     public function getPostDetail($slug)
