@@ -171,6 +171,20 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('consultant/{id}', 'ConsultantController@update'); //Graba actualización de consultoría
         Route::delete('consultant/{id}/destroy', 'ConsultantController@destroy'); //Eliminar la consultoría
 
+        Route::get('service', 'ServiceController@index'); //Listado de medidas        
+        Route::get('service/create', 'ServiceController@create'); //Agregar nueva medida
+        Route::post('service', 'ServiceController@store'); //Graba una nueva medida        
+        Route::get('service/{id}/edit', 'ServiceController@edit'); //Editar medida
+        Route::put('service/{id}', 'ServiceController@update'); //Graba actualización de medida
+        Route::delete('service/{id}/destroy', 'ServiceController@destroy'); //Eliminar el servicio
+
+        Route::get('medida', 'ServiceController@indice'); //Listado de servicios
+        Route::get('medida/crear', 'ServiceController@crear'); //Agregar nuevo servicio
+        Route::post('medida', 'ServiceController@almacenar'); //Graba nuevo servicio
+        Route::get('medida/{id}/edit', 'ServiceController@editar'); //Editar servicio
+        Route::put('medida/{id}', 'ServiceController@actualizar'); //Graba actualización de servicio
+        Route::delete('medida/{id}/destroy', 'ServiceController@destruir'); //Eliminar servicio
+        
         Route::get('user', 'UserController@index'); //Listado de usuarios
         Route::get('user/create', 'UserController@create'); //Agregar nuevo usuario
         Route::post('user', 'UserController@store'); //Registra un nuevo usuario
