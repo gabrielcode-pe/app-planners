@@ -149,8 +149,8 @@
             $('.clients-content').slick({
                 dots: true,
                 infinite: true,
-                slidesToShow: 5,
-                slidesToScroll: 5,
+                slidesToShow: 2,
+                slidesToScroll: 1,
             });
         });
     </script>
