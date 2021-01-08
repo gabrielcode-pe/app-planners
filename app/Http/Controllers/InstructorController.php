@@ -108,7 +108,10 @@ class InstructorController extends Controller
             'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            unlink(public_path().'/assets/uploads/'.$instructor->url_img);
+
+            if(file_exists('/assets/uploads/'.$instructor->url_img)){
+                unlink(public_path().'/assets/uploads/'.$instructor->url_img);   
+            }            
             //Recuperando extensión de la nueva imagen
             $url_portrait = $request->file('url_portrait');
             $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
@@ -140,7 +143,9 @@ class InstructorController extends Controller
     {
         $instructor = Instructor::find($id);
         //Eliminando el archivo
-        unlink(public_path().'/assets/uploads/'.$instructor->url_img);
+        if(file_exists('/assets/uploads/'.$instructor->url_img)){
+            unlink(public_path().'/assets/uploads/'.$instructor->url_img);   
+        }
         $instructor->delete();
         return redirect('panel/instructor')->with('Mensaje','Docente eliminado correctamente');
     }

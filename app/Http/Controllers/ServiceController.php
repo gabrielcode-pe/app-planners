@@ -95,7 +95,9 @@ class ServiceController extends Controller
             'url_img'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            unlink(public_path().'/assets/uploads/'.$service->url_img);
+            if(file_exists('/assets/uploads/'.$service->url_img)){
+                unlink(public_path().'/assets/uploads/'.$service->url_img);
+            }            
             //Recuperando extensión de la nueva imagen
             $url_img = $request->file('url_img');
             $nombrefinal = $this->str_unico(8).'.'.$url_img->getClientOriginalExtension();
@@ -126,7 +128,9 @@ class ServiceController extends Controller
             'url_img'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            unlink(public_path().'/assets/uploads/'.$service->url_img);
+            if(file_exists('/assets/uploads/'.$service->url_img)){
+                unlink(public_path().'/assets/uploads/'.$service->url_img);
+            }
             //Recuperando extensión de la nueva imagen
             $url_img = $request->file('url_img');
             $nombrefinal = $this->str_unico(8).'.'.$url_img->getClientOriginalExtension();
@@ -146,7 +150,9 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         //Eliminando el archivo
-        unlink(public_path().'/assets/uploads/'.$service->url_img);
+        if(file_exists('/assets/uploads/'.$service->url_img)){
+            unlink(public_path().'/assets/uploads/'.$service->url_img);
+        }
         $service->delete();
         return redirect('panel/service')->with('Mensaje','Servicio eliminado correctamente');
     }
@@ -154,7 +160,9 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         //Eliminando el archivo
-        unlink(public_path().'/assets/uploads/'.$service->url_img);
+        if(file_exists('/assets/uploads/'.$service->url_img)){
+            unlink(public_path().'/assets/uploads/'.$service->url_img);
+        }   
         $service->delete();
         return redirect('panel/medida')->with('Mensaje','Medida eliminada correctamente');
     }

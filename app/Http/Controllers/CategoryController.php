@@ -100,7 +100,9 @@ class CategoryController extends Controller
             'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            unlink(public_path().'/assets/uploads/'.$category->url_portrait);
+            if(file_exists('/assets/uploads/'.$category->url_portrait)){
+                unlink(public_path().'/assets/uploads/'.$category->url_portrait);
+            }            
             //Recuperando extensión de la nueva imagen
             $url_portrait = $request->file('url_portrait');
             $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
@@ -131,7 +133,9 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         //Eliminando el archivo
-        unlink(public_path().'/assets/uploads/'.$category->url_portrait);
+        if(file_exists('/assets/uploads/'.$category->url_portrait)){
+            unlink(public_path().'/assets/uploads/'.$category->url_portrait);
+        }
         $category->delete();
         return redirect('panel/category')->with('Mensaje','Categoría eliminada correctamente');
     }

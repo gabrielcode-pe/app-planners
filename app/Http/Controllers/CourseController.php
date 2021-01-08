@@ -166,7 +166,9 @@ class CourseController extends Controller
             'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            unlink(public_path().'/assets/uploads/'.$curso->url_portrait);
+            if(file_exists('/assets/uploads/'.$curso->url_portrait)){
+                unlink(public_path().'/assets/uploads/'.$curso->url_portrait);
+            }
             //Recuperando extensión de la nueva imagen
             $url_portrait = $request->file('url_portrait');
             $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
@@ -209,7 +211,9 @@ class CourseController extends Controller
     {
         $curso = Course::find($id);
         //Eliminando el archivo
-        unlink(public_path().'/assets/uploads/'.$curso->url_portrait);
+        if(file_exists('/assets/uploads/'.$curso->url_portrait)){
+            unlink(public_path().'/assets/uploads/'.$curso->url_portrait);
+        }
         $curso->delete();
         return redirect('panel/courses')->with('Mensaje','Curso eliminado correctamente');
     }
