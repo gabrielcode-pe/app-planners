@@ -52,57 +52,12 @@
     <div class="clients-wrapper">
         <h2>Clientes JS Consultores</h2>
         <div class="clients-content">
-            <div class="client-item">
-                <img src="{{asset('assets/images/condesan.png')}}" alt="">
-            </div>
-
-            <div class="client-item">
-                <img src="{{asset('assets/images/grc.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/gsa.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/gym.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/iguana.png')}}" alt="">
-            </div>
-
-            <div class="client-item">
-                <img src="{{asset('assets/images/jica.png')}}" alt="">
-            </div>
-
-            <div class="client-item">
-                <img src="{{asset('assets/images/m-ambiente.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/m-comercio.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/m-cultura.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/m-economia.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/mitsubishi.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/m-produccion.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/renzocosta.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/serfor.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/sierraexportadora.png')}}" alt="">
-            </div>
-            <div class="client-item">
-                <img src="{{asset('assets/images/unm.png')}}" alt="">
-            </div>
+            @foreach ($clients as $client)
+                <div class="client-item">
+                    <img src="{{asset('assets/uploads/'.$client->url_logo)}}" alt="{{$client->name}}">
+                </div>
+                
+            @endforeach
         </div>
     </div>
 
@@ -151,21 +106,6 @@
                 <h4>Solidaridad</h4>
                 <p>En el clima de amistad, trabajando en conjunto para lograr nuestra misión y encaminarnos hacia el logro de nuestra visión.</p>
             </div>
-        </div>
-    </div>
-
-    <div class="consults-wrapper">
-        <h2>Consultorías</h2>
-        <div class="consults-content">
-            @foreach ($consultants as $consult)
-                <div class="consult-item">
-                    <h4 class="title">Consultoría {{$consult->nro_order}}</h4>
-                    <p class="info">{{$consult->info}}</p>
-                    <p class="customer">{{$consult->customer}}</p>
-                    <p class="date-consult"><small>{{$consult->fechas}}</small></p>
-                </div>
-            @endforeach
-            
         </div>
     </div>
 

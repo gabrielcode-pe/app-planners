@@ -73,6 +73,7 @@
         <div class="course-aside">
             @if (!$course->is_free)
                 <div class="course-price">
+                    <p id="date-init-str"></p>
                     <p class="amout">S/. {{number_format($course->prices[0]->amount, 2)}}</p>
                     {{-- <a href="#" class="btn btn-primary-outline">Comprar ahora</a> --}}
                     <button onclick="addCourseToCart(this)" data-course='{{json_encode($course)}}' class="btn btn-primary-outline">Agregar al carrito</button>
@@ -176,6 +177,9 @@
     const courseStartDateStr = $('#course-initiation-date').data('coursestart');
 
     const courseStartDateTime = new Date(courseStartDateStr).getTime();
+    const localDate = new Date(courseStartDateTime);
+
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
     // Update the count down every 1 second
     let countDown = setInterval(function() {
@@ -185,6 +189,7 @@
 
         // Find the distance between now and the count down date
         let distance = courseStartDateTime - now;
+
 
         // Time calculations for days, hours, minutes and seconds
         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -205,14 +210,27 @@
         $('#countdown-minutes').text(minutes);
         $('#countdown-seconds').text(seconds);
 
+        $('#date-init-str').text(`${localDate.getDate() + 1} de ${meses[localDate.getMonth()].toLocaleLowerCase()}`);
+
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(countDown);
             $('#count-down-wrapper').css('display', 'none');
             console.log('Curso ya no está disponible');
+            $('#date-init-str').text('');
         }
 
     }, 1000);
+
+
+
+
+
+        
+
+        
+        
+    
 
     
 </script>

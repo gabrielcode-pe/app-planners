@@ -118,8 +118,9 @@ class FrontController extends Controller
 
     public function jsConsultores()
     {
-        $consultants = Consultant::orderBy('nro_order', 'ASC')->get();
-        return view('pages.js-consultores', compact('consultants'));
+
+        $clients = Institution::where('id', '<>', 1)->get();
+        return view('pages.js-consultores', compact('clients'));
     }
 
     public function getPostDetail($slug)
