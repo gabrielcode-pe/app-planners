@@ -100,7 +100,7 @@ class CategoryController extends Controller
             'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            if(file_exists('/assets/uploads/'.$category->url_portrait)){
+            if(file_exists(public_path().'/assets/uploads/'.$category->url_portrait)){
                 unlink(public_path().'/assets/uploads/'.$category->url_portrait);
             }            
             //Recuperando extensión de la nueva imagen
@@ -133,7 +133,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         //Eliminando el archivo
-        if(file_exists('/assets/uploads/'.$category->url_portrait)){
+        if(file_exists(public_path().'/assets/uploads/'.$category->url_portrait)){
             unlink(public_path().'/assets/uploads/'.$category->url_portrait);
         }
         $category->delete();

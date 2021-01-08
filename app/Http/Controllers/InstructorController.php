@@ -109,9 +109,9 @@ class InstructorController extends Controller
             ]);
             //Elimina el documento anterior
 
-            if(file_exists('/assets/uploads/'.$instructor->url_img)){
+            if(file_exists(public_path().'/assets/uploads/'.$instructor->url_img)){
                 unlink(public_path().'/assets/uploads/'.$instructor->url_img);   
-            }            
+            }           
             //Recuperando extensión de la nueva imagen
             $url_portrait = $request->file('url_portrait');
             $nombrefinal = $this->str_unico(8).'.'.$url_portrait->getClientOriginalExtension();
@@ -143,7 +143,7 @@ class InstructorController extends Controller
     {
         $instructor = Instructor::find($id);
         //Eliminando el archivo
-        if(file_exists('/assets/uploads/'.$instructor->url_img)){
+        if(file_exists(public_path().'/assets/uploads/'.$instructor->url_img)){
             unlink(public_path().'/assets/uploads/'.$instructor->url_img);   
         }
         $instructor->delete();

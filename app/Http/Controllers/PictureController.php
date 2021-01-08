@@ -97,7 +97,7 @@ class PictureController extends Controller
     {
         $picture = Picture::find($id);
         //Eliminando el archivo
-        if(file_exists('/assets/uploads/'.$picture->url_picture)){
+        if(file_exists(public_path().'/assets/uploads/'.$picture->url_picture)){
             unlink(public_path().'/assets/uploads/'.$picture->url_picture);
         }        
         $picture->delete();

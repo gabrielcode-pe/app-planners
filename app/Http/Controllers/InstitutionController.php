@@ -67,7 +67,7 @@ class InstitutionController extends Controller
             'url_portrait'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            if(file_exists('/assets/uploads/'.$institution->url_logo)){
+            if(file_exists(public_path().'/assets/uploads/'.$institution->url_logo)){
                 unlink(public_path().'/assets/uploads/'.$institution->url_logo);
             }
             //Recuperando extensión de la nueva imagen
@@ -97,7 +97,7 @@ class InstitutionController extends Controller
     {
         $institution = Institution::find($id);
         //Eliminando el archivo
-        if(file_exists('/assets/uploads/'.$institution->url_logo)){
+        if(file_exists(public_path().'/assets/uploads/'.$institution->url_logo)){
             unlink(public_path().'/assets/uploads/'.$institution->url_logo);
         }
         $institution->delete();

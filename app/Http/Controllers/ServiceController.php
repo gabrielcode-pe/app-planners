@@ -95,7 +95,7 @@ class ServiceController extends Controller
             'url_img'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            if(file_exists('/assets/uploads/'.$service->url_img)){
+            if(file_exists(public_path().'/assets/uploads/'.$service->url_img)){
                 unlink(public_path().'/assets/uploads/'.$service->url_img);
             }            
             //Recuperando extensión de la nueva imagen
@@ -128,7 +128,7 @@ class ServiceController extends Controller
             'url_img'=>'mimes:jpg,png,jpeg|max:150'
             ]);
             //Elimina el documento anterior
-            if(file_exists('/assets/uploads/'.$service->url_img)){
+            if(file_exists(public_path().'/assets/uploads/'.$service->url_img)){
                 unlink(public_path().'/assets/uploads/'.$service->url_img);
             }
             //Recuperando extensión de la nueva imagen
@@ -150,7 +150,7 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         //Eliminando el archivo
-        if(file_exists('/assets/uploads/'.$service->url_img)){
+        if(file_exists(public_path().'/assets/uploads/'.$service->url_img)){
             unlink(public_path().'/assets/uploads/'.$service->url_img);
         }
         $service->delete();
@@ -160,7 +160,7 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         //Eliminando el archivo
-        if(file_exists('/assets/uploads/'.$service->url_img)){
+        if(file_exists(public_path().'/assets/uploads/'.$service->url_img)){
             unlink(public_path().'/assets/uploads/'.$service->url_img);
         }   
         $service->delete();
