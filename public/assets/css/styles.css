@@ -132,7 +132,7 @@ a{
     background-image: url('../images/background-01.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
+    height: 500px;
     position: relative;
 
 }
@@ -158,7 +158,7 @@ a{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 500px;
+    width: 340px;
 }
 
 .header-wrapper.with-bg .section-when-header-with-bg> .title{
@@ -167,7 +167,7 @@ a{
     color: var(--secondary-green);
     margin: 5px 0;
     letter-spacing: 2px;
-    font-size: 35px;
+    font-size: 32px;
 }
 
 .header-wrapper.with-bg .section-when-header-with-bg> .title.jsc{
@@ -177,7 +177,7 @@ a{
 .header-wrapper.with-bg .section-when-header-with-bg> .description{
     margin: 30px 0;
     font-family: 'Arca Majora';
-    font-size: 12px;
+    font-size: 14px;
     color: #fff;
     line-height: 22px;
 }
@@ -1606,4 +1606,10 @@ a{
 
 .course-medida-item .info .body-text p{
     color: #6e6e6e;
+}
+
+#date-init-str{
+    text-align: center;
+    font-size: 18px;
+    color: var(--secondary-blue);
 }

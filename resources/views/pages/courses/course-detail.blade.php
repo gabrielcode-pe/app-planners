@@ -73,7 +73,8 @@
         <div class="course-aside">
             @if (!$course->is_free)
                 <div class="course-price">
-                    <p id="date-init-str"></p>
+                    <div id="date-init-str">
+                    </div>
                     <p class="amout">S/. {{count($course->prices) > 0 ? number_format($course->prices[0]->amount, 2) : '--'}}</p>
                     {{-- <a href="#" class="btn btn-primary-outline">Comprar ahora</a> --}}
                     @if (count($course->prices) > 0)
@@ -213,7 +214,10 @@
         $('#countdown-minutes').text(minutes);
         $('#countdown-seconds').text(seconds);
 
-        $('#date-init-str').text(`${localDate.getDate() + 1} de ${meses[localDate.getMonth()].toLocaleLowerCase()}`);
+        $('#date-init-str').html(`
+            <p>Inicio de clases</p>
+            <p>${localDate.getDate() + 1} de ${meses[localDate.getMonth()].toLocaleLowerCase()}</p>
+        `);
 
         // If the count down is finished, write some text
         if (distance < 0) {
