@@ -6,7 +6,7 @@
 
 @section('info-absolute-when-has-bg')
 <div class="section-when-header-with-bg">
-    <h1 class="title">Capacítate con nosotros</h1>
+    <h1 class="title jsc">Capacítate con nosotros</h1>
     <p class="description">
         Brindamos una educación de PRIMER NIVEL que te permitirá ser un especialista competitivo en proyectos de inversión pública y privada.</p>
     <a href="{{url('cursos?mod=premium')}}" class="btn btn-yellow">Descubre nuestros cursos</a>
