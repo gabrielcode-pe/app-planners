@@ -175,7 +175,7 @@ a{
 }
 
 .header-wrapper.with-bg .section-when-header-with-bg> .description{
-    margin: 30px 0;
+    margin: 20px 0;
     font-family: 'Arca Majora';
     font-size: 14px;
     color: #fff;
@@ -1610,7 +1610,7 @@ a{
 
 #date-init-str{
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     color: var(--secondary-blue);
 }
 
