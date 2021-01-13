@@ -284,3 +284,9 @@ select.list-dt:focus {
 #msform .courses-content{
     display: none;
 }
+
+ @media (max-width: 900px){
+    .payment-wrapper{
+        width: 100%;
+    }
+ }

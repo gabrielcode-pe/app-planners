@@ -1613,3 +1613,118 @@ a{
     font-size: 18px;
     color: var(--secondary-blue);
 }
+
+
+@media (max-width: 900px){
+    
+    .posts > .post-item{
+        width: 100%;
+    }
+
+    .testimonies .testimonie-item{
+        width: 100%;
+    }
+
+    .page-content .categories{
+        width: 100%;
+    }
+
+    .page-content .courses-wrapper{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .courses-list .course-item{
+        width: 48%;
+    }
+
+    .course-detail-content .course-detail{
+        width: 100%;
+    }
+
+    .course-detail-content .course-aside{
+        width: 100%;
+    }
+
+    .page-content .count-down-wrapper{
+        flex-wrap: wrap;
+        padding: 20px;
+        height: auto;
+    }
+    .count-down-wrapper .column-item{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .js-consultores .bio-js{
+        flex-wrap: wrap;
+    }
+    .js-consultores .bio-js .portrait{
+        width: 100%;
+    }
+
+    .js-consultores .bio-js .text-bio{
+        width: 100%;
+    }
+
+    .mision-vision{
+        flex-wrap: wrap;
+    }
+    .mision-vision > .item{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .valores-content .valor-item{
+        width: 45%;
+    }
+    .js-consultores .bio-js .text-bio{
+        margin: 10px 0;
+    }
+
+    .contact-wrapper .contact-content{
+        flex-wrap: wrap;
+    }
+
+    .contact-wrapper .contact-content .portrait{
+        width: 100%;
+    }
+    .contact-wrapper .contact-content .form-wrapper{
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .cart-courses-content .cart-courses{
+        width: 100%;
+    }
+
+    .cart-courses-content .cart-aside{
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+    }
+}
+
+
+@media (max-width: 550px){
+    .courses-list .course-item{
+        width: 100%;
+    }
+    .page-content .course-detail-wrapper .course-detail-content{
+        width: 90%;
+    }
+
+    .courses-medida-content .list .course-medida-item{
+        flex-wrap: wrap;
+    }
+    .course-medida-item .portrait{
+        width: 100%;
+    }
+    .course-medida-item .info{
+        width: 100%;
+    }
+
+    .valores-content .valor-item{
+        width: 100%;
+    }
+}
