@@ -149,7 +149,7 @@
             $('.clients-content').slick({
                 dots: true,
                 infinite: true,
-                slidesToShow: 2,
+                slidesToShow: 4,
                 slidesToScroll: 1,
             });
         });
