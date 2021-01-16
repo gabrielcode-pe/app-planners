@@ -18,10 +18,13 @@
 <body>
     <main>
         <header class="header-wrapper @yield('header-extra-class')">
+            <div class="btn-mobile-menu">
+                <i class="fa fa-bars" aria-hidden="true" id="btn-mobile-menu"></i>
+            </div>
             <div class="logo">
                 <a href="{{route('home')}}"><img src="{{asset('assets/images/logo-main.png')}}" alt="Escuela de proyectistas"></a>
             </div>
-            <nav class="menu-container">
+            <nav class="menu-container" id="menu-container">
                 <ul class="main-menu">
                     <li class="btn-submenu">
                         <a class="{{Route::is('home') ? 'active' : ''}}" href="{{route('home')}}">Inicio</a>
@@ -126,6 +129,24 @@
         function updateCounterCart() {
             $('#shopping-cart-count').text(shoppingCart.allItems.length);
         }
+
+        let showMenu = false;
+        $('#btn-mobile-menu').on('click', function(){
+
+            if(showMenu){
+                $('#menu-container').css({'left': "-100%"});
+
+                $(this).removeClass('fa-times').addClass('fa-bars');
+                showMenu = false;
+            }else{
+
+                $('#menu-container').css({'left': 0});
+                $(this).removeClass('fa-bars').addClass('fa-times');
+
+                showMenu = true;
+            }
+            
+        });
 
     </script>
 
