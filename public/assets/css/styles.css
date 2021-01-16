@@ -1790,6 +1790,10 @@ a{
 
 
 @media (max-width: 550px){
+    .header-wrapper .menu-container{
+        width: 75%;
+    }
+
     .courses-list .course-item{
         width: 100%;
     }
