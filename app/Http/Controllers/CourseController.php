@@ -60,7 +60,7 @@ class CourseController extends Controller
     		'name'=>'required|string|max:255|unique:courses',
             'summary'=>'required|string',
             'info'=>'required',
-            'places'=>'nullable|integer',
+            'places'=>'integer',
             'video'=>'required|string|max:14',
             'url_portrait'=>'required|mimes:jpg,png,jpeg|max:150'	
         ]);
@@ -92,7 +92,7 @@ class CourseController extends Controller
         $course->url_portrait=$nombrefinal;
         $course->name = $request->name;
         $course->slug=$slug;
-        $course->places=$request->places || 0;
+        $course->places=$request->places;
         $course->seo=$request->summary;
         $course->is_free=$request->status;
         $course->video=$request->video;
@@ -155,7 +155,7 @@ class CourseController extends Controller
         $this->validate($request,[
     		'name'=>'required|string|max:255',
             'summary'=>'required|string',
-            'places'=>'nullable|integer',
+            'places'=>'integer',
             'video'=>'string|max:14',
             'info'=>'required'
         ]);
@@ -189,7 +189,7 @@ class CourseController extends Controller
         $curso->name=$request->name;
         $curso->seo=$request->summary;
         $curso->info=$request->info;
-        $curso->places=$request->places || 0;
+        $curso->places=$request->places;
         $curso->is_free=$request->status;
         $curso->video=$request->video;
         $curso->date_start=$request->date_start;
